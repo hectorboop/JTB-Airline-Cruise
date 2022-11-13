@@ -7,11 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JTB_Airline_Cruise {
-    
-    
-    public partial class SiteMaster {
-        
+namespace JTB_Airline_Cruise
+{
+
+
+    public partial class SiteMaster
+    {
+
+        /// <summary>
+        /// LogoImageButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton LogoImageButton;
+
         /// <summary>
         /// MainContent control.
         /// </summary>
