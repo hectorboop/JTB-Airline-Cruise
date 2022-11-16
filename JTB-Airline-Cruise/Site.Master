@@ -4,16 +4,31 @@
 
 <html lang="en">
 <head runat="server">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <!-- META DATA -->
+	<meta charset="utf-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title><%: Page.Title %> Jamaica Tourist Board</title>
+    <meta name="description" content="Jamaica's Vacation Marketplace">
+	<meta name="author" content="Jamaica™ Tourist Board">
+	<meta name="keywords" content=" ">
+	<link rel="icon" href="~/favicon.ico" type="image/x-icon"/>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="~/Scripts/style.css" rel="stylesheet">
+    
+    <!-- Bootstrap Css -->
+	<link id="style" href="~/Assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+	<!-- Style Css -->
+	<link href="~/Assets/css/style.css" rel="stylesheet" />
+	<link href="~/Assets/css/plugins.css" rel="stylesheet" />
+
+	<!-- Icons Css -->
+	<link href="~/Assets/css/icons.css" rel="stylesheet"/>
 </head>
 <body>
     <form runat="server">
@@ -54,59 +69,271 @@
         </svg>
 
         <!-- Top Nav Pane -->
-        <div class="container fixed-top">
-            <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-                <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">                    
-                    <asp:ImageButton ID="LogoImageButton" runat="server" ImageUrl="/UI_Images/logo.png" CssClass="logo" />
-                </a>
+        <!--Horizontal Section-->
+		<div class="header-main header-style03">
+			
+			<div class="horizontal-main  bg-dark-transparent clearfix py-lg-3">
+				<div class="horizontal-mainwrapper container clearfix">
+					<div class="desktoplogo">
+						<a href="index.html">
+							<img src="/Assets/images/brand/logo.png" alt="" class="img-color1">
+								<img src="/Assets/images/brand/logo1.png" alt="" class="logo-white">
+						</a>
+					</div>
+					<div class="desktoplogo-1">
+						<a href="index.html">
+							<img src="/Assets/images/brand/logo.png" alt="" class="img-color1">
+								<img src="/Assets/images/brand/logo1.png" alt="" class="logo-white">
+						</a>
+					</div>
+					<!--Nav-->
+					<nav class="horizontalMenu clearfix d-md-flex">
+						<ul class="horizontalMenu-list">
+							<li><a href="Default.aspx"> Home </a></li>
+							<li><a href="Cruises"> Cruises </a></li>
+							<li><a href="Flights"> Flights </a></li>
+							<li><a href="Contact">Contact Us </a></li>
+							<li><a href="About">About Us </a></li>
 
-                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">  
-                    <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
-                    <li><a href="/Flights" class="nav-link px-2 link-dark">Flights</a></li>
-                    <li><a href="/Cruises" class="nav-link px-2 link-dark">Cruises</a></li>
-                    <li><a href="/Contact.aspx" class="nav-link px-2 link-dark">Contact Us</a></li>
-                    <li><a href="/About.aspx" class="nav-link px-2 link-dark">About</a></li>
-                </ul>
+                            <li class="">
+                                <asp:LoginView runat="server" ViewStateMode="Disabled">
+                                    <AnonymousTemplate>                            
+                                        <asp:Button ID="LoginButton" CssClass="btn btn-outline-primary me-2" runat="server" OnClick="LoginButton_Click" Text="Login" />
+                                        <asp:Button ID="RegisterButton" CssClass="btn btn-primary" runat="server" OnClick="RegisterButton_Click" Text="Register" />
+                                    </AnonymousTemplate>
+                                    <LoggedInTemplate>
+                                        <asp:LinkButton ID="ManageAccountButton" CssClass="btn btn-outline-primary me-2" runat="server" OnClick="ManageAccountButton_Click" title="Manage your account">
+                                            Hello, <%: Context.User.Identity.GetUserName()  %> !</asp:LinkButton>
+                                        <asp:Button ID="LogoutButton" CssClass="btn btn-primary" runat="server" OnClick="LogoutButton_Click" Text="Register" />
+                                        <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                    </LoggedInTemplate>
+                                </asp:LoginView>
+                            </li>
+						</ul>
+					</nav>
+					<!--Nav-->
+				</div>
+				<div class="body-progress-container">
+					<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" id="myBar"></div>
+				</div>
+			</div>
+		</div>
 
-                <div class="col-md-3 text-end">
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>                            
-                            <asp:Button ID="LoginButton" CssClass="btn btn-outline-primary me-2" runat="server" OnClick="LoginButton_Click" Text="Login" />
-                            <asp:Button ID="RegisterButton" CssClass="btn btn-primary" runat="server" OnClick="RegisterButton_Click" Text="Register" />
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <asp:LinkButton ID="ManageAccountButton" CssClass="btn btn-outline-primary me-2" runat="server" OnClick="ManageAccountButton_Click" title="Manage your account">
-                                Hello, <%: Context.User.Identity.GetUserName()  %> !</asp:LinkButton>
-                            <asp:Button ID="LogoutButton" CssClass="btn btn-primary" runat="server" OnClick="LogoutButton_Click" Text="Register" />
-                            <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                        </LoggedInTemplate>
-                    </asp:LoginView>
-                </div>
-            </header>
-        </div>
-
-        <div class="container body-content">
+        <div class="container-fluid">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
         </div>
 
-        <div class="container">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <div class="col-md-4 d-flex align-items-center">
-                    <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                        <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-                    </a>
-                    <span class="mb-3 mb-md-0 text-muted">&copy; <%: DateTime.Now.Year %> - Jamaica Tourist Board Company, Inc</span>
-                </div>
+		<footer>
+			<div class="bg-dark-purple text-white-50 p-3">
+				<div class="container">
+					<div class="row d-flex">
+						<div class="col-lg-12 col-sm-12  mt-2 mb-2 text-center ">
+							&copy; <%: DateTime.Now.Year %> - Jamaica Tourist Board Company, Inc <a href=""  class="text-primary"></a>. Designed with <span class="fa fa-heart text-danger"></span> by <a href="" class="text-primary"> JTB </a> All rights reserved.
+						</div>
+						<div class="col-lg-12 col-sm-12 text-center mb-2 mt-2">
+							<ul class="social-icons mb-0">
+								<li>
+									<a class="social-icon" href=""><i class="fa fa-facebook"></i></a>
+								</li>
+								<li>
+									<a class="social-icon" href=""><i class="fa fa-twitter"></i></a>
+								</li>
+								<li>
+									<a class="social-icon" href=""><i class="fa fa-rss"></i></a>
+								</li>
+								<li>
+									<a class="social-icon" href=""><i class="fa fa-youtube"></i></a>
+								</li>
+								<li>
+									<a class="social-icon" href=""><i class="fa fa-linkedin"></i></a>
+								</li>
+								<li>
+									<a class="social-icon" href=""><i class="fa fa-google-plus"></i></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
 
-                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
-                    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-                    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
-                </ul>
-          </footer>
-       </div>
-    </form>
+        <!--  Modal Popup -->
+		<div class="modal fade" id="homeVideo" tabindex="-1" role="dialog">
+			<div class="modal-dialog  modal-lg" role="document">
+				<div class="modal-content">
+					<button type="button" class="btn btn-default" data-bs-dismiss="modal" onclick="pauseVid()"><i class="fe fe-x"></i></button>
+					<!--<iframe width="560" height="400" src="https://www.youtube.com/embed/kFjETSa9N7A"  allow="accelerometer; autoplay;" allowfullscreen></iframe>-->
+					<div class="embed-responsive embed-responsive-16by9">
+						<video id="gossVideo" class="embed-responsive-item" controls="controls">
+							<source src="/Assets/video/1.mp4" type="video/mp4">
+						</video>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--  Modal Popup -->
+		<div class="modal fade" id="gallery" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="product-slider modal-body p-2">
+						<div id="carousel" class="carousel slide" data-bs-ride="carousel">
+							<a class="gallery-btn-close-button" href="javascript:void(0)" data-bs-dismiss="modal" aria-label="btn-close"><i class="fe fe-x"></i></a>
+							<div class="carousel-inner">
+								<div class="carousel-item active"><img src="/Assets/images/places/1.jpg" alt="img"> </div>
+								<div class="carousel-item"><img src="/Assets/images/places/2.jpg" alt="img"> </div>
+								<div class="carousel-item"><img src="/Assets/images/places/3.jpg" alt="img"> </div>
+								<div class="carousel-item"><img src="/Assets/images/places/4.jpg" alt="img"> </div>
+								<div class="carousel-item"><img src="/Assets/images/places/5.jpg" alt="img"> </div>
+								<div class="carousel-item"><img src="/Assets/images/places/1.jpg" alt="img"> </div>
+								<div class="carousel-item"><img src="/Assets/images/places/2.jpg" alt="img"> </div>
+								<div class="carousel-item"><img src="/Assets/images/places/3.jpg" alt="img"> </div>
+								<div class="carousel-item"><img src="/Assets/images/places/4.jpg" alt="img"> </div>
+								<div class="carousel-item"><img src="/Assets/images/places/5.jpg" alt="img"> </div>
+							</div>
+							<a class="carousel-control-prev" href="#carousel" role="button" data-bs-slide="prev">
+								<i class="fa fa-angle-left" aria-hidden="true"></i>
+							</a>
+							<a class="carousel-control-next" href="#carousel" role="button" data-bs-slide="next">
+								<i class="fa fa-angle-right" aria-hidden="true"></i>
+							</a>
+						</div>
+						<div class="clearfix">
+							<div id="thumbcarousel" class="carousel slide product-slide-thumb" data-interval="false">
+								<div class="carousel-inner">
+									<div class="carousel-item active">
+										<div data-bs-target="#carousel" data-bs-slide-to="0" class="thumb"><img src="/Assets/images/places/1.jpg" alt="img"></div>
+										<div data-bs-target="#carousel" data-bs-slide-to="1" class="thumb"><img src="/Assets/images/places/2.jpg" alt="img"></div>
+										<div data-bs-target="#carousel" data-bs-slide-to="2" class="thumb"><img src="/Assets/images/places/3.jpg" alt="img"></div>
+										<div data-bs-target="#carousel" data-bs-slide-to="3" class="thumb"><img src="/Assets/images/places/4.jpg" alt="img"></div>
+										<div data-bs-target="#carousel" data-bs-slide-to="4" class="thumb"><img src="/Assets/images/places/5.jpg" alt="img"></div>
+
+									</div>
+									<div class="carousel-item ">
+										<div data-bs-target="#carousel" data-bs-slide-to="0" class="thumb"><img src="/Assets/images/places/1.jpg" alt="img"></div>
+										<div data-bs-target="#carousel" data-bs-slide-to="1" class="thumb"><img src="/Assets/images/places/2.jpg" alt="img"></div>
+										<div data-bs-target="#carousel" data-bs-slide-to="2" class="thumb"><img src="/Assets/images/places/3.jpg" alt="img"></div>
+										<div data-bs-target="#carousel" data-bs-slide-to="3" class="thumb"><img src="/Assets/images/places/4.jpg" alt="img"></div>
+										<div data-bs-target="#carousel" data-bs-slide-to="4" class="thumb"><img src="/Assets/images/places/5.jpg" alt="img"></div>
+									</div>
+								</div>
+								<a class="carousel-control-prev" href="#thumbcarousel" role="button" data-bs-slide="prev">
+									<i class="fa fa-angle-left" aria-hidden="true"></i>
+								</a>
+								<a class="carousel-control-next" href="#thumbcarousel" role="button" data-bs-slide="next">
+									<i class="fa fa-angle-right" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<!-- Back to top -->
+	<a href="#top" id="back-to-top" ><i class="fe fe-arrow-up"></i></a>
+
+	<!-- JQuery js-->
+	<script src="/Assets/js/jquery-3.5.1.min.js"></script>
+
+	<!-- Bootstrap js -->
+	<script src="/Assets/plugins/bootstrap/js/popper.min.js"></script>
+	<script src="/Assets/plugins/bootstrap/js/bootstrap.bundle.js"></script>
+
+	<!--JQuery Sparkline Js-->
+	<script src="/Assets/js/jquery.sparkline.min.js"></script>
+
+	<!-- Circle Progress Js-->
+	<script src="/Assets/js/circle-progress.min.js"></script>
+
+	<!-- Selectize Js-->
+	<script src="/Assets/js/selectize.min.js"></script>
+
+	<!-- Star Rating-2 Js-->
+	<script src="/Assets/plugins/ratings-2/jquery.star-rating.js"></script>
+	<script src="/Assets/plugins/ratings-2/star-rating.js"></script>
+
+	<!--Owl Carousel js -->
+	<script src="/Assets/plugins/owl-carousel/owl.carousel.js"></script>
+	<script src="/Assets/js/owl-carousel.js"></script>
+
+	<!--Horizontal Menu-->
+	<script src="/Assets/plugins/horizontal/horizontal-menu/horizontal.js"></script>
+
+	<!--Internal :::  Counters -->
+	<script src="/Assets/plugins/counters/counterup.min.js"></script>
+	<script src="/Assets/plugins/counters/waypoints.min.js"></script>
+	<script src="/Assets/plugins/counters/numeric-counter.js"></script>
+
+	<!--JQuery TouchSwipe js-->
+	<script src="/Assets/js/jquery.touchSwipe.min.js"></script>
+
+	<!-- Perfect Scrollbar js -->
+	<script src="/Assets/plugins/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+	<!--Select2 js -->
+	<script src="/Assets/plugins/select2/select2.full.min.js"></script>
+	<script src="/Assets/js/select2.js"></script>
+
+	<!-- Cookie js -->
+	<script src="/Assets/plugins/cookie/jquery.ihavecookies.js"></script>
+	<script src="/Assets/plugins/cookie/cookie.js"></script>
+
+	<!--Auto Complete js -->
+	<script src="/Assets/plugins/autocomplete/jquery.autocomplete.js"></script>
+	<script src="/Assets/plugins/autocomplete/autocomplete.js"></script>
+
+	<!-- Internal :::   Datepicker js -->
+	<script src="/Assets/plugins/date-picker/jquery-ui.js"></script>
+
+	<!-- Internal :::   Datepicker js -->
+	<script src="/Assets/js/date-picker.js"></script>
+
+	<!-- sticky Js-->
+	<script src="/Assets/js/sticky.js"></script>
+
+	<!-- Internal :::   JQVMap-->
+	<script src="/Assets/plugins/jqvmap/jquery.vmap.js"></script>
+	<script src="/Assets/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
+	<script src="/Assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+	<script src="/Assets/plugins/jqvmap/maps/jquery.vmap.germany.js"></script>
+	<script src="/Assets/plugins/jqvmap/maps/jquery.vmap.russia.js"></script>
+	<script src="/Assets/plugins/jqvmap/jquery.vmap.sampledata.js"></script>
+	<script src="/Assets/js/jqvmap.js"></script>
+
+	<!-- Internal :::    Gallery js -->
+	<script src="/Assets/plugins/lightgallery/lightgallery-all.min.js"></script>
+	<script src="/Assets/plugins/lightgallery/jquery.mousewheel.min.js"></script>
+	<script src="/Assets/js/gallery.js"></script>
+	<script src="/Assets/js/country-gallery.js"></script>
+
+	<!-- Internal :::    Swipe Js-->
+	<script src="/Assets/js/swipe.js"></script>
+
+	<!--Internal :::   Showmore Js-->
+	<script src="/Assets/js/jquery.showmore.js"></script>
+	<script src="/Assets/js/showmore.js"></script>
+
+	<!-- Internal :::   Video Js-->
+	<script src="/Assets/plugins/video/jquery.vide.js"></script>
+
+	<!-- Internal :::   Typewritter Js-->
+	<script src="/Assets/js/typewritter.js"></script>
+
+	<!-- Scripts Js-->
+	<script src="/Assets/js/scripts.js"></script>
+
+	<!-- Theme color Js-->
+	<script src="/Assets/js/themeColors.js"></script>
+
+	<!-- Switcher Styles Js-->
+	<script src="/Assets/js/switcher-styles.js"></script>
+
+	<!-- Custom Js-->
+	<script src="/Assets/js/custom.js"></script>
+
 </body>
 </html>

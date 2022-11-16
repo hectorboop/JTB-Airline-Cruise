@@ -12,12 +12,12 @@ namespace JTB_Airline_Cruise
         // For more information on Bundling, visit https://go.microsoft.com/fwlink/?LinkID=303951
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new Bundle("~/bundles/bootstrap").Include(
+            /*bundles.Add(new Bundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/bootstrap.min.js",
                       "~/Scripts/bootstrap.bundle.js",
                       "~/Scripts/bootstrap.bundle.min.js"
-                      ));
+                      ));*/
 
             bundles.Add(new ScriptBundle("~/bundles/WebFormsJs").Include(
                             "~/Scripts/WebForms/WebForms.js",
