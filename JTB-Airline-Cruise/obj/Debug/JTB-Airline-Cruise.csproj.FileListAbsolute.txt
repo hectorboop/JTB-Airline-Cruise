@@ -90,3 +90,6 @@ C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\roslyn\Sys
 C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\roslyn\System.Memory.dll
 C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\roslyn\System.Numerics.Vectors.dll
 C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\Afonsoft.Amadeus.dll
+C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\Microsoft.Extensions.Logging.Abstractions.xml
