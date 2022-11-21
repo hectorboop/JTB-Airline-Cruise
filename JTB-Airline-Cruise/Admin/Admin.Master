@@ -1,0 +1,300 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="JTB_Airline_Cruise.Admin.Admin" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Gowell - Travel HTML Listing Template">
+	<meta name="Admin Panel" content="Jamaica Tourist Board Company Limited">
+	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+	<!-- Title -->
+	<title>Jamaica Tourist Board Company Limited</title>
+
+	<!-- Sidemenu Css -->
+	<link href="/Assets/css/dashboard/sidemenu.css" rel="stylesheet" />
+
+	<!-- Bootstrap Css -->
+	<link id="style" href="/Assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+	<!-- Style Css -->
+	<link href="/Assets/css/style.css" rel="stylesheet" />
+	<link href="/Assets/css/plugins.css" rel="stylesheet" />
+
+	<!-- Admin-Custom Css -->
+	<link href="/Assets/css/dashboard/admin-custom.css" rel="stylesheet" />
+
+	<!---Font icons-->
+	<link href="/Assets/css/icons.css" rel="stylesheet"/>
+
+    
+</head>
+<body class="app sidebar-mini">
+    <form id="form1" runat="server">
+		<div class="page">
+			<div class="page-main h-100">
+				 <!--Header Section-->
+				<div class="app-header1 header-search-icon">
+					<div class="header-style1">
+						<!-- Logo -->
+						<a class="header-brand" href="Dashboard.aspx">
+							<img src="/UI_Images/logo-sml.png" class="header-brand-img desktop-logo color-logo" alt="logo">
+							<img src="/UI_Images/logo-sml.png" class="header-brand-img desktop-logo white-logo" alt="logo">
+						</a>
+						<!-- Logo -->
+					</div>
+
+					<!-- app-sidebar-toggle -->
+					<div class="app-sidebar__toggle" data-bs-toggle="sidebar">
+						<a class="open-toggle" href="javascript:void(0)"><i class="fe fe-menu"></i></a>
+						<a class="close-toggle" href="javascript:void(0)"><i class="fe fe-x"></i></a>
+					</div>
+					<!-- app-sidebar-toggle -->
+
+					<!-- Header Right -->
+					<div class="d-flex ms-md-auto header-right-icons">
+						<button class="navbar-toggler navresponsive-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+							<i class="fe fe-more-vertical header-icons navbar-toggler-icon"></i>
+						</button>
+						<div class="p-0 mb-0 navbar navbar-expand-md  responsive-navbar navbar-dark  ">
+							<div class="navbar-collapse collapse" id="navbarSupportedContent-4">
+								<div class="d-flex">
+									<!-- Header Search -->
+									<div class="">
+										<a href="javascript:void(0)" class=" "></a>
+										<div class="form-inline me-auto">
+											<div class="nav-search">
+												<input type="search" class="form-control header-search" placeholder="Search…" aria-label="Search" >
+												<a class="absolute-header-button" href="javascript:void(0)"><i class="fa fa-search"></i></a>
+											</div>
+										</div>
+									</div>
+									<div class="nav-link icon header-navicon d-lg-none b-block">
+										<a href="javascript:void(0)" data-bs-toggle="search" class="nav-link d-lg-none navsearch-icon">
+											<i class=""><i class="fe fe-search"></i></i>
+										</a>
+									</div>
+									<!-- /Header Search -->
+
+									<!-- Layout-->
+									<div class="dropdown header-layout d-flex">
+										<a  class="nav-link icon layout-setting">
+											<i class="" >
+												<i class="fe fe-sun dark-layout "></i>
+												<i class="fe fe-moon light-layout "></i>
+											</i>
+										</a>
+									</div>
+									<!-- /Layout -->
+
+									<!-- Full Screen -->
+									<div class="dropdown  d-flex" >
+										<a class="nav-link icon full-screen-link">
+											<i class="fe fe-maximize-2" id="fullscreen-button"></i>
+										</a>
+									</div>
+									<!-- /Full Screen -->
+
+									<!-- Profile Dropdown -->
+									<div class="dropdown">
+										<a href="javascript:void(0)" class="nav-link pe-0 py-0 leading-none user-img" data-bs-toggle="dropdown">
+											<img src="/Assets/images/faces/male/24.jpg" alt="profile-img" class="avatar avatar-md brround">
+										</a>
+										<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow ">
+											<a class="dropdown-item" href="profile.html">
+												<i class="dropdown-icon fe fe-user text-primary"></i> My Profile
+											</a>
+											<a class="dropdown-item" href="emailservices.html">
+												<i class="dropdown-icon fe fe-mail text-primary"></i> Inbox
+											</a>
+											<a class="dropdown-item" href="editprofile.html">
+												<i class="dropdown-icon fe fe-settings text-primary"></i> Account Settings
+											</a>
+											<a class="dropdown-item" href="login.html">
+												<i class="dropdown-icon fe fe-power text-primary"></i> Log out
+											</a>
+										</div>
+									</div>
+									<!-- Profile Dropdown -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Header Right -->
+				</div>
+				<!-- Header Section -->
+
+				<!-- Sidebar menu-->
+				<div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
+				<aside class="app-sidebar doc-sidebar">
+					<a class="header-brand sidemenu-header-brand" href="index.html">
+						<img src="/Assets/images/brand/logo1.png" class="header-brand-img brand-logo-main" alt="Gowell logo">
+						<img src="/Assets/images/brand/favicon-white.png" class="header-brand-img brand-logo-toggled" alt="Gowell logo">
+					</a>
+
+					<!--User Section-->
+					<div class="app-sidebar__user">
+						<div class="user-pro-body text-center">
+							<div class="user-pic">
+								<img src="/Assets/images/faces/male/24.jpg" alt="user-img" class="rounded-circle mb-1">
+							</div>
+							<div class="user-info">
+								<h5 class="mb-0 font-weight-bold fs-16">Lilly Sparter</h5>
+								<span class="app-sidebar__user-name text-sm text-white-80">App Developer</span>
+							</div>
+						</div>
+					</div>
+					<!--/User Section-->
+
+					<!-- Sidemenu Navigation Section-->
+					<ul class="side-menu">
+						<li>
+							<a class="side-menu__item" href="Dashboard.aspx">
+								<i class="side-menu__icon fe fe-home"></i>
+								<span class="side-menu__label">Dashboard</span>
+							</a>
+						</li>
+
+						<li class="slide">
+							<a class="side-menu__item slide-show"  href="javascript:void(0)"><i class="side-menu__icon fa fa-ship"></i><span class="side-menu__label">Cruises</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a class="slide-item" href="Cruises.aspx">All Cruises</a></li>
+								<li><a class="slide-item" href="AddCruise.aspx">New Cruise</a></li>
+							</ul>
+						</li>
+
+						<li class="slide">
+							<a class="side-menu__item slide-show"  href="javascript:void(0)"><i class="side-menu__icon fa fa-plane"></i><span class="side-menu__label">Flights</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a class="slide-item" href="Flights.aspx">Flights List</a></li>
+								<li><a class="slide-item" href="AddFlight.aspx">New Flight</a></li>
+							</ul>
+						</li>
+
+						<li class="slide">
+							<a class="side-menu__item slide-show"  href="javascript:void(0)"><i class="side-menu__icon fe fe-settings"></i><span class="side-menu__label">Admin settings</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a class="slide-item" href="AddUser.aspx">New User</a></li>
+								<li><a class="slide-item" href="AllUsers.aspx">All Users</a></li>								
+								<li><a class="slide-item" href="Settings.aspx">Settings</a></li>
+							</ul>
+						</li>
+					</ul>
+					<!-- Sidemenu Navigation Section-->
+				</aside>
+				<!-- Sidebar menu-->
+
+				<!-- Page Content -->
+				<div>
+					<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+					</asp:ContentPlaceHolder>
+				</div>
+
+			</div>
+
+			<!--footer-->
+			<footer class="footer">
+				<div class="container">
+					<div class="row align-items-center flex-row-reverse">
+						<div class="col-md-12 col-sm-12 mt-3 mt-lg-0 text-center">
+							Copyright © 2022 <a href="javascript:void(0)"  class="text-primary">Jamaica Tourist Board</a>. Designed with <span class="fa fa-heart text-danger"></span> by <a href="javascript:void(0)" class="text-primary"> Spruko </a> All rights reserved.
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- End Footer-->
+		</div>
+
+        <!-- Back to top -->
+		<a href="#top" id="back-to-top"><i class="fe fe-arrow-up"></i></a>
+
+		<!-- JQuery js-->
+		<script src="/Assets/js/jquery-3.5.1.min.js"></script>
+
+		<!-- Bootstrap js -->
+		<script src="/Assets/plugins/bootstrap/js/popper.min.js"></script>
+		<script src="/Assets/plugins/bootstrap/js/bootstrap.bundle.js"></script>
+
+		<!--JQuery Sparkline Js-->
+		<script src="/Assets/js/jquery.sparkline.min.js"></script>
+
+		<!-- Circle Progress Js-->
+		<script src="/Assets/js/circle-progress.min.js"></script>
+
+		<!-- Selectize Js-->
+		<script src="/Assets/js/selectize.min.js"></script>
+
+		<!-- Jquery-bar-rating Js-->
+		<script src="/Assets/plugins/jquery-bar-rating/jquery.barrating.js"></script>
+		<script src="/Assets/plugins/jquery-bar-rating/js/rating.js"></script>
+
+		<!--Side-menu Js-->
+		<script src="/Assets/plugins/toggle-sidebar/sidemenu.js"></script>
+
+		<!--Select2 js -->
+		<script src="/Assets/plugins/select2/select2.full.min.js"></script>
+		<script src="/Assets/js/select2.js"></script>
+
+		<!-- Internal :::   wickedpicker js -->
+		<script src="/Assets/plugins/wildtime/wickedpicker.min.js"></script>
+
+		<!-- Internal :::   Timepicker js -->
+		<script src="/Assets/plugins/jquery-timepicker/jquery.timepicker.js"></script>
+		<script src="/Assets/js/timepicker.js"></script>
+
+		<!-- Internal :::   Datepicker js -->
+		<script src="/Assets/plugins/date-picker/jquery-ui.js"></script>
+
+		<!-- Internal :::   Datepicker Custom js -->
+		<script src="/Assets/js/date-picker.js"></script>
+
+		<!-- Internal :::  Color Custom js -->
+		<script src="/Assets/plugins/color-picker/spectrum.js"></script>
+		<script src="/Assets/js/colorpicker.js"></script>
+
+		<!-- Inline js -->
+		<script src="/Assets/js/formelements.js"></script>
+
+		<!-- Jquery Validate -->
+		<script src="/Assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+		<script src="/Assets/js/validate.js"></script>
+
+		<!-- file uploads js -->
+        <script src="/Assets/plugins/dropify/js/dropify.js"></script>
+
+		<!--InputMask Js-->
+		<script src="/Assets/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js"></script>
+
+		<!-- Charts Plugin -->
+		<script src="/Assets/plugins/chart/Chart.bundle.js"></script>
+		<script src="/Assets/plugins/chart/utils.js"></script>
+
+		<!--Morris.js Charts Plugin -->
+		<script src="/Assets/plugins/morris/raphael-min.js"></script>
+		<script src="/Assets/plugins/morris/morris.js"></script>
+
+        <!-- Index Scripts -->
+		<script src="/Assets/js/index2.js"></script>
+
+		<!-- Perfect scroll bar Js-->
+		<script src="/Assets/plugins/perfect-scrollbar/perfect-scrollbar.js"></script>
+		<script src="/Assets/plugins/perfect-scrollbar/p-scroll.js"></script>
+
+		<!--Internal Counters -->
+		<script src="/Assets/plugins/counters/counterup.min.js"></script>
+		<script src="/Assets/plugins/counters/waypoints.min.js"></script>
+
+		<!-- Theme color Js-->
+		<script src="/Assets/js/themeColors.js"></script>
+
+		<!-- Switcher Styles Js-->
+		<script src="/Assets/js/switcher-styles.js"></script>
+
+		<!-- Custom Js-->
+		<script src="/Assets/js/admin-custom.js"></script>
+    </form>
+</body>
+</html>

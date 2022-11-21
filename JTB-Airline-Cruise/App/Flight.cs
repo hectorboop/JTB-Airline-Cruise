@@ -9,6 +9,8 @@ namespace JTB_Airline_Cruise.App
     {
         public int FlightID { get; set; }
         public virtual Airline Airline { get; set; }
+        public string DepartureCity { get; set; }
+        public string DestinationCity { get; set; }
         public DateTime DepartureDate { get; set; }
         public DateTime ReturnDate { get; set; }
         public int Travelers { get; set; }
