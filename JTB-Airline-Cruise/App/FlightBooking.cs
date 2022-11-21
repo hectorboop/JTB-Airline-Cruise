@@ -7,5 +7,6 @@ namespace JTB_Airline_Cruise.App
 {
     public class FlightBooking
     {
+        public string PassengerId { get; set; }
     }
 }

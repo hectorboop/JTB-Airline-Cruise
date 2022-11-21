@@ -17,6 +17,6 @@ namespace JTB_Airline_Cruise.App
         public int CruiseLength { get; set; }
         public string DeparturePort { get; set; }
         public string VisitingPorts { get; set; }
-
+        public float CruisePrice { get; set; }  
     }
 }

@@ -17,6 +17,7 @@ namespace JTB_Airline_Cruise.App
         public string FlightType { get; set; }
         public string FlightClass { get; set; }
         public float FlightPrice { get; set; }
+        public string Plane { get; set; }
 
     }
 }
