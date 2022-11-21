@@ -104,16 +104,11 @@
 											<img src="/Assets/images/faces/male/24.jpg" alt="profile-img" class="avatar avatar-md brround">
 										</a>
 										<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow ">
-											<a class="dropdown-item" href="profile.html">
-												<i class="dropdown-icon fe fe-user text-primary"></i> My Profile
-											</a>
-											<a class="dropdown-item" href="emailservices.html">
-												<i class="dropdown-icon fe fe-mail text-primary"></i> Inbox
-											</a>
+											
 											<a class="dropdown-item" href="editprofile.html">
 												<i class="dropdown-icon fe fe-settings text-primary"></i> Account Settings
 											</a>
-											<a class="dropdown-item" href="login.html">
+											<a class="dropdown-item" href="login.html" data-bs-toggle="modal" data-bs-target="#logoutModal">
 												<i class="dropdown-icon fe fe-power text-primary"></i> Log out
 											</a>
 										</div>
@@ -206,6 +201,27 @@
 				</div>
 			</footer>
 			<!-- End Footer-->
+
+			<!-- Modal -->
+			<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="logoutModalLabel">Logout?</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>Are you sure you want to logout?</p>
+						</div>
+						<div class="modal-footer">
+							<asp:Button ID="LogoutButton" runat="server" Text="Logout" CssClass="btn btn-primary" />
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
         <!-- Back to top -->

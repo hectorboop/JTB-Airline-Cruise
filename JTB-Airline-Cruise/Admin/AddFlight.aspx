@@ -59,7 +59,7 @@
 									</div>
 									<div class="form-group">
 										<asp:Label ID="AirlineLabel" runat="server" Text="Airline" CssClass="form-label" AssociatedControlID="AirlineDropDownList"></asp:Label>
-										<asp:DropDownList ID="AirlineDropDownList" runat="server" CssClass="form-control form-select select2" ></asp:DropDownList>
+										<asp:DropDownList ID="AirlineDropDownList" runat="server" CssClass="form-control form-select select2"></asp:DropDownList>
 										<asp:RequiredFieldValidator ID="AirlineRequiredValidator" runat="server" ErrorMessage="Please Select An Option" ControlToValidate="AirlineDropDownList" ForeColor="Red"></asp:RequiredFieldValidator>
 									</div>
 									<div class="form-group">

@@ -32,5 +32,15 @@ namespace JTB_Airline_Cruise.Properties {
                 return ((string)(this["JTB_Airline_Cruise_AirService_AirlineService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44377/Web%20Services/CruiselineService.asmx")]
+        public string JTB_Airline_Cruise_SeaService_CruiselineService {
+            get {
+                return ((string)(this["JTB_Airline_Cruise_SeaService_CruiselineService"]));
+            }
+        }
     }
 }
