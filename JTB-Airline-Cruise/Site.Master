@@ -71,7 +71,73 @@
         <!-- Top Nav Pane -->
         <!--Horizontal Section-->
 		<div class="header-main header-style03">
-			
+			<div class="top-bar app-header-background app-header-background2 bg-dark-purple">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-8 col-lg-8 col-sm-4 col-7">
+							<div class="top-bar-left d-flex">
+								<div class="clearfix">
+									<ul class="socials">
+										<li>
+											<a class="social-icon text-white" href="javascript:void(0)"><i class="fa fa-facebook text-white"></i></a>
+										</li>
+										<li>
+											<a class="social-icon text-white" href="javascript:void(0)"><i class="fa fa-twitter text-white"></i></a>
+										</li>
+										<li>
+											<a class="social-icon text-white" href="javascript:void(0)"><i class="fa fa-linkedin text-white"></i></a>
+										</li>
+										<li>
+											<a class="social-icon text-white" href="javascript:void(0)"><i class="fa fa-google-plus text-white"></i></a>
+										</li>
+									</ul>
+								</div>
+								<div class="clearfix">
+									<ul class="contact border-end">
+										<li class="me-5 d-lg-none">
+											<a href="javascript:void(0)" class="callnumber text-white"><span><i class="fa fa-phone me-1"></i>: +425 345 8765</span></a>
+										</li>
+										<li class="select-country me-5">
+											<select class="form-control select2-flag-search" data-placeholder="Select Country">
+												<option value="JM">Jamaica</option>
+											</select>
+										</li>
+										<li class="dropdown me-5">
+											<a href="javascript:void(0)" class="text-white" data-bs-toggle="dropdown"><span> Language <i class="fa fa-caret-down text-white"></i></span> </a>
+											<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+												<a href="javascript:void(0)" class="dropdown-item" >
+													English
+												</a>
+											</div>
+										</li>
+										<li class="dropdown">
+											<a href="javascript:void(0)" class="text-white" data-bs-toggle="dropdown"><span>Currency <i class="fa fa-caret-down text-white"></i></span></a>
+											<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+												<a href="javascript:void(0)" class="dropdown-item" >
+													JMD
+												</a>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-4 col-lg-4 col-sm-8 col-5">
+							<div class="top-bar-right">
+								<ul class="custom">
+									<li>
+										<a href="register.html" class="text-white"><i class="fa fa-user me-1 text-white"></i> <span>Admin Register</span></a>
+									</li>
+									<li>
+										<a href="login.html" class="text-white"><i class="fa fa-sign-in me-1 text-white"></i> <span>Admin Login</span></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<div class="horizontal-main  bg-dark-transparent clearfix py-lg-3">
 				<div class="horizontal-mainwrapper container clearfix">
 					<div class="desktoplogo">
@@ -119,7 +185,7 @@
 			</div>
 		</div>
 
-        <div class="container-fluid">
+        <div class="container-fluid-lg">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />

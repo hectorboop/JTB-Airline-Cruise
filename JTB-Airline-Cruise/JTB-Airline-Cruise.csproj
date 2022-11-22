@@ -237,6 +237,8 @@
     <Content Include="Admin\Cruises.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\Flights.aspx" />
+    <Content Include="Admin\Login.aspx" />
+    <Content Include="Admin\Register.aspx" />
     <Content Include="Admin\Settings.aspx" />
     <Content Include="Assets\css\dashboard\admin-custom.css" />
     <Content Include="Assets\css\dashboard\sidemenu.css" />
@@ -2131,9 +2133,11 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CruiseList.aspx" />
     <Content Include="Cruises.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="FlightList.aspx" />
     <Content Include="Flights.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="Global.asax" />
@@ -3014,6 +3018,20 @@
     <Compile Include="Admin\Flights.aspx.designer.cs">
       <DependentUpon>Flights.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Settings.aspx.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3049,6 +3067,13 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CruiseList.aspx.cs">
+      <DependentUpon>CruiseList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CruiseList.aspx.designer.cs">
+      <DependentUpon>CruiseList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cruises.aspx.cs">
       <DependentUpon>Cruises.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3062,6 +3087,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FlightList.aspx.cs">
+      <DependentUpon>FlightList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FlightList.aspx.designer.cs">
+      <DependentUpon>FlightList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Flights.aspx.cs">
       <DependentUpon>Flights.aspx</DependentUpon>

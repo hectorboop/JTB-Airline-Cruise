@@ -12,11 +12,11 @@ namespace JTB_Airline_Cruise.App
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public virtual Cruiseline Cruiseline { get; set; }
-        public string Region { get; set; }
         public string Ship { get; set; }
         public int CruiseLength { get; set; }
         public string DeparturePort { get; set; }
-        public string VisitingPorts { get; set; }
-        public float CruisePrice { get; set; }  
+        public List<string> VisitingPorts { get; set; }
+        public List<float> CruisePrice { get; set; }
+        public List<string> RoomTypes { get; set; }
     }
 }

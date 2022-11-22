@@ -8,6 +8,7 @@ namespace JTB_Airline_Cruise.App
     public class CruiseBooking
     {
         public int Id { get; set; }
+        public int CruiseId { get; set; }
         public string RoomNumber { get; set; }
         public string Name { get; set; }
         public DateTime CheckInDate { get; set; }
