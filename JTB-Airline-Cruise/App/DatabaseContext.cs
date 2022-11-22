@@ -20,6 +20,7 @@ namespace JTB_Airline_Cruise.App
         public DbSet<Cruise> Cruises { get; set; }
         public DbSet<FlightBooking> FlightBookings { get; set; }
         public DbSet<CruiseBooking> CruiseBookings { get; set; }
+        public DbSet<City> City { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

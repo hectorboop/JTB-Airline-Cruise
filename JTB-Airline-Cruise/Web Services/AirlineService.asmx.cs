@@ -45,7 +45,7 @@ namespace JTB_Airline_Cruise.Web_Services
 
         [WebMethod]
         public void AddFlight(Airline airline, string departureCity, string destinationCity, DateTime departureDate, 
-                                DateTime returnDate, int travellers, string flightType, string flightClass, float flightPrice)
+                                DateTime returnDate, int travellers, List<string> flightType, List<string> flightClass, List<float> flightPrice)
         {
             Flight flight = new Flight()
             {
@@ -54,7 +54,6 @@ namespace JTB_Airline_Cruise.Web_Services
                 DestinationCity = destinationCity,
                 DepartureDate = departureDate,
                 ReturnDate = returnDate,
-                Travelers = travellers,
                 FlightType = flightType,
                 FlightClass = flightType,
                 FlightPrice = flightPrice
@@ -78,7 +77,7 @@ namespace JTB_Airline_Cruise.Web_Services
 
         [WebMethod]
         public void UpdateFlight(int flightId, Airline airline, string departureCity, string destinationCity, DateTime departureDate,
-                                DateTime returnDate, int travellers, string flightType, string flightClass, float flightPrice)
+                                DateTime returnDate, int travellers, List<string> flightType, List<string> flightClass, List<float> flightPrice)
         {
             Flight update = GetFlightById(flightId);
 
@@ -87,7 +86,6 @@ namespace JTB_Airline_Cruise.Web_Services
             update.DestinationCity = destinationCity;
             update.DepartureDate = departureDate;
             update.ReturnDate = returnDate;
-            update.Travelers = travellers;
             update.FlightType = flightType;
             update.FlightClass = flightClass;
             update.FlightPrice = flightPrice;

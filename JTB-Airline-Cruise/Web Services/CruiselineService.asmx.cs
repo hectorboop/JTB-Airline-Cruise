@@ -46,8 +46,8 @@ namespace JTB_Airline_Cruise.Web_Services
         }
 
         [WebMethod]
-        public void AddCruise(Cruiseline cruiseline, string departurePort, string visitingPorts, DateTime startDate,
-                                DateTime endDate, string region, string ship, float cruisePrice)
+        public void AddCruise(Cruiseline cruiseline, string departurePort, List<string> visitingPorts, DateTime startDate,
+                                DateTime endDate, string region, string ship, List<float> cruisePrice)
         {
             Cruise cruise = new Cruise()
             {
@@ -55,12 +55,11 @@ namespace JTB_Airline_Cruise.Web_Services
                 StartDate = startDate,
                 EndDate = endDate,
                 Cruiseline = cruiseline,
-                Region = region,
                 Ship = ship,
                 CruiseLength = 0,
                 DeparturePort = departurePort,
                 VisitingPorts = visitingPorts,
-                CruisePrice = 0f
+                CruisePrice = cruisePrice
     };
 
             _databaseContext.Cruises.Add(cruise);
@@ -80,8 +79,8 @@ namespace JTB_Airline_Cruise.Web_Services
         }
 
         [WebMethod]
-        public void UpdateCruise(int cruiseId, Cruiseline cruiseline, string departurePort, string visitingPorts, DateTime startDate,
-                                DateTime endDate, string region, string ship, float cruisePrice)
+        public void UpdateCruise(int cruiseId, Cruiseline cruiseline, string departurePort, List<string> visitingPorts, DateTime startDate,
+                                DateTime endDate, string region, string ship, List<float> cruisePrice)
         {
             Cruise update = GetCruiseById(cruiseId);
 
@@ -89,12 +88,11 @@ namespace JTB_Airline_Cruise.Web_Services
             update.StartDate = startDate;
             update.EndDate = endDate;
             update.Cruiseline = cruiseline;
-            update.Region = region;
             update.Ship = ship;
             update.CruiseLength = 0;
             update.DeparturePort = departurePort;
             update.VisitingPorts = visitingPorts;
-            update.CruisePrice = 0f;
+            update.CruisePrice = cruisePrice;
 
             _databaseContext.Entry(update).State = EntityState.Modified;
             _databaseContext.SaveChanges();

@@ -389,6 +389,42 @@
 	<!-- Internal :::   Typewritter Js-->
 	<script src="/Assets/js/typewritter.js"></script>
 
+	<!-- sticky Js-->
+	<script src="../assets/js/sticky.js"></script>
+
+	<!-- Internal :::   Ion.RangeSlider -->
+	<script src="../assets/plugins/jquery-uislider/jquery-ui.js"></script>
+	<script src="../assets/js/price-range.js"></script>
+
+	<!-- Internal :::   Moment js-->
+	<script src="../assets/plugins/moment/moment.js"></script>
+
+	<!-- Internal :::   Daterange js-->
+	<script src="../assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+	<script src="../assets/js/daterange.js"></script>
+
+	<!-- Internal :::   Google Maps Plugin-->
+	<script src="https://maps.google.com/maps/api/js?key=AIzaSyCW16SmpzDNLsrP-npQii6_8vBu_EJvEjA"></script>
+	<script src="../assets/plugins/jQuery-Google-Map/jquery.googlemap.js"></script>
+	<script src="../assets/plugins/jQuery-Google-Map/map.js"></script>
+
+	<!-- Internal :::   Nice Select js-->
+	<script src="../assets/plugins/nice-select/jquery.nice-select.js"></script>
+	<script src="../assets/plugins/nice-select/nice-select.js"></script>
+
+	<!-- Internal :::   Timepicker js -->
+	<script src="../assets/plugins/jquery-timepicker/jquery.timepicker.js"></script>
+
+	<!-- Internal :::    wickedpicker js-->
+	<script src="../assets/plugins/wildtime/wickedpicker.min.js"></script>
+	<script src="../assets/js/timepicker.js"></script>
+
+	<!--Map List js -->
+	<script src="../assets/plugins/jquery-axgmap/jquery.axgmap.js"></script>
+
+	<!-- primo js-->
+	<script src="../assets/plugins/primo-slider/primo-slider.min.js"></script>
+	
 	<!-- Scripts Js-->
 	<script src="/Assets/js/scripts.js"></script>
 

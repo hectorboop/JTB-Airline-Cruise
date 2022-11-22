@@ -2844,6 +2844,7 @@
     </Content>
     <None Include="Web References\SeaService\CruiselineService.disco" />
     <Content Include="Web Services\AirlineService.asmx" />
+    <Content Include="Web Services\CityService.asmx" />
     <Content Include="Web Services\CruiselineService.asmx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -3040,6 +3041,7 @@
       <DependentUpon>Settings.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Airline.cs" />
+    <Compile Include="App\City.cs" />
     <Compile Include="App\Cruise.cs" />
     <Compile Include="App\CruiseBooking.cs" />
     <Compile Include="App\Cruiseline.cs" />
@@ -3160,6 +3162,10 @@
     </Compile>
     <Compile Include="Web Services\AirlineService.asmx.cs">
       <DependentUpon>AirlineService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Web Services\CityService.asmx.cs">
+      <DependentUpon>CityService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Web Services\CruiselineService.asmx.cs">
