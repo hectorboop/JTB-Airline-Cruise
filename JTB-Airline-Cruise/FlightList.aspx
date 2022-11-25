@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FlightList.aspx.cs" Inherits="JTB_Airline_Cruise.FlightList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FlightList.aspx.cs" Inherits="JTB_Airline_Cruise.FlightList" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <!--Loader-->
 	<div id="global-loader" class="bg-primary">
@@ -79,7 +79,7 @@
 											<asp:TextBox ID="DateRangeTextBox" runat="server" CssClass="form-control daterange-btn br-0 input-lg" placeholder="From When To When"></asp:TextBox>
 										</div>
 										<div class="col-xl-6 col-lg-6 col-md-12 mb-0">
-											<asp:Button ID="SubmitButton" runat="server" Text="Search" CssClass="btn btn-block btn-secondary fs-14 br-ts-0 br-bs-0 shadow-none btn-lg" />
+											<asp:LinkButton ID="SubmitButton" runat="server" CssClass="btn btn-block btn-secondary fs-14 br-ts-0 br-bs-0 shadow-none btn-lg" >Search</asp:LinkButton>
 										</div>
 									</div>
 								</div>
@@ -238,6 +238,58 @@
 											<!-- Add Repeater -->
 											<div class="col-xl-12 col-lg-6 col-md-12">
 												<div class="card overflow-hidden">
+													<asp:Repeater ID="FlightRepeater" runat="server">
+														<ItemTemplate>
+															<div class="d-xl-flex ieh-100">
+																<div class="item-card9-img w-100">
+																	<div class="item-card9-imgs">
+																		<img src="/Assets/images/categories/flights/1.jpg" alt="img" class="cover-image">
+																		<div class="item-card2-img1" data-bs-toggle="modal" data-bs-target="#gallery">
+																			<span class="badge bg-dark-transparent6 text-white fs-14 font-weight-semibold2">
+																				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ticketModal">View modal</button>
+																			</span>
+																		</div>
+																	</div>
+																</div>
+																<div class="card border-0 mb-0 br-0">
+																	<div class="card-body">
+																		<div class="item-card9 mb-4">
+																			<div class="d-sm-flex">
+																				<div class="">
+																				<!--	<a href="<%#: GetRouteUrl("FlightDetails", new {Id = 1}) %>"></a> --> 
+																					<a href="#" class="text-dark">
+																						<h4 class="font-weight-semibold2 mt-1 mb-2 leading-normal">
+																							<%# Eval("AirlineName") %> Flight-<%# Eval("Id") %>
+																						</h4>
+																					</a>
+																					<asp:Repeater ID="FlightClassRepeater" runat="server" DataSource='<%# Eval("FlightClass") %>'>
+																						<ItemTemplate>
+																							<span class="badge bg-pill border mt-1 fs-12"><%# Container.DataItem.ToString() %></span>
+																						</ItemTemplate>
+																					</asp:Repeater>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="item-card2-desc">
+																			<a href="javascript:void(0)" class="mt-1 mb-0 text-dark d-block">
+																				<i class="fe fe-calendar me-1 d-inline-block"></i> <%# Eval("DepartureDate") %> - <%# Eval("ReturnDate") %></a>
+																			<a href="javascript:void(0)" class="mt-2 mb-0 text-dark d-block">
+																				<i class="fe fe-clock me-1 d-inline-block"></i> <%# Eval("DepartureCity") %> - <%# Eval("DestinationCity") %> </a>
+																		</div>
+																	</div>
+																	<div class="card-footer d-flex">
+																		<div class=" d-inline-flex">
+																			<a class="fs-13 leading-tight mt-1" href="javascript:void(0)"><%# Eval("Plane") %></a>
+																		</div>
+																		<div class="ms-auto">
+																			<h3 class="mb-0 font-weight-semibold2">$<%# Eval("FlightPrice[0]") %>*</h3>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</ItemTemplate>
+													</asp:Repeater>
+
 													<div class="d-xl-flex ieh-100">
 														<div class="item-card9-img w-100">
 															<div class="item-card9-imgs">
@@ -270,8 +322,7 @@
 															</div>
 															<div class="card-footer d-flex">
 																<div class=" d-inline-flex">
-																	<div class="rating-star sm block my-rating-5" data-stars="4s">
-																	</div> <a class="fs-13 leading-tight mt-1" href="javascript:void(0)">124 Reviews</a>
+																	<a class="fs-13 leading-tight mt-1" href="javascript:void(0)">124 Reviews</a>
 																</div>
 																<div class="ms-auto">
 																	<h3 class="mb-0 font-weight-semibold2">$354</h3>
@@ -279,6 +330,7 @@
 															</div>
 														</div>
 													</div>
+
 												</div>
 											</div>
 			
@@ -296,5 +348,33 @@
 		</div>
 	</section>
 	<!--/Add Listings-->
+
+	<!-- Modal -->
+	<div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="ticketModalLabel">Book FLight</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<asp:DropDownList ID="FlightClassDropDownList" runat="server" CssClass="form-control"></asp:DropDownList>
+					</div>
+					<div class="form-group">
+						<h4>
+							<asp:Label ID="PriceLabel" runat="server" Text="Label"></asp:Label>
+						</h4>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<asp:Button ID="BookFlightButton" runat="server" Text="Book Flight" CssClass="btn btn-primary" />
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </asp:Content>

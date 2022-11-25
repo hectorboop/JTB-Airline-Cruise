@@ -46,21 +46,36 @@ namespace JTB_Airline_Cruise.Web_Services
         }
 
         [WebMethod]
-        public void AddCruise(Cruiseline cruiseline, string departurePort, List<string> visitingPorts, DateTime startDate,
-                                DateTime endDate, string region, string ship, List<float> cruisePrice)
+        public void AddCruise(_Cruise _cruise)
         {
             Cruise cruise = new Cruise()
             {
-                Name = "",
-                StartDate = startDate,
-                EndDate = endDate,
-                Cruiseline = cruiseline,
-                Ship = ship,
-                CruiseLength = 0,
-                DeparturePort = departurePort,
-                VisitingPorts = visitingPorts,
-                CruisePrice = cruisePrice
-    };
+                Name = _cruise.Name,
+                StartDate = _cruise.StartDate,
+                EndDate = _cruise.EndDate,
+                Cruiseline = _databaseContext.Cruiselines.FirstOrDefault(c => c.CruiselineName == _cruise.Cruiseline),
+                Ship = _cruise.Ship,
+                CruiseLength = _cruise.CruiseLength,
+                DeparturePort = _cruise.DeparturePort,
+                VisitingPorts = new List<VisitingPort>(),
+                CruisePrice = new List<CruisePrice>(),
+                RoomTypes = new List<RoomType>()
+            };
+
+            foreach (string c in _cruise.VisitingPorts)
+            {
+                cruise.VisitingPorts.Add(new VisitingPort() { Name = c });
+            }
+
+            foreach (float c in _cruise.CruisePrice)
+            {
+                cruise.CruisePrice.Add(new CruisePrice() {  Price = c });
+            }
+
+            foreach (string c in _cruise.RoomTypes)
+            {
+                cruise.RoomTypes.Add(new RoomType() { Name = c });
+            }
 
             _databaseContext.Cruises.Add(cruise);
             _databaseContext.SaveChanges();
@@ -79,20 +94,35 @@ namespace JTB_Airline_Cruise.Web_Services
         }
 
         [WebMethod]
-        public void UpdateCruise(int cruiseId, Cruiseline cruiseline, string departurePort, List<string> visitingPorts, DateTime startDate,
-                                DateTime endDate, string region, string ship, List<float> cruisePrice)
+        public void UpdateCruise(_Cruise _cruise)
         {
-            Cruise update = GetCruiseById(cruiseId);
+            Cruise update = GetCruiseById(_cruise.Id);
 
-            update.Name = "";
-            update.StartDate = startDate;
-            update.EndDate = endDate;
-            update.Cruiseline = cruiseline;
-            update.Ship = ship;
-            update.CruiseLength = 0;
-            update.DeparturePort = departurePort;
-            update.VisitingPorts = visitingPorts;
-            update.CruisePrice = cruisePrice;
+            update.Name = _cruise.Name;
+            update.StartDate = _cruise.StartDate;
+            update.EndDate = _cruise.EndDate;
+            update.Cruiseline = _databaseContext.Cruiselines.FirstOrDefault(c => c.CruiselineName == _cruise.Cruiseline);
+            update.Ship = _cruise.Ship;
+            update.CruiseLength = _cruise.CruiseLength;
+            update.DeparturePort = _cruise.DeparturePort;
+            update.VisitingPorts = new List<VisitingPort>();
+            update.CruisePrice = new List<CruisePrice>();
+            update.RoomTypes = new List<RoomType>();
+
+            foreach (string c in _cruise.VisitingPorts)
+            {
+                update.VisitingPorts.Add(new VisitingPort() { Name = c });
+            }
+
+            foreach (float c in _cruise.CruisePrice)
+            {
+                update.CruisePrice.Add(new CruisePrice() { Price = c });
+            }
+
+            foreach (string c in _cruise.RoomTypes)
+            {
+                update.RoomTypes.Add(new RoomType() { Name = c });
+            }
 
             _databaseContext.Entry(update).State = EntityState.Modified;
             _databaseContext.SaveChanges();

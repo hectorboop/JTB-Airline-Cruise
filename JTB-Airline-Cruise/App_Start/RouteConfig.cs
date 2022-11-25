@@ -13,6 +13,9 @@ namespace JTB_Airline_Cruise
             var settings = new FriendlyUrlSettings();
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
+
+            routes.MapPageRoute("AllFlights", "AllFLights", "~/FlightList.aspx");
+            routes.MapPageRoute("FlightDetails", "FlightDetails/{Id}", "~/FlightDetails.aspx");
         }
     }
 }

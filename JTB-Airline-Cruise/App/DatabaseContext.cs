@@ -11,6 +11,8 @@ namespace JTB_Airline_Cruise.App
     {
         public DatabaseContext() : base("JTB_DB")
         {
+            //this.Configuration.ProxyCreationEnabled = false;
+            //this.Configuration.LazyLoadingEnabled = false;
             Database.SetInitializer<DatabaseContext>(new DatabaseInitializer());
         }
 
@@ -21,6 +23,12 @@ namespace JTB_Airline_Cruise.App
         public DbSet<FlightBooking> FlightBookings { get; set; }
         public DbSet<CruiseBooking> CruiseBookings { get; set; }
         public DbSet<City> City { get; set; }
+        public DbSet<FlightType> FlightType { get; set; }
+        public DbSet<FlightClass> FlightClass { get; set; }
+        public DbSet<FlightPrice> FlightPrice { get; set; }
+        public DbSet<CruisePrice> CruisePrice { get; set; }
+        public DbSet<VisitingPort> VisitingPort { get; set; }
+        public DbSet<RoomType> RoomType { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

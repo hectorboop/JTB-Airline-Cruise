@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Services;
 using System.Data;
 using System.Data.Entity;
+using System.Xml.Serialization;
+using System.Threading.Tasks;
 
 namespace JTB_Airline_Cruise.Web_Services
 {
@@ -16,10 +18,16 @@ namespace JTB_Airline_Cruise.Web_Services
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
+    [System.Web.Script.Services.ScriptService]
     public class AirlineService : System.Web.Services.WebService
     {
         private static DatabaseContext _databaseContext = new DatabaseContext();
+
+        [WebMethod]
+        public Flight A_Debug_Test()
+        {
+            return new Flight() { FlightID = 1};
+        }
 
         // Required Methods
         [WebMethod] //Default
@@ -44,29 +52,52 @@ namespace JTB_Airline_Cruise.Web_Services
         }
 
         [WebMethod]
-        public void AddFlight(Airline airline, string departureCity, string destinationCity, DateTime departureDate, 
-                                DateTime returnDate, int travellers, List<string> flightType, List<string> flightClass, List<float> flightPrice)
+        public void AddFlight(_Flight _flight)
         {
             Flight flight = new Flight()
             {
-                Airline = airline,
-                DepartureCity = departureCity,
-                DestinationCity = destinationCity,
-                DepartureDate = departureDate,
-                ReturnDate = returnDate,
-                FlightType = flightType,
-                FlightClass = flightType,
-                FlightPrice = flightPrice
+                Airline = _databaseContext.Airlines.FirstOrDefault(a => a.AirlineName == _flight.AirlineName),
+                DepartureCity = _flight.DepartureCity,
+                DestinationCity = _flight.DestinationCity,
+                DepartureDate = _flight.DepartureDate,
+                ReturnDate = _flight.ReturnDate,
+                FlightType = new List<FlightType>(),
+                FlightClass = new List<FlightClass>(),
+                FlightPrice = new List<FlightPrice>(),
+                Plane = _flight.Plane
             };
+
+            foreach (string f in _flight.FlightType)
+            {
+                flight.FlightType.Add(_databaseContext.FlightType.FirstOrDefault(ft => ft.Name == f));
+            }
+
+            foreach (string f in _flight.FlightClass)
+            {
+                flight.FlightClass.Add(_databaseContext.FlightClass.FirstOrDefault(ft => ft.Name == f));
+            }
+
+            foreach (float f in _flight.FlightPrice)
+            {
+                flight.FlightPrice.Add(new FlightPrice() { Value = f});
+            }
 
             _databaseContext.Flights.Add(flight);
             _databaseContext.SaveChanges();
         }
 
         [WebMethod]
-        public List<Flight> AllFlights()
+        public List<_Flight> AllFlights()
         {
-            return _databaseContext.Flights.ToList();
+            List<Flight> flights = _databaseContext.Flights.ToList();
+            List<_Flight> _flights = new List<_Flight>();
+
+            foreach (Flight flight in flights)
+            {
+                _flights.Add(new _Flight().Parse(flight));
+            }
+
+            return _flights;
         }
 
         [WebMethod]
@@ -76,20 +107,35 @@ namespace JTB_Airline_Cruise.Web_Services
         }
 
         [WebMethod]
-        public void UpdateFlight(int flightId, Airline airline, string departureCity, string destinationCity, DateTime departureDate,
-                                DateTime returnDate, int travellers, List<string> flightType, List<string> flightClass, List<float> flightPrice)
+        public void UpdateFlight(_Flight _flight)
         {
-            Flight update = GetFlightById(flightId);
+            Flight update = GetFlightById(_flight.Id);
 
-            update.Airline = airline;
-            update.DepartureCity = departureCity;
-            update.DestinationCity = destinationCity;
-            update.DepartureDate = departureDate;
-            update.ReturnDate = returnDate;
-            update.FlightType = flightType;
-            update.FlightClass = flightClass;
-            update.FlightPrice = flightPrice;
-            
+            update.Airline = _databaseContext.Airlines.FirstOrDefault(a => a.AirlineName == _flight.AirlineName);
+            update.DepartureCity = _flight.DepartureCity;
+            update.DestinationCity = _flight.DestinationCity;
+            update.DepartureDate = _flight.DepartureDate;
+            update.ReturnDate = _flight.ReturnDate;
+            update.FlightType = new List<FlightType>();
+            update.FlightClass = new List<FlightClass>();
+            update.FlightPrice = new List<FlightPrice>();
+            update.Plane = _flight.Plane;
+
+            foreach (string f in _flight.FlightType)
+            {
+                update.FlightType.Add(_databaseContext.FlightType.FirstOrDefault(ft => ft.Name == f));
+            }
+
+            foreach (string f in _flight.FlightClass)
+            {
+                update.FlightClass.Add(_databaseContext.FlightClass.FirstOrDefault(ft => ft.Name == f));
+            }
+
+            foreach (float f in _flight.FlightPrice)
+            {
+                update.FlightPrice.Add(new FlightPrice() { Value = f });
+            }
+
             _databaseContext.Entry(update).State = EntityState.Modified;
             _databaseContext.SaveChanges();
         }
@@ -161,6 +207,5 @@ namespace JTB_Airline_Cruise.Web_Services
         {
             return _databaseContext.FlightBookings.Where(b => b.PassengerId == passengerId).ToList();
         }
-
     }
 }

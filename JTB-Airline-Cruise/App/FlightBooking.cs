@@ -5,6 +5,7 @@ using System.Web;
 
 namespace JTB_Airline_Cruise.App
 {
+    [Serializable]
     public class FlightBooking
     {
         public int Id { get; set; }
