@@ -137,8 +137,8 @@
 								<img src="/Assets/images/faces/male/24.jpg" alt="user-img" class="rounded-circle mb-1">
 							</div>
 							<div class="user-info">
-								<h5 class="mb-0 font-weight-bold fs-16">Lilly Sparter</h5>
-								<span class="app-sidebar__user-name text-sm text-white-80">App Developer</span>
+								<h5 class="mb-0 font-weight-bold fs-16">John Brown</h5>
+								<span class="app-sidebar__user-name text-sm text-white-80">Senior Administrator</span>
 							</div>
 						</div>
 					</div>
@@ -153,18 +153,37 @@
 							</a>
 						</li>
 
+						<li>
+							<a class="side-menu__item" href="Bookings.aspx">
+								<i class="side-menu__icon fe fe-calendar"></i>
+								<span class="side-menu__label">Bookings</span>
+							</a>
+						</li>
+
+						<li class="slide">
+							<a class="side-menu__item slide-show"  href="javascript:void(0)"><i class="side-menu__icon fe fe-map"></i><span class="side-menu__label">Cities</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a class="slide-item" href="Cities.aspx">Cities</a></li>
+								<li><a class="slide-item" href="AddCity.aspx">New City</a></li>
+							</ul>
+						</li>
+
 						<li class="slide">
 							<a class="side-menu__item slide-show"  href="javascript:void(0)"><i class="side-menu__icon fa fa-ship"></i><span class="side-menu__label">Cruises</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
-								<li><a class="slide-item" href="Cruises.aspx">All Cruises</a></li>
+								<li><a class="slide-item" href="Cruises.aspx">Cruises</a></li>
+								<li><a class="slide-item" href="Cruiselines.aspx">Cruiselines</a></li>
 								<li><a class="slide-item" href="AddCruise.aspx">New Cruise</a></li>
+								<li><a class="slide-item" href="AddCruiseline.aspx">New Cruiseline</a></li>
 							</ul>
 						</li>
 
 						<li class="slide">
 							<a class="side-menu__item slide-show"  href="javascript:void(0)"><i class="side-menu__icon fa fa-plane"></i><span class="side-menu__label">Flights</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
-								<li><a class="slide-item" href="Flights.aspx">Flights List</a></li>
+								<li><a class="slide-item" href="Airlines.aspx">Airlines</a></li>
+								<li><a class="slide-item" href="Flights.aspx">Flights</a></li>
+								<li><a class="slide-item" href="AddAirline.aspx">New Airline</a></li>
 								<li><a class="slide-item" href="AddFlight.aspx">New Flight</a></li>
 							</ul>
 						</li>
@@ -195,7 +214,7 @@
 				<div class="container">
 					<div class="row align-items-center flex-row-reverse">
 						<div class="col-md-12 col-sm-12 mt-3 mt-lg-0 text-center">
-							Copyright © 2022 <a href="javascript:void(0)"  class="text-primary">Jamaica Tourist Board</a>. Designed with <span class="fa fa-heart text-danger"></span> by <a href="javascript:void(0)" class="text-primary"> Spruko </a> All rights reserved.
+							Copyright © 2022 <a href="javascript:void(0)"  class="text-primary">Jamaica Tourist Board</a>. Designed with <span class="fa fa-heart text-danger"></span> by <a href="javascript:void(0)" class="text-primary"> Group 3 </a> All rights reserved.
 						</div>
 					</div>
 				</div>
@@ -249,6 +268,11 @@
 
 		<!--Side-menu Js-->
 		<script src="/Assets/plugins/toggle-sidebar/sidemenu.js"></script>
+
+		<!-- Data tables -->
+		<script src="/Assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+		<script src="/Assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+		<script src="/Assets/js/datatable.js"></script>
 
 		<!--Select2 js -->
 		<script src="/Assets/plugins/select2/select2.full.min.js"></script>

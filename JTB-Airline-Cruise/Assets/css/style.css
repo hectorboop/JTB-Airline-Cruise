@@ -7798,6 +7798,7 @@ small {
 }
 
 .bg-return::before {
+    background-position: 0% 0%;
     content: "";
     position: absolute;
     width: 100%;
@@ -7806,8 +7807,10 @@ small {
     inset-inline-end: 0;
     display: block;
     top: 0;
-    background-position-y: center !important;
-    background: url("../images/banners/banner14.jpg");
+    background-color: transparent;
+    background-image: url('../images/banners/banner14.jpg');
+    background-repeat: repeat;
+    background-attachment: scroll;
 }
 
 .bg-return-img-2::before {

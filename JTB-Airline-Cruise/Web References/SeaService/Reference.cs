@@ -27,6 +27,7 @@ namespace JTB_Airline_Cruise.SeaService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="CruiselineServiceSoap", Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Record))]
     public partial class CruiselineService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback GetCruisesOperationCompleted;
@@ -56,6 +57,14 @@ namespace JTB_Airline_Cruise.SeaService {
         private System.Threading.SendOrPostCallback AllBookingsOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetBookingsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetBookingCountOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetCruiseCountOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetCruiseRevenueOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetRecentBookingsOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -136,6 +145,18 @@ namespace JTB_Airline_Cruise.SeaService {
         
         /// <remarks/>
         public event GetBookingsCompletedEventHandler GetBookingsCompleted;
+        
+        /// <remarks/>
+        public event GetBookingCountCompletedEventHandler GetBookingCountCompleted;
+        
+        /// <remarks/>
+        public event GetCruiseCountCompletedEventHandler GetCruiseCountCompleted;
+        
+        /// <remarks/>
+        public event GetCruiseRevenueCompletedEventHandler GetCruiseRevenueCompleted;
+        
+        /// <remarks/>
+        public event GetRecentBookingsCompletedEventHandler GetRecentBookingsCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetCruises", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -225,37 +246,23 @@ namespace JTB_Airline_Cruise.SeaService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddCruise", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AddCruise(Cruiseline cruiseline, string departurePort, string visitingPorts, System.DateTime startDate, System.DateTime endDate, string region, string ship, float cruisePrice) {
+        public void AddCruise(_Cruise _cruise) {
             this.Invoke("AddCruise", new object[] {
-                        cruiseline,
-                        departurePort,
-                        visitingPorts,
-                        startDate,
-                        endDate,
-                        region,
-                        ship,
-                        cruisePrice});
+                        _cruise});
         }
         
         /// <remarks/>
-        public void AddCruiseAsync(Cruiseline cruiseline, string departurePort, string visitingPorts, System.DateTime startDate, System.DateTime endDate, string region, string ship, float cruisePrice) {
-            this.AddCruiseAsync(cruiseline, departurePort, visitingPorts, startDate, endDate, region, ship, cruisePrice, null);
+        public void AddCruiseAsync(_Cruise _cruise) {
+            this.AddCruiseAsync(_cruise, null);
         }
         
         /// <remarks/>
-        public void AddCruiseAsync(Cruiseline cruiseline, string departurePort, string visitingPorts, System.DateTime startDate, System.DateTime endDate, string region, string ship, float cruisePrice, object userState) {
+        public void AddCruiseAsync(_Cruise _cruise, object userState) {
             if ((this.AddCruiseOperationCompleted == null)) {
                 this.AddCruiseOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddCruiseOperationCompleted);
             }
             this.InvokeAsync("AddCruise", new object[] {
-                        cruiseline,
-                        departurePort,
-                        visitingPorts,
-                        startDate,
-                        endDate,
-                        region,
-                        ship,
-                        cruisePrice}, this.AddCruiseOperationCompleted, userState);
+                        _cruise}, this.AddCruiseOperationCompleted, userState);
         }
         
         private void OnAddCruiseOperationCompleted(object arg) {
@@ -323,39 +330,23 @@ namespace JTB_Airline_Cruise.SeaService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateCruise", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void UpdateCruise(int cruiseId, Cruiseline cruiseline, string departurePort, string visitingPorts, System.DateTime startDate, System.DateTime endDate, string region, string ship, float cruisePrice) {
+        public void UpdateCruise(_Cruise _cruise) {
             this.Invoke("UpdateCruise", new object[] {
-                        cruiseId,
-                        cruiseline,
-                        departurePort,
-                        visitingPorts,
-                        startDate,
-                        endDate,
-                        region,
-                        ship,
-                        cruisePrice});
+                        _cruise});
         }
         
         /// <remarks/>
-        public void UpdateCruiseAsync(int cruiseId, Cruiseline cruiseline, string departurePort, string visitingPorts, System.DateTime startDate, System.DateTime endDate, string region, string ship, float cruisePrice) {
-            this.UpdateCruiseAsync(cruiseId, cruiseline, departurePort, visitingPorts, startDate, endDate, region, ship, cruisePrice, null);
+        public void UpdateCruiseAsync(_Cruise _cruise) {
+            this.UpdateCruiseAsync(_cruise, null);
         }
         
         /// <remarks/>
-        public void UpdateCruiseAsync(int cruiseId, Cruiseline cruiseline, string departurePort, string visitingPorts, System.DateTime startDate, System.DateTime endDate, string region, string ship, float cruisePrice, object userState) {
+        public void UpdateCruiseAsync(_Cruise _cruise, object userState) {
             if ((this.UpdateCruiseOperationCompleted == null)) {
                 this.UpdateCruiseOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateCruiseOperationCompleted);
             }
             this.InvokeAsync("UpdateCruise", new object[] {
-                        cruiseId,
-                        cruiseline,
-                        departurePort,
-                        visitingPorts,
-                        startDate,
-                        endDate,
-                        region,
-                        ship,
-                        cruisePrice}, this.UpdateCruiseOperationCompleted, userState);
+                        _cruise}, this.UpdateCruiseOperationCompleted, userState);
         }
         
         private void OnUpdateCruiseOperationCompleted(object arg) {
@@ -564,6 +555,114 @@ namespace JTB_Airline_Cruise.SeaService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetBookingCount", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int GetBookingCount() {
+            object[] results = this.Invoke("GetBookingCount", new object[0]);
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetBookingCountAsync() {
+            this.GetBookingCountAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetBookingCountAsync(object userState) {
+            if ((this.GetBookingCountOperationCompleted == null)) {
+                this.GetBookingCountOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetBookingCountOperationCompleted);
+            }
+            this.InvokeAsync("GetBookingCount", new object[0], this.GetBookingCountOperationCompleted, userState);
+        }
+        
+        private void OnGetBookingCountOperationCompleted(object arg) {
+            if ((this.GetBookingCountCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetBookingCountCompleted(this, new GetBookingCountCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetCruiseCount", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int GetCruiseCount() {
+            object[] results = this.Invoke("GetCruiseCount", new object[0]);
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetCruiseCountAsync() {
+            this.GetCruiseCountAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetCruiseCountAsync(object userState) {
+            if ((this.GetCruiseCountOperationCompleted == null)) {
+                this.GetCruiseCountOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetCruiseCountOperationCompleted);
+            }
+            this.InvokeAsync("GetCruiseCount", new object[0], this.GetCruiseCountOperationCompleted, userState);
+        }
+        
+        private void OnGetCruiseCountOperationCompleted(object arg) {
+            if ((this.GetCruiseCountCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetCruiseCountCompleted(this, new GetCruiseCountCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetCruiseRevenue", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public float GetCruiseRevenue() {
+            object[] results = this.Invoke("GetCruiseRevenue", new object[0]);
+            return ((float)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetCruiseRevenueAsync() {
+            this.GetCruiseRevenueAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetCruiseRevenueAsync(object userState) {
+            if ((this.GetCruiseRevenueOperationCompleted == null)) {
+                this.GetCruiseRevenueOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetCruiseRevenueOperationCompleted);
+            }
+            this.InvokeAsync("GetCruiseRevenue", new object[0], this.GetCruiseRevenueOperationCompleted, userState);
+        }
+        
+        private void OnGetCruiseRevenueOperationCompleted(object arg) {
+            if ((this.GetCruiseRevenueCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetCruiseRevenueCompleted(this, new GetCruiseRevenueCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetRecentBookings", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public CruiseBooking[] GetRecentBookings() {
+            object[] results = this.Invoke("GetRecentBookings", new object[0]);
+            return ((CruiseBooking[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetRecentBookingsAsync() {
+            this.GetRecentBookingsAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetRecentBookingsAsync(object userState) {
+            if ((this.GetRecentBookingsOperationCompleted == null)) {
+                this.GetRecentBookingsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetRecentBookingsOperationCompleted);
+            }
+            this.InvokeAsync("GetRecentBookings", new object[0], this.GetRecentBookingsOperationCompleted, userState);
+        }
+        
+        private void OnGetRecentBookingsOperationCompleted(object arg) {
+            if ((this.GetRecentBookingsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetRecentBookingsCompleted(this, new GetRecentBookingsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -600,17 +699,17 @@ namespace JTB_Airline_Cruise.SeaService {
         
         private Cruiseline cruiselineField;
         
-        private string regionField;
-        
         private string shipField;
         
         private int cruiseLengthField;
         
         private string departurePortField;
         
-        private string visitingPortsField;
+        private VisitingPort[] visitingPortsField;
         
-        private float cruisePriceField;
+        private CruisePrice[] cruisePriceField;
+        
+        private RoomType[] roomTypesField;
         
         /// <remarks/>
         public int CruiseID {
@@ -663,16 +762,6 @@ namespace JTB_Airline_Cruise.SeaService {
         }
         
         /// <remarks/>
-        public string Region {
-            get {
-                return this.regionField;
-            }
-            set {
-                this.regionField = value;
-            }
-        }
-        
-        /// <remarks/>
         public string Ship {
             get {
                 return this.shipField;
@@ -703,7 +792,7 @@ namespace JTB_Airline_Cruise.SeaService {
         }
         
         /// <remarks/>
-        public string VisitingPorts {
+        public VisitingPort[] VisitingPorts {
             get {
                 return this.visitingPortsField;
             }
@@ -713,12 +802,22 @@ namespace JTB_Airline_Cruise.SeaService {
         }
         
         /// <remarks/>
-        public float CruisePrice {
+        public CruisePrice[] CruisePrice {
             get {
                 return this.cruisePriceField;
             }
             set {
                 this.cruisePriceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public RoomType[] RoomTypes {
+            get {
+                return this.roomTypesField;
+            }
+            set {
+                this.roomTypesField = value;
             }
         }
     }
@@ -778,6 +877,8 @@ namespace JTB_Airline_Cruise.SeaService {
         
         private int idField;
         
+        private int cruiseIdField;
+        
         private string roomNumberField;
         
         private string nameField;
@@ -788,6 +889,8 @@ namespace JTB_Airline_Cruise.SeaService {
         
         private string passengerIdField;
         
+        private float bookingCostField;
+        
         /// <remarks/>
         public int Id {
             get {
@@ -795,6 +898,16 @@ namespace JTB_Airline_Cruise.SeaService {
             }
             set {
                 this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CruiseId {
+            get {
+                return this.cruiseIdField;
+            }
+            set {
+                this.cruiseIdField = value;
             }
         }
         
@@ -845,6 +958,302 @@ namespace JTB_Airline_Cruise.SeaService {
             }
             set {
                 this.passengerIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public float BookingCost {
+            get {
+                return this.bookingCostField;
+            }
+            set {
+                this.bookingCostField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(_Cruise))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Record {
+        
+        private int idField;
+        
+        private string nameField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class _Cruise : Record {
+        
+        private string cruiselineField;
+        
+        private System.DateTime startDateField;
+        
+        private System.DateTime endDateField;
+        
+        private string shipField;
+        
+        private int cruiseLengthField;
+        
+        private string departurePortField;
+        
+        private string[] visitingPortsField;
+        
+        private float[] cruisePriceField;
+        
+        private string[] roomTypesField;
+        
+        /// <remarks/>
+        public string Cruiseline {
+            get {
+                return this.cruiselineField;
+            }
+            set {
+                this.cruiselineField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime StartDate {
+            get {
+                return this.startDateField;
+            }
+            set {
+                this.startDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime EndDate {
+            get {
+                return this.endDateField;
+            }
+            set {
+                this.endDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Ship {
+            get {
+                return this.shipField;
+            }
+            set {
+                this.shipField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CruiseLength {
+            get {
+                return this.cruiseLengthField;
+            }
+            set {
+                this.cruiseLengthField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DeparturePort {
+            get {
+                return this.departurePortField;
+            }
+            set {
+                this.departurePortField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string[] VisitingPorts {
+            get {
+                return this.visitingPortsField;
+            }
+            set {
+                this.visitingPortsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public float[] CruisePrice {
+            get {
+                return this.cruisePriceField;
+            }
+            set {
+                this.cruisePriceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string[] RoomTypes {
+            get {
+                return this.roomTypesField;
+            }
+            set {
+                this.roomTypesField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class RoomType {
+        
+        private int idField;
+        
+        private Cruise cruiseField;
+        
+        private string nameField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Cruise Cruise {
+            get {
+                return this.cruiseField;
+            }
+            set {
+                this.cruiseField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class CruisePrice {
+        
+        private int idField;
+        
+        private Cruise cruiseField;
+        
+        private float priceField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Cruise Cruise {
+            get {
+                return this.cruiseField;
+            }
+            set {
+                this.cruiseField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public float Price {
+            get {
+                return this.priceField;
+            }
+            set {
+                this.priceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class VisitingPort {
+        
+        private int idField;
+        
+        private Cruise cruiseField;
+        
+        private string nameField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Cruise Cruise {
+            get {
+                return this.cruiseField;
+            }
+            set {
+                this.cruiseField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
             }
         }
     }
@@ -1068,6 +1477,110 @@ namespace JTB_Airline_Cruise.SeaService {
         private object[] results;
         
         internal GetBookingsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public CruiseBooking[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((CruiseBooking[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetBookingCountCompletedEventHandler(object sender, GetBookingCountCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetBookingCountCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetBookingCountCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetCruiseCountCompletedEventHandler(object sender, GetCruiseCountCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetCruiseCountCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetCruiseCountCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetCruiseRevenueCompletedEventHandler(object sender, GetCruiseRevenueCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetCruiseRevenueCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetCruiseRevenueCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public float Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((float)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetRecentBookingsCompletedEventHandler(object sender, GetRecentBookingsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetRecentBookingsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetRecentBookingsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

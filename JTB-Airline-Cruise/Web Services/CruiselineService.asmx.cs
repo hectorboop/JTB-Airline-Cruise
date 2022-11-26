@@ -196,5 +196,41 @@ namespace JTB_Airline_Cruise.Web_Services
         {
             return _databaseContext.CruiseBookings.Where(b => b.PassengerId == passengerId).ToList();
         }
+
+        [WebMethod]
+        public int GetBookingCount()
+        {
+            return _databaseContext.CruiseBookings.Count();
+        }
+
+        [WebMethod]
+        public int GetCruiseCount()
+        {
+            return _databaseContext.Cruises.Count();
+        }
+
+        [WebMethod]
+        public float GetCruiseRevenue()
+        {
+            float revenue = 0;
+
+            var cruises = _databaseContext.CruiseBookings.ToList();
+            if (cruises != null)
+            {
+                foreach (var cruise in cruises)
+                {
+                    revenue = + cruise.BookingCost;
+                }
+            }
+
+            return revenue;
+        }
+
+        [WebMethod]
+        public List<CruiseBooking> GetRecentBookings()
+        {
+            //Use AsNoTracking & ToListAsync when loading many records
+            return _databaseContext.CruiseBookings.OrderByDescending(b => b.Id).Take(5).ToList();
+        }
     }
 }

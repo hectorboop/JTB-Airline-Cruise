@@ -232,10 +232,17 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AdminDashboard.aspx" />
+    <Content Include="Admin\AddAirline.aspx" />
+    <Content Include="Admin\AddCity.aspx" />
     <Content Include="Admin\AddCruise.aspx" />
+    <Content Include="Admin\AddCruiseline.aspx" />
     <Content Include="Admin\AddFlight.aspx" />
     <Content Include="Admin\AddUser.aspx" />
+    <Content Include="Admin\Airlines.aspx" />
     <Content Include="Admin\AllUsers.aspx" />
+    <Content Include="Admin\Bookings.aspx" />
+    <Content Include="Admin\Cities.aspx" />
+    <Content Include="Admin\Cruiselines.aspx" />
     <Content Include="Admin\Cruises.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\Flights.aspx" />
@@ -2987,12 +2994,33 @@
     <Compile Include="AdminDashboard.aspx.designer.cs">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddAirline.aspx.cs">
+      <DependentUpon>AddAirline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddAirline.aspx.designer.cs">
+      <DependentUpon>AddAirline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddCity.aspx.cs">
+      <DependentUpon>AddCity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddCity.aspx.designer.cs">
+      <DependentUpon>AddCity.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AddCruise.aspx.cs">
       <DependentUpon>AddCruise.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\AddCruise.aspx.designer.cs">
       <DependentUpon>AddCruise.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddCruiseline.aspx.cs">
+      <DependentUpon>AddCruiseline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddCruiseline.aspx.designer.cs">
+      <DependentUpon>AddCruiseline.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AddFlight.aspx.cs">
       <DependentUpon>AddFlight.aspx</DependentUpon>
@@ -3015,12 +3043,40 @@
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Airlines.aspx.cs">
+      <DependentUpon>Airlines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Airlines.aspx.designer.cs">
+      <DependentUpon>Airlines.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AllUsers.aspx.cs">
       <DependentUpon>AllUsers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\AllUsers.aspx.designer.cs">
       <DependentUpon>AllUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Bookings.aspx.cs">
+      <DependentUpon>Bookings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Bookings.aspx.designer.cs">
+      <DependentUpon>Bookings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Cities.aspx.cs">
+      <DependentUpon>Cities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Cities.aspx.designer.cs">
+      <DependentUpon>Cities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Cruiselines.aspx.cs">
+      <DependentUpon>Cruiselines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Cruiselines.aspx.designer.cs">
+      <DependentUpon>Cruiselines.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Cruises.aspx.cs">
       <DependentUpon>Cruises.aspx</DependentUpon>
@@ -3065,6 +3121,7 @@
       <DependentUpon>Settings.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Airline.cs" />
+    <Compile Include="App\Booking.cs" />
     <Compile Include="App\City.cs" />
     <Compile Include="App\Cruise.cs" />
     <Compile Include="App\CruiseBooking.cs" />
@@ -3235,10 +3292,10 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\SeaService\CruiselineService.wsdl" />
-    <Content Include="Web References\SeaService\Reference.map">
+    <None Include="Web References\SeaService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
