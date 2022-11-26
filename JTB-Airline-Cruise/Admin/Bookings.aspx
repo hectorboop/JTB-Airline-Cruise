@@ -47,21 +47,19 @@
 				<div class="col-md-12 col-lg-12">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title">All Bookings</h3>
+							<h3 class="card-title">Cruise Bookings</h3>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<table id="example2" class="hover table-bordered table border-bottom-0" >
+								<table id="example1" class="hover table-bordered table border-bottom-0" >
 									<thead>
 										<tr>
-											<th>Booking #</th>
-											<th>Category</th>
-											<th>Departure</th>
-											<th>Destination</th>
-											<th>Start</th>
-											<th>End</th>
-											<th>Price</th>
-											<th>Payment</th>
+											<th>Id</th>
+											<th>Passenger</th>
+											<th>Cruise</th>
+											<th>Room Number</th>
+											<th>Check In</th>
+											<th>Check Out</th>
 											<th>Options</th>
 										</tr>
 									</thead>
@@ -69,40 +67,20 @@
 										<asp:Repeater ID="CruiseBookingsRepeater" runat="server">
 											<ItemTemplate>
 												<tr>
-													<td>1</td>
-													<td>Lockheed Cloud Systems</td>
-													<td>Lockheed Cloud Systems</td>
-													<td>Lockheed Cloud Systems</td>
-													<td>Lockheed Cloud Systems</td>
-													<td>Lockheed Cloud Systems</td>
-													<td>Lockheed Cloud Systems</td>
-													<td>Lockheed Cloud Systems</td>
-													<td>Edit/Delete</td>
+													<td><%# Eval("Id") %></td>
+													<td><%# Eval("PassengerName") %></td>
+													<td><%# Eval("CruiseName") %></td>
+													<td><%# Eval("RoomNumber") %></td>
+													<td><%# Eval("CheckInDate") %></td>
+													<td><%# Eval("CheckOutDate") %></td>
+													<td>
+														<asp:LinkButton ID="EditCruiseLinkButton" runat="server">Edit</asp:LinkButton>
+														/
+														<asp:LinkButton ID="DeleteCruiseLinkButton" runat="server">Delete</asp:LinkButton>
+													</td>
 												</tr>
 											</ItemTemplate>
 										</asp:Repeater>
-										<tr>
-											<td>1</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Edit/Delete</td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>Air France</td>
-											<td>Air France</td>
-											<td>Air France</td>
-											<td>Air France</td>
-											<td>Air France</td>
-											<td>Air France</td>
-											<td>Air France</td>
-											<td>Edit/Delete</td>
-										</tr>
 									</tbody>
 								</table>
 							</div>
@@ -115,62 +93,38 @@
 				<div class="col-md-12 col-lg-12">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title">All Bookings</h3>
+							<h3 class="card-title">Flight Bookings</h3>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
 								<table id="example2" class="hover table-bordered table border-bottom-0" >
 									<thead>
 										<tr>
-											<th>Booking #</th>
-											<th>Category</th>
-											<th>Departure</th>
-											<th>Destination</th>
-											<th>Start</th>
-											<th>End</th>
-											<th>Price</th>
-											<th>Payment</th>
+											<th>Id</th>
+											<th>Passenger</th>
+											<th>Flight</th>
+											<th>Seat Number</th>
+											<th>Date</th>
 											<th>Options</th>
 										</tr>
 									</thead>
 									<tbody>
-										<asp:Repeater ID="Repeater1" runat="server">
+										<asp:Repeater ID="FlightRepeater" runat="server">
 											<ItemTemplate>
 												<tr>
-													<td>1</td>
-													<td>Lockheed Cloud Systems</td>
-													<td>Lockheed Cloud Systems</td>
-													<td>Lockheed Cloud Systems</td>
-													<td>Lockheed Cloud Systems</td>
-													<td>Lockheed Cloud Systems</td>
-													<td>Lockheed Cloud Systems</td>
-													<td>Lockheed Cloud Systems</td>
-													<td>Edit/Delete</td>
+													<td><%# Eval("Id") %></td>
+													<td><%# Eval("PassengerName") %></td>
+													<td><%# Eval("FlightName") %></td>
+													<td><%# Eval("SeatNumber") %></td>
+													<td><%# Eval("Date") %></td>
+													<td>
+														<asp:LinkButton ID="EditFlightLinkButton" runat="server">Edit</asp:LinkButton>
+														/
+														<asp:LinkButton ID="DeleteFlightLinkButton" runat="server">Delete</asp:LinkButton>
+													</td>
 												</tr>
 											</ItemTemplate>
 										</asp:Repeater>
-										<tr>
-											<td>1</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Edit/Delete</td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>Air France</td>
-											<td>Air France</td>
-											<td>Air France</td>
-											<td>Air France</td>
-											<td>Air France</td>
-											<td>Air France</td>
-											<td>Air France</td>
-											<td>Edit/Delete</td>
-										</tr>
 									</tbody>
 								</table>
 							</div>

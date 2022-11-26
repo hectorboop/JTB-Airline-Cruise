@@ -10,6 +10,7 @@ namespace JTB_Airline_Cruise.App
     {
         public int Id { get; set; }
         public int CruiseId { get; set; }
+        public int CruiseName { get; set; }
         public string RoomNumber { get; set; }
         public string Name { get; set; }
         public DateTime CheckInDate { get; set; }
@@ -17,6 +18,7 @@ namespace JTB_Airline_Cruise.App
         public string Departure { get; set; }
         public string Destination { get; set; }
         public string PassengerId { get; set; }
+        public string PassengerName { get; set; }
         public float BookingCost { get; set; }
     }
 }
