@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://localhost:44377/Web Services/CruiselineService.asmx?wsdl" docRef="https://localhost:44377/Web Services/CruiselineService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://localhost:44377/Web%20Services/CruiselineService.asmx" xmlns:q1="http://tempuri.org/" binding="q1:CruiselineServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://localhost:44377/Web%20Services/CruiselineService.asmx" xmlns:q2="http://tempuri.org/" binding="q2:CruiselineServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

@@ -110,7 +110,7 @@ $( document ).ready(function() {
 
 	$("#click").click(function(){
 		$('body').removeClass('timer-alert');
-		swal('Congratulations!', 'Your message has been succesfully sent', 'success');
+		swal('Sucess!', 'Database record added!', 'success');
 	});
 	$("#click1").click(function(){
 		$('body').removeClass('timer-alert');

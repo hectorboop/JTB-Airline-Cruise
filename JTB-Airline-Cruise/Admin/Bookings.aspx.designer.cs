@@ -15,13 +15,13 @@ namespace JTB_Airline_Cruise.Admin
     {
 
         /// <summary>
-        /// CruiseBookingsRepeater control.
+        /// CruiseRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater CruiseBookingsRepeater;
+        protected global::System.Web.UI.WebControls.Repeater CruiseRepeater;
 
         /// <summary>
         /// FlightRepeater control.

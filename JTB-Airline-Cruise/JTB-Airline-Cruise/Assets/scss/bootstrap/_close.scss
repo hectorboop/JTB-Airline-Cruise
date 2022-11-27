@@ -1,0 +1,26 @@
+/*-------- close -------*/
+.btn-close {
+	float: #{$float-right};
+	line-height: 1 !important;
+	background:transparent;
+	color: inherit;
+	text-shadow: 0 1px 0 $white;
+	opacity: .6;
+	font-size: 1.2rem;
+	transition: .3s color;
+	&:focus, &:hover {
+		color: #a0afc7;
+		text-decoration: none;
+		opacity: .75;
+	}
+	&:not(:disabled):not(.disabled) {
+		cursor: pointer;
+	}
+}
+button.close {
+	padding: 0;
+	background-color: transparent;
+	border: 0;
+	-webkit-appearance: none;
+}
+/*-------- close -------*/

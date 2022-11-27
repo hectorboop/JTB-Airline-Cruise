@@ -149,10 +149,15 @@
       <s:element name="AllCruisesResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="AllCruisesResult" type="tns:ArrayOfCruise" />
+            <s:element minOccurs="0" maxOccurs="1" name="AllCruisesResult" type="tns:ArrayOf_Cruise" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ArrayOf_Cruise">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="_Cruise" nillable="true" type="tns:_Cruise" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetCruiseById">
         <s:complexType>
           <s:sequence>
@@ -203,14 +208,19 @@
       <s:element name="GetCruiselinesResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetCruiselinesResult" type="tns:ArrayOfCruiseline" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetCruiselinesResult" type="tns:ArrayOf_Cruiseline" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfCruiseline">
+      <s:complexType name="ArrayOf_Cruiseline">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Cruiseline" nillable="true" type="tns:Cruiseline" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="_Cruiseline" nillable="true" type="tns:_Cruiseline" />
         </s:sequence>
+      </s:complexType>
+      <s:complexType name="_Cruiseline">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Record" />
+        </s:complexContent>
       </s:complexType>
       <s:element name="DeleteCruiseline">
         <s:complexType>
@@ -237,6 +247,16 @@
       <s:element name="UpdateCruiselineResponse">
         <s:complexType />
       </s:element>
+      <s:element name="GetLastCruiseLineID">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLastCruiseLineIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLastCruiseLineIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="AllBookings">
         <s:complexType />
       </s:element>
@@ -256,11 +276,15 @@
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="CruiseId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CruiseName" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="RoomNumber" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="CheckInDate" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="CheckOutDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Departure" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Destination" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="PassengerId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PassengerName" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="BookingCost" type="s:float" />
         </s:sequence>
       </s:complexType>
@@ -392,6 +416,12 @@
   <wsdl:message name="UpdateCruiselineSoapOut">
     <wsdl:part name="parameters" element="tns:UpdateCruiselineResponse" />
   </wsdl:message>
+  <wsdl:message name="GetLastCruiseLineIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLastCruiseLineID" />
+  </wsdl:message>
+  <wsdl:message name="GetLastCruiseLineIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLastCruiseLineIDResponse" />
+  </wsdl:message>
   <wsdl:message name="AllBookingsSoapIn">
     <wsdl:part name="parameters" element="tns:AllBookings" />
   </wsdl:message>
@@ -476,6 +506,10 @@
     <wsdl:operation name="UpdateCruiseline">
       <wsdl:input message="tns:UpdateCruiselineSoapIn" />
       <wsdl:output message="tns:UpdateCruiselineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastCruiseLineID">
+      <wsdl:input message="tns:GetLastCruiseLineIDSoapIn" />
+      <wsdl:output message="tns:GetLastCruiseLineIDSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="AllBookings">
       <wsdl:input message="tns:AllBookingsSoapIn" />
@@ -605,6 +639,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateCruiseline">
       <soap:operation soapAction="http://tempuri.org/UpdateCruiseline" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastCruiseLineID">
+      <soap:operation soapAction="http://tempuri.org/GetLastCruiseLineID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -770,6 +813,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateCruiseline">
       <soap12:operation soapAction="http://tempuri.org/UpdateCruiseline" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastCruiseLineID">
+      <soap12:operation soapAction="http://tempuri.org/GetLastCruiseLineID" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

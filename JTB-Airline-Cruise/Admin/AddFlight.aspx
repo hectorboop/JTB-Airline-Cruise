@@ -54,8 +54,8 @@
 								<div class="col-md-6 col-lg-6">
 									<div class="form-group">
 										<asp:Label ID="FlightIdLabel" runat="server" Text="Flight ID" CssClass="form-label" AssociatedControlID="FlightIdTextBox"></asp:Label>
-										<asp:TextBox ID="FlightIdTextBox" runat="server" CssClass="form-control"></asp:TextBox>
-										<asp:RequiredFieldValidator ID="FlightIdValidator1" runat="server" ErrorMessage="Please Select An Option" ControlToValidate="FlightIdTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
+										<asp:TextBox ID="FlightIdTextBox" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+										<asp:RequiredFieldValidator ID="FlightIdValidator1" runat="server" ErrorMessage="Error Generating Flight ID" ControlToValidate="FlightIdTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
 									</div>
 									<div class="form-group">
 										<asp:Label ID="AirlineLabel" runat="server" Text="Airline" CssClass="form-label" AssociatedControlID="AirlineDropDownList"></asp:Label>
@@ -63,34 +63,11 @@
 										<asp:RequiredFieldValidator ID="AirlineRequiredValidator" runat="server" ErrorMessage="Please Select An Option" ControlToValidate="AirlineDropDownList" ForeColor="Red"></asp:RequiredFieldValidator>
 									</div>
 									<div class="form-group">
-										<asp:Label ID="FlightTypeLabel" runat="server" Text="Type" CssClass="form-label" AssociatedControlID="FlightTypeDropDownList"></asp:Label>
-										<asp:DropDownList ID="FlightTypeDropDownList" runat="server" CssClass="form-control select2" ></asp:DropDownList>										
-										<asp:RequiredFieldValidator ID="FlightTypeValidator" runat="server" ErrorMessage="Please Select At Least One Option" ControlToValidate="FlightTypeDropDownList" ForeColor="Red"></asp:RequiredFieldValidator>
-
-									</div>
-									<div class="form-group">
-										<asp:Label ID="FlightClassLabel" runat="server" Text="Class" CssClass="form-label" AssociatedControlID="FlightClassDropDownList"></asp:Label>
-										<asp:DropDownList ID="FlightClassDropDownList" runat="server" CssClass="form-control form-select select2" ></asp:DropDownList>
-										<asp:RequiredFieldValidator ID="FlightClassValidator" runat="server" ErrorMessage="Please Select An Option" ControlToValidate="FlightClassDropDownList" ForeColor="Red"></asp:RequiredFieldValidator>
-									</div>
-									<div class="form-group">
-										<asp:Label ID="FlightPriceLabel" runat="server" Text="Price" CssClass="form-label" AssociatedControlID="FlightPriceTextBox"></asp:Label>
-										<asp:TextBox ID="FlightPriceTextBox" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
-										<asp:RequiredFieldValidator ID="FlightPriceValidator" runat="server" ErrorMessage="Please Input A Price" ControlToValidate="FlightPriceTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
-									</div>
-								</div>
-								
-								<div class="col-md-6 col-lg-6">
-									<div class="form-group">
 										<asp:Label ID="DepartureLabel" runat="server" Text="Departing From" CssClass="form-label" AssociatedControlID="DepartureDropDownList"></asp:Label>										
 										<asp:DropDownList ID="DepartureDropDownList" runat="server" CssClass="form-control form-select select2-show-search" ></asp:DropDownList>
 										<asp:RequiredFieldValidator ID="DepartureValidator" runat="server" ErrorMessage="Please Select An Option" ControlToValidate="DepartureDropDownList" ForeColor="Red"></asp:RequiredFieldValidator>										
 									</div>
-									<div class="form-group">
-										<asp:Label ID="DestinationLabel" runat="server" Text="Arriving At" CssClass="form-label" AssociatedControlID="DestinationDropDownList"></asp:Label>									
-										<asp:DropDownList ID="DestinationDropDownList" runat="server" CssClass="form-control form-select select2-show-search" ></asp:DropDownList>
-										<asp:RequiredFieldValidator ID="DestinationValidator" runat="server" ErrorMessage="Please Select An Option" ControlToValidate="DestinationDropDownList" ForeColor="Red"></asp:RequiredFieldValidator>
-									</div>
+									
 									<div class="form-group">
 										<asp:Label ID="DepartureDateLabel" runat="server" Text="Departure Date" CssClass="form-label" AssociatedControlID="DepartureDateTextBox"></asp:Label>
 										
@@ -109,8 +86,38 @@
 
 										<asp:RequiredFieldValidator ID="DepartureDateValidator" runat="server" ErrorMessage="Please Select A Date" ControlToValidate="DepartureDateTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
 									</div>
+									
 									<div class="form-group">
-										<asp:Label ID="DestinationDateLabel" runat="server" Text="Arrival Date" CssClass="form-label" AssociatedControlID="DestinationDateTextBox"></asp:Label>
+										<asp:Label ID="EconomyPriceLabel" runat="server" Text="Economy Price (Input 0 If There Is No Economy Class)" CssClass="form-label" AssociatedControlID="EconomyPriceTextBox"></asp:Label>
+										<asp:TextBox ID="EconomyPriceTextBox" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+										<asp:RequiredFieldValidator ID="EconomyPriceValidator" runat="server" ErrorMessage="Please Input A Price" ControlToValidate="EconomyPriceTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
+									</div>
+									<div class="form-group">
+										<asp:Label ID="BusinessPriceLabel" runat="server" Text="Business Price (Input 0 If There Is No Business Class)" CssClass="form-label" AssociatedControlID="BusinessPriceTextBox"></asp:Label>
+										<asp:TextBox ID="BusinessPriceTextBox" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+										<asp:RequiredFieldValidator ID="BusinessPriceValidator" runat="server" ErrorMessage="Please Input A Price" ControlToValidate="BusinessPriceTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
+									</div>
+								</div>
+								
+								<div class="col-md-6 col-lg-6">
+									<div class="form-group">
+										<asp:Label ID="PlaneLabel" runat="server" Text="Aircraft" CssClass="form-label" AssociatedControlID="PlaneTextBox"></asp:Label>
+										<asp:TextBox ID="PlaneTextBox" runat="server" CssClass="form-control"></asp:TextBox>
+										<asp:RequiredFieldValidator ID="PlaneRequiredFieldValidator" runat="server" ErrorMessage="Please Input An Aircraft" ControlToValidate="PlaneTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
+
+									</div>
+									<div class="form-group">
+										<asp:Label ID="FlightTypeLabel" runat="server" Text="Type" CssClass="form-label" AssociatedControlID="FlightTypeDropDownList"></asp:Label>
+										<asp:DropDownList ID="FlightTypeDropDownList" runat="server" CssClass="form-control select2" ></asp:DropDownList>										
+										<asp:RequiredFieldValidator ID="FlightTypeValidator" runat="server" ErrorMessage="Please Select At Least One Option" ControlToValidate="FlightTypeDropDownList" ForeColor="Red"></asp:RequiredFieldValidator>
+									</div>
+									<div class="form-group">
+										<asp:Label ID="DestinationLabel" runat="server" Text="Arriving At" CssClass="form-label" AssociatedControlID="DestinationDropDownList"></asp:Label>									
+										<asp:DropDownList ID="DestinationDropDownList" runat="server" CssClass="form-control form-select select2-show-search" ></asp:DropDownList>
+										<asp:RequiredFieldValidator ID="DestinationValidator" runat="server" ErrorMessage="Please Select An Option" ControlToValidate="DestinationDropDownList" ForeColor="Red"></asp:RequiredFieldValidator>
+									</div>
+									<div class="form-group">
+										<asp:Label ID="ReturnDateLabel" runat="server" Text="Return Date" CssClass="form-label" AssociatedControlID="ReturnDateTextBox"></asp:Label>
 										
 										<div class="wd-200 mg-b-30">
 											<div class="input-group">
@@ -120,23 +127,30 @@
 													</div>
 												</div>
 												
-												<asp:TextBox ID="DestinationDateTextBox" runat="server" CssClass="form-control fc-datepicker" placeholder="MM/DD/YYYY"></asp:TextBox>
+												<asp:TextBox ID="ReturnDateTextBox" runat="server" CssClass="form-control fc-datepicker" placeholder="MM/DD/YYYY"></asp:TextBox>
 												
 											</div>
 										</div>
 
-										<asp:RequiredFieldValidator ID="DestinationDateValidator" runat="server" ErrorMessage="Please Select A Date" ControlToValidate="DestinationDateTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
+										<asp:RequiredFieldValidator ID="ReturnDateValidator" runat="server" ErrorMessage="Please Select A Date" ControlToValidate="ReturnDateTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
 									</div>
 									<div class="form-group">
-										<asp:Label ID="Label5" runat="server" Text="Price" CssClass="form-label" AssociatedControlID="TextBox5"></asp:Label>
-										<asp:TextBox ID="TextBox5" runat="server" CssClass="form-control"></asp:TextBox>
+										<asp:Label ID="PremiumEconomyPriceLabel" runat="server" Text="Premium Economy Price (Input 0 If There Is No Premium Economy Class)" CssClass="form-label" AssociatedControlID="PremiumEconomyPriceTextBox"></asp:Label>
+										<asp:TextBox ID="PremiumEconomyPriceTextBox" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+										<asp:RequiredFieldValidator ID="PremiumEconomyPriceValidator" runat="server" ErrorMessage="Please Input A Price" ControlToValidate="PremiumEconomyPriceTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
 									</div>
+									<div class="form-group">
+										<asp:Label ID="FirstPriceLabel" runat="server" Text="First Price (Input 0 If There Is No First Class)" CssClass="form-label" AssociatedControlID="FirstPriceTextBox"></asp:Label>
+										<asp:TextBox ID="FirstPriceTextBox" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+										<asp:RequiredFieldValidator ID="FirstPriceValidator" runat="server" ErrorMessage="Please Input A Price" ControlToValidate="FirstPriceTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
+									</div>
+									
 								</div>
 
 								<div class="card-footer text-end">
 									<div class="d-flex">
 										<a href="javascript:void(0)" class="btn btn-link">Cancel</a>
-										<asp:Button ID="SubmitButton" runat="server" Text="Submit" CssClass="btn btn-primary ms-auto" />
+										<asp:Button ID="SubmitButton" runat="server" Text="Submit" CssClass="btn btn-primary ms-auto" OnClick="SubmitButton_Click"/>
 									</div>
 								</div>
 							</div>

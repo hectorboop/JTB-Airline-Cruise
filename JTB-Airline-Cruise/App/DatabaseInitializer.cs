@@ -11,6 +11,12 @@ namespace JTB_Airline_Cruise.App
     {
         protected override void Seed(DatabaseContext context)
         {
+            City cityA = new City() { Name = "London", Country = "United Kingdom" };            
+            City cityB = new City() { Name = "Miami", Country = "United States" };            
+            City cityC = new City() { Name = "New York", Country = "United States" };            
+            City cityD = new City() { Name = "Havana", Country = "Cuba" };            
+            City cityE = new City() { Name = "Nassau", Country = "The Bahamas" };            
+
             City Kingston = new City()
             {
                 Name = "Kingston",
@@ -38,8 +44,9 @@ namespace JTB_Airline_Cruise.App
             FlightClass business = new FlightClass(){ Name = "Business" };
             FlightClass firstClass = new FlightClass(){ Name = "First Class" };
 
-            FlightType oneWay = new FlightType() { Name = "One Way" };
-            FlightType returning = new FlightType() { Name = "Returning" };
+            FlightType oneWay = new FlightType() { Name = "One-Way" };
+            FlightType returning = new FlightType() { Name = "Round-Trip" };
+            FlightType stopOver = new FlightType() { Name = "Multi-City" };
 
             FlightPrice flightPriceA = new FlightPrice() { Value = 200f };
             FlightPrice flightPriceB = new FlightPrice() { Value = 300f };
@@ -78,9 +85,9 @@ namespace JTB_Airline_Cruise.App
                 Cruiseline = cruiseline,
                 DeparturePort = "Kingston",
                 StartDate = DateTime.Now,
-                EndDate = DateTime.Now,
+                EndDate = DateTime.Now.AddDays(5),
                 Ship = "Dark Sister",
-                CruiseLength = 0,
+                CruiseLength = 5,
                 Name = "",
                 VisitingPorts = new List<VisitingPort> { portA },
                 CruisePrice = new List<CruisePrice> { priceA },
@@ -103,6 +110,7 @@ namespace JTB_Airline_Cruise.App
 
             fTypes.Add(oneWay);
             fTypes.Add(returning);
+            fTypes.Add(stopOver);
 
             fClasses.Add(economy);
             fClasses.Add(premiumEconomy);
@@ -120,6 +128,12 @@ namespace JTB_Airline_Cruise.App
 
             cities.Add(Kingston);
             cities.Add(MontegoBay);
+
+            cities.Add(cityA);
+            cities.Add(cityB);
+            cities.Add(cityC);
+            cities.Add(cityD);
+            cities.Add(cityE);
 
             airlines.Add(AirJamaica);
             airlines.Add(FlyJamaica);

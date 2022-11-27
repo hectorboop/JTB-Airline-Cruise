@@ -2842,9 +2842,6 @@
     <Content Include="UI_Images\logo.png" />
     <Content Include="UserDashboard.aspx" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web References\AirService\Airline.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </Content>
     <None Include="Web References\AirService\AirlineService.disco" />
     <Content Include="Web References\LocationService\City.datasource">
       <DependentUpon>Reference.map</DependentUpon>
@@ -2858,14 +2855,14 @@
     <Content Include="Web References\AirService\_Flight.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
+    <Content Include="Web References\AirService\_Airline.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <None Include="Web References\LocationService\CityService.disco" />
     <Content Include="Web References\SeaService\Cruise.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <Content Include="Web References\SeaService\CruiseBooking.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </Content>
-    <Content Include="Web References\SeaService\Cruiseline.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <None Include="Web References\LocationService\CityService.wsdl" />
@@ -3296,6 +3293,12 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Web References\SeaService\_Cruiseline.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SeaService\_Cruise.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

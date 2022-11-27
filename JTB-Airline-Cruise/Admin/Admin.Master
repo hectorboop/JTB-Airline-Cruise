@@ -274,6 +274,13 @@
 		<script src="/Assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
 		<script src="/Assets/js/datatable.js"></script>
 
+		<!-- Popover js -->
+		<script src="/Assets/js/popover.js"></script>
+
+		<!-- Sweet alert Plugin -->
+		<script src="/Assets/plugins/sweet-alert/sweetalert.min.js"></script>
+		<script src="/Assets/js/sweet-alert.js"></script>
+
 		<!--Select2 js -->
 		<script src="/Assets/plugins/select2/select2.full.min.js"></script>
 		<script src="/Assets/js/select2.js"></script>

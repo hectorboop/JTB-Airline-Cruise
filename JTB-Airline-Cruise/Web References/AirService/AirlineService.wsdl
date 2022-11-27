@@ -220,15 +220,30 @@
       <s:element name="GetAirlinesResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAirlinesResult" type="tns:ArrayOfAirline" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAirlinesResult" type="tns:ArrayOf_Airline" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfAirline">
+      <s:complexType name="ArrayOf_Airline">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Airline" nillable="true" type="tns:Airline" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="_Airline" nillable="true" type="tns:_Airline" />
         </s:sequence>
       </s:complexType>
+      <s:complexType name="_Airline">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Record" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetLastAirlineID">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLastAirlineIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLastAirlineIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="DeleteAirline">
         <s:complexType>
           <s:sequence>
@@ -273,7 +288,13 @@
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="FlightId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FlightName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
           <s:element minOccurs="0" maxOccurs="1" name="PassengerId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PassengerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SeatNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Departure" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Destination" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="BookingCost" type="s:float" />
         </s:sequence>
       </s:complexType>
@@ -399,6 +420,12 @@
   <wsdl:message name="GetAirlinesSoapOut">
     <wsdl:part name="parameters" element="tns:GetAirlinesResponse" />
   </wsdl:message>
+  <wsdl:message name="GetLastAirlineIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLastAirlineID" />
+  </wsdl:message>
+  <wsdl:message name="GetLastAirlineIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLastAirlineIDResponse" />
+  </wsdl:message>
   <wsdl:message name="DeleteAirlineSoapIn">
     <wsdl:part name="parameters" element="tns:DeleteAirline" />
   </wsdl:message>
@@ -491,6 +518,10 @@
     <wsdl:operation name="GetAirlines">
       <wsdl:input message="tns:GetAirlinesSoapIn" />
       <wsdl:output message="tns:GetAirlinesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastAirlineID">
+      <wsdl:input message="tns:GetLastAirlineIDSoapIn" />
+      <wsdl:output message="tns:GetLastAirlineIDSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="DeleteAirline">
       <wsdl:input message="tns:DeleteAirlineSoapIn" />
@@ -619,6 +650,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAirlines">
       <soap:operation soapAction="http://tempuri.org/GetAirlines" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastAirlineID">
+      <soap:operation soapAction="http://tempuri.org/GetLastAirlineID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -793,6 +833,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAirlines">
       <soap12:operation soapAction="http://tempuri.org/GetAirlines" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastAirlineID">
+      <soap12:operation soapAction="http://tempuri.org/GetLastAirlineID" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

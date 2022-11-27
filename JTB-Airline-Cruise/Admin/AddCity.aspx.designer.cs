@@ -15,31 +15,31 @@ namespace JTB_Airline_Cruise.Admin
     {
 
         /// <summary>
-        /// CityIdLabel control.
+        /// CountryLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CityIdLabel;
+        protected global::System.Web.UI.WebControls.Label CountryLabel;
 
         /// <summary>
-        /// CityIdTextBox control.
+        /// CountryTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CityIdTextBox;
+        protected global::System.Web.UI.WebControls.TextBox CountryTextBox;
 
         /// <summary>
-        /// CityIdValidator control.
+        /// CountryValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator CityIdValidator;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CountryValidator;
 
         /// <summary>
         /// CityLabel control.

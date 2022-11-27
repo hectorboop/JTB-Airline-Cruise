@@ -113,4 +113,38 @@ namespace JTB_Airline_Cruise.App
         }
     }
 
+    [Serializable]
+    public class _Cruiseline : Record
+    {
+        //public List<string> Cruises { get; set; }
+
+        public _Cruiseline Parse(Cruiseline cruiseline)
+        {
+            _Cruiseline _cruiseline = new _Cruiseline()
+            {
+                Id = cruiseline.CruiselineID,
+                Name = cruiseline.CruiselineName
+            };
+
+            return _cruiseline; 
+        }
+    }
+
+    [Serializable]
+    public class _Airline : Record
+    {
+        //public List<string> Flights { get; set; }
+
+        public _Airline Parse(Airline airline)
+        {
+            _Airline _airline = new _Airline()
+            {
+                Id = airline.AirlineID,
+                Name = airline.AirlineName
+            };
+
+            return _airline;
+        }
+    }
+
 }

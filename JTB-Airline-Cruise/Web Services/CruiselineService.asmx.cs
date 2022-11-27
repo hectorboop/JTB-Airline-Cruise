@@ -82,9 +82,17 @@ namespace JTB_Airline_Cruise.Web_Services
         }
 
         [WebMethod]
-        public List<Cruise> AllCruises()
+        public List<_Cruise> AllCruises()
         {
-            return _databaseContext.Cruises.ToList();
+            List<Cruise> cruises = _databaseContext.Cruises.ToList();
+            List<_Cruise> _cruises = new List<_Cruise>();
+
+            foreach (Cruise cruise in cruises)
+            {
+                _cruises.Add(new _Cruise().Parse(cruise));
+            }
+
+            return _cruises;
         }
 
         [WebMethod]
@@ -150,9 +158,18 @@ namespace JTB_Airline_Cruise.Web_Services
         }
 
         [WebMethod]
-        public List<Cruiseline> GetCruiselines()
+        public List<_Cruiseline> GetCruiselines()
         {
-            return _databaseContext.Cruiselines.ToList();
+            List<_Cruiseline> _cruiselines = new List<_Cruiseline>();
+
+            var list = _databaseContext.Cruiselines.ToList();
+
+            foreach (var cruiseline in list)
+            {
+                _cruiselines.Add(new _Cruiseline().Parse(cruiseline));
+            }
+
+            return _cruiselines;
         }
 
         [WebMethod]
@@ -183,6 +200,12 @@ namespace JTB_Airline_Cruise.Web_Services
 
             _databaseContext.Entry(update).State = EntityState.Modified;
             _databaseContext.SaveChanges();
+        }
+
+        [WebMethod]
+        public int GetLastCruiseLineID()
+        {
+            return _databaseContext.Cruiselines.OrderByDescending(c => c.CruiselineID).FirstOrDefault().CruiselineID;
         }
 
         [WebMethod]

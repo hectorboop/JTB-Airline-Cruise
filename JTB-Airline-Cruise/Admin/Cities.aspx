@@ -61,18 +61,21 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>1</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Edit/Delete</td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>Air France</td>
-											<td>Air France</td>
-											<td>Edit/Delete</td>
-										</tr>
+										<asp:Repeater ID="CityRepeater" runat="server">
+											<ItemTemplate>
+												<tr>
+													<td><%# Eval("Id") %></td>
+													<td><%# Eval("Name") %></td>
+													<td><%# Eval("Country") %></td>
+											
+													<td>
+														<asp:LinkButton ID="EditLinkButton" runat="server">Edit</asp:LinkButton>
+														/
+														<asp:LinkButton ID="DeleteLinkButton" runat="server">Delete</asp:LinkButton>
+													</td>
+												</tr>
+											</ItemTemplate>
+										</asp:Repeater>
 									</tbody>
 								</table>
 							</div>

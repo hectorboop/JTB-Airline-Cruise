@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="JTB_Airline_Cruise.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="JTB_Airline_Cruise_AirService_AirlineService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://localhost:44377/Web%20Services/AirlineService.asmx</Value>
+    </Setting>
+    <Setting Name="JTB_Airline_Cruise_SeaService_CruiselineService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://localhost:44377/Web%20Services/CruiselineService.asmx</Value>
+    </Setting>
+    <Setting Name="JTB_Airline_Cruise_LocationService_CityService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://localhost:44377/Web%20Services/CityService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

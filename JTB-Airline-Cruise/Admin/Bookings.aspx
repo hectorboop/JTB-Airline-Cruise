@@ -51,7 +51,7 @@
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<table id="example1" class="hover table-bordered table border-bottom-0" >
+								<table id="example" class="hover table-bordered table border-bottom-0" >
 									<thead>
 										<tr>
 											<th>Id</th>
@@ -64,7 +64,7 @@
 										</tr>
 									</thead>
 									<tbody>
-										<asp:Repeater ID="CruiseBookingsRepeater" runat="server">
+										<asp:Repeater ID="CruiseRepeater" runat="server">
 											<ItemTemplate>
 												<tr>
 													<td><%# Eval("Id") %></td>

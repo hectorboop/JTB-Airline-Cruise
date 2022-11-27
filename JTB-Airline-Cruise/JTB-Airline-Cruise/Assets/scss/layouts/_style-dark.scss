@@ -1,0 +1,72 @@
+.dark-theme{
+    .sticky-wrapper.is-sticky .desktoplogo{
+        display: block !important;
+        margin-top: 10px;
+    }
+    .sticky-wrapper.is-sticky .desktoplogo-1{
+        display: none !important;
+    }
+     .horizontal-main{
+        .desktoplogo {
+            .img-color1{ 
+            display: none;
+            }
+            .logo-white{
+                display: block;
+            }
+        }
+        .desktoplogo-1 {
+            .img-color1{ 
+            display: none;
+            }
+            .logo-white{
+                display: block;
+            }
+        }
+    } 
+    .header-search-logo{
+        .img-color1{
+            display: none;
+        }
+    }
+    .section-title h1, .section-title h2{
+      color: $white-8;  
+    }
+    #container .cat-item,#container1 ,.top-cities,.absolute-tour-timeline-icon,
+    .owl-loaded.owl-drag .owl-item .servic-data,.white-png,.iteam-all-icon1,.servic-data,.cat-item.dark-img{
+        img{
+            filter: invert(100%);
+        }
+    } 
+
+    @media only screen and (max-width: 991px){
+        .horizontal-header .smllogo  {
+            .img-color1 {
+                display: none;
+            }
+            .logo-white {
+                display: block;
+                margin-top: 5px;
+            }
+        }
+    }
+    .form-group .location-gps{
+        filter: invert(100%);
+        background-color: transparent;
+    }
+    .form-control::placeholder{
+        color:rgba($white-rgb, 0.2) !important;
+    } 
+    @media only screen and (max-width: 991px){
+        .horizontalMenu>.horizontalMenu-list>li>.horizontalMenu-click>i,
+        .horizontalMenu>.horizontalMenu-list>li>ul.sub-menu>li .horizontalMenu-click02>i {
+             color: rgba($white-rgb, 0.25); 
+        }
+    }
+     .bg-background-pattern {
+        &:before {
+            background:$custom-white;
+            opacity:0.8;
+        }
+     }
+}

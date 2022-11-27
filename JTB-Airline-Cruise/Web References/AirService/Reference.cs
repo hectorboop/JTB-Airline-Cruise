@@ -52,6 +52,8 @@ namespace JTB_Airline_Cruise.AirService {
         
         private System.Threading.SendOrPostCallback GetAirlinesOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetLastAirlineIDOperationCompleted;
+        
         private System.Threading.SendOrPostCallback DeleteAirlineOperationCompleted;
         
         private System.Threading.SendOrPostCallback UpdateAirlineOperationCompleted;
@@ -138,6 +140,9 @@ namespace JTB_Airline_Cruise.AirService {
         
         /// <remarks/>
         public event GetAirlinesCompletedEventHandler GetAirlinesCompleted;
+        
+        /// <remarks/>
+        public event GetLastAirlineIDCompletedEventHandler GetLastAirlineIDCompleted;
         
         /// <remarks/>
         public event DeleteAirlineCompletedEventHandler DeleteAirlineCompleted;
@@ -452,9 +457,9 @@ namespace JTB_Airline_Cruise.AirService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAirlines", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Airline[] GetAirlines() {
+        public _Airline[] GetAirlines() {
             object[] results = this.Invoke("GetAirlines", new object[0]);
-            return ((Airline[])(results[0]));
+            return ((_Airline[])(results[0]));
         }
         
         /// <remarks/>
@@ -474,6 +479,33 @@ namespace JTB_Airline_Cruise.AirService {
             if ((this.GetAirlinesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetAirlinesCompleted(this, new GetAirlinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetLastAirlineID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int GetLastAirlineID() {
+            object[] results = this.Invoke("GetLastAirlineID", new object[0]);
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetLastAirlineIDAsync() {
+            this.GetLastAirlineIDAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetLastAirlineIDAsync(object userState) {
+            if ((this.GetLastAirlineIDOperationCompleted == null)) {
+                this.GetLastAirlineIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetLastAirlineIDOperationCompleted);
+            }
+            this.InvokeAsync("GetLastAirlineID", new object[0], this.GetLastAirlineIDOperationCompleted, userState);
+        }
+        
+        private void OnGetLastAirlineIDOperationCompleted(object arg) {
+            if ((this.GetLastAirlineIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetLastAirlineIDCompleted(this, new GetLastAirlineIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -905,7 +937,19 @@ namespace JTB_Airline_Cruise.AirService {
         
         private int flightIdField;
         
+        private string flightNameField;
+        
+        private System.DateTime dateField;
+        
         private string passengerIdField;
+        
+        private string passengerNameField;
+        
+        private string seatNumberField;
+        
+        private string departureField;
+        
+        private string destinationField;
         
         private float bookingCostField;
         
@@ -930,12 +974,72 @@ namespace JTB_Airline_Cruise.AirService {
         }
         
         /// <remarks/>
+        public string FlightName {
+            get {
+                return this.flightNameField;
+            }
+            set {
+                this.flightNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime Date {
+            get {
+                return this.dateField;
+            }
+            set {
+                this.dateField = value;
+            }
+        }
+        
+        /// <remarks/>
         public string PassengerId {
             get {
                 return this.passengerIdField;
             }
             set {
                 this.passengerIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PassengerName {
+            get {
+                return this.passengerNameField;
+            }
+            set {
+                this.passengerNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SeatNumber {
+            get {
+                return this.seatNumberField;
+            }
+            set {
+                this.seatNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Departure {
+            get {
+                return this.departureField;
+            }
+            set {
+                this.departureField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Destination {
+            get {
+                return this.destinationField;
+            }
+            set {
+                this.destinationField = value;
             }
         }
         
@@ -951,6 +1055,7 @@ namespace JTB_Airline_Cruise.AirService {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(_Airline))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(_Flight))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
@@ -982,6 +1087,15 @@ namespace JTB_Airline_Cruise.AirService {
                 this.nameField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class _Airline : Record {
     }
     
     /// <remarks/>
@@ -1404,10 +1518,36 @@ namespace JTB_Airline_Cruise.AirService {
         }
         
         /// <remarks/>
-        public Airline[] Result {
+        public _Airline[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Airline[])(this.results[0]));
+                return ((_Airline[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetLastAirlineIDCompletedEventHandler(object sender, GetLastAirlineIDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetLastAirlineIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetLastAirlineIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
             }
         }
     }

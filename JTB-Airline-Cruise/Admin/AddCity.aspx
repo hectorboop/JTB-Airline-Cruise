@@ -52,9 +52,9 @@
 							<div class="row">
 								<div class="col-md-6 col-lg-6">
 									<div class="form-group">
-										<asp:Label ID="CityIdLabel" runat="server" Text="City ID" CssClass="form-label" AssociatedControlID="CityIdTextBox"></asp:Label>
-										<asp:TextBox ID="CityIdTextBox" runat="server" CssClass="form-control" Enabled="False"></asp:TextBox>
-										<asp:RequiredFieldValidator ID="CityIdValidator" runat="server" ErrorMessage="Error Generating ID" ControlToValidate="CityIdTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
+										<asp:Label ID="CountryLabel" runat="server" Text="Country Name" CssClass="form-label" AssociatedControlID="CountryTextBox"></asp:Label>
+										<asp:TextBox ID="CountryTextBox" runat="server" CssClass="form-control"></asp:TextBox>
+										<asp:RequiredFieldValidator ID="CountryValidator" runat="server" ErrorMessage="Country Name Is Required" ControlToValidate="CountryTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
 									</div>
 								</div>
 								
@@ -69,7 +69,7 @@
 								<div class="card-footer text-end">
 									<div class="d-flex">
 										<a href="javascript:void(0)" class="btn btn-link">Cancel</a>
-										<asp:Button ID="SubmitButton" runat="server" Text="Add City" CssClass="btn btn-primary ms-auto" />
+										<asp:Button ID="SubmitButton" runat="server" Text="Add City" CssClass="btn btn-primary ms-auto" OnClick="SubmitButton_Click" />
 									</div>
 								</div>
 							</div>

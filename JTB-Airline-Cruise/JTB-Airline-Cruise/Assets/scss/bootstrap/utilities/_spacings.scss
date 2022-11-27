@@ -1,0 +1,65 @@
+/*-------- padding and margins -------*/
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@include media-breakpoint-up($breakpoint) {
+		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+		@each $prop, $abbrev in (margin: m, padding: p) {
+			@each $size, $length in $spacers {
+				.#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important}
+				.#{$abbrev}t#{$infix}-#{$size}{
+					#{$prop}-block-start: $length !important;
+				}
+				.#{$abbrev}e#{$infix}-#{$size}{
+					#{$prop}-inline-end: $length !important;
+				}
+				.#{$abbrev}b#{$infix}-#{$size}{
+					#{$prop}-block-end: $length !important;
+				}
+				.#{$abbrev}s#{$infix}-#{$size} {
+					#{$prop}-inline-start: $length !important;
+				}
+				.#{$abbrev}y#{$infix}-#{$size}{
+					#{$prop}-block-start: $length !important;
+					#{$prop}-block-end: $length !important;
+				}
+				.#{$abbrev}x#{$infix}-#{$size} {
+					#{$prop}-inline-start: $length !important;
+					#{$prop}-inline-end: $length !important;
+				}
+			}
+		}
+
+		// margin auto values
+		.m#{$infix}-auto { margin: auto !important; }
+		.mt#{$infix}-auto{
+			margin-block-start: auto !important;
+		}
+		.me#{$infix}-auto{
+			margin-inline-end: auto !important;
+		}
+		.mb#{$infix}-auto{
+			margin-block-end: auto !important;
+		}
+		.ms#{$infix}-auto{
+			margin-inline-start: auto !important;
+		}
+		.mb#{$infix}-auto{
+			margin-block-end: auto !important;
+		}
+		.ms#{$infix}-auto{
+			margin-inline-start: auto !important;
+		}
+		.my#{$infix}-auto{
+			margin-block-start: auto !important;
+			margin-block-end: auto !important;
+		}
+		.mx#{$infix}-auto{
+			margin-inline-start: auto !important;
+			margin-inline-end: auto !important;
+		}
+	}
+}
+.pt-10 {
+	padding-block-start: 8rem !important;
+}
+/*-------- padding and margins -------*/

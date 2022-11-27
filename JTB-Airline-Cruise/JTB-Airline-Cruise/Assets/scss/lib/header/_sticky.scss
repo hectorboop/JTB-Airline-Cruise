@@ -1,0 +1,40 @@
+/*-------- Sticky -------*/
+.sticky-pin {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+	box-shadow: 2px 3px 4.7px 0.3px rgba(0, 0, 0, 0.24);
+}
+.sticky-wrapper {
+	z-index: 18;
+	position: absolute;
+	inset-inline-start: 0;
+	inset-inline-end: 0;
+}
+.sticky-wrapper.is-sticky .horizontal-main.bg-dark-transparent {
+	background: $custom-white !important;
+}
+.sticky-wrapper.absolute.banners {
+	.horizontal-main {
+		background: $white;
+		.horizontalMenu>.horizontalMenu-list>li>a {
+			color: $text-color ;
+			>.fa {
+				color: $text-color ;
+			}
+		}
+	}
+}
+body.fixed-header .page {
+	padding-top: 4.5rem;
+}
+
+.sticky-wrapper.is-sticky .horizontal-main.header-style-04 {
+	background: $custom-white!important;
+}
+.sticky-wrapper.is-sticky  .horizontal-main.header-transparent {
+	background: $custom-white !important;
+	padding: 0 !important;
+}
+/*-------- Sticky -------*/

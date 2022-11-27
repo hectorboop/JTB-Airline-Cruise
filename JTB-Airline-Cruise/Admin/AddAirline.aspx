@@ -69,7 +69,7 @@
 								<div class="card-footer text-end">
 									<div class="d-flex">
 										<a href="javascript:void(0)" class="btn btn-link">Cancel</a>
-										<asp:Button ID="SubmitButton" runat="server" Text="Add Airline" CssClass="btn btn-primary ms-auto" />
+										<asp:Button ID="SubmitButton" runat="server" Text="Add Airline" CssClass="btn btn-primary ms-auto" OnClick="SubmitButton_Click" />
 									</div>
 								</div>
 							</div>

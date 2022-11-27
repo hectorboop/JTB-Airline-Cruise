@@ -60,16 +60,15 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>1</td>
-											<td>Lockheed Cloud Systems</td>
-											<td>Edit/Delete</td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>Air France</td>
-											<td>Edit/Delete</td>
-										</tr>
+										<asp:Repeater ID="CruiseRepeater" runat="server">
+											<ItemTemplate>
+												<tr>
+													<td><%# Eval("Id") %></td>
+													<td><%# Eval("Name") %></td>
+													<td>Edit/Delete</td>
+												</tr>
+											</ItemTemplate>
+										</asp:Repeater>
 									</tbody>
 								</table>
 							</div>

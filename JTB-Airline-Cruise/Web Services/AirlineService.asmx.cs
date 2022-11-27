@@ -162,9 +162,24 @@ namespace JTB_Airline_Cruise.Web_Services
         }
 
         [WebMethod]
-        public List<Airline> GetAirlines()
+        public List<_Airline> GetAirlines()
         {
-            return _databaseContext.Airlines.ToList();
+            List<_Airline> _airlines = new List<_Airline>();
+
+            var airlines = _databaseContext.Airlines.ToList();
+
+            foreach (var airline in airlines)
+            {
+                _airlines.Add(new _Airline().Parse(airline));
+            }
+
+            return _airlines;
+        }
+
+        [WebMethod]
+        public int GetLastAirlineID()
+        {
+            return _databaseContext.Airlines.OrderByDescending(a => a.AirlineID).FirstOrDefault().AirlineID;
         }
 
         [WebMethod]
