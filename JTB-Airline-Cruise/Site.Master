@@ -155,12 +155,13 @@
 					<!--Nav-->
 					<nav class="horizontalMenu clearfix d-md-flex">
 						<ul class="horizontalMenu-list">
-							<li><a href="Default.aspx"> Home </a></li>
-							<li><a href="Bookings.aspx"> Bookings </a></li>
-							<li><a href="CruiseList"> Cruises </a></li>
-							<li><a href="FlightList"> Flights </a></li>
-							<li><a href="Contact">Contact Us </a></li>
-							<li><a href="About">About Us </a></li>
+							<!-- Consider using Routing instead of  Absolute references -->
+							<li><a href="../Default.aspx"> Home </a></li>
+							<li><a href="../Bookings.aspx"> Bookings </a></li>
+							<li><a href="../CruiseList.aspx"> Cruises </a></li>
+							<li><a href="../FlightList.aspx"> Flights </a></li>
+							<li><a href="../Contact.aspx">Contact Us </a></li>
+							<li><a href="../About.aspx">About Us </a></li>
 
                             <li class="">
                                 <asp:LoginView runat="server" ViewStateMode="Disabled">
