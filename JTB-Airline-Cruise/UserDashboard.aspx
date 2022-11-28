@@ -85,22 +85,22 @@
 														<h3 class="card-title mb-3 font-weight-semibold2">Personal Details</h3>
 													</div>
 													<ul class="usertab-list mb-0 mt-3">
-														<li><a href="javascript:void(0)" class="text-dark"><span class="font-weight-semibold">Full Name :</span> Rubin Carmody</a></li>
-														<li><a href="javascript:void(0)" class="text-dark"><span class="font-weight-semibold">Location :</span> USA</a></li>
-														<li><a href="javascript:void(0)" class="text-dark"><span class="font-weight-semibold">Languages :</span> English, German, Spanish.</a></li>
-														<li><a href="javascript:void(0)" class="text-dark"><span class="font-weight-semibold">Website :</span> https://www.spruko.com/gowell</a></li>
-														<li><a href="javascript:void(0)" class="text-dark"><span class="font-weight-semibold">Email :</span> georgemestayer@Gowell.com</a></li>
-														<li><a href="javascript:void(0)" class="text-dark"><span class="font-weight-semibold">Phone :</span> +125 254 3562 </a></li>
-														<li><a href="javascript:void(0)" class="text-dark"><span class="font-weight-semibold">Designation :</span> CEO of Company </a></li>
-														<li><a href="javascript:void(0)" class="text-dark"><span class="font-weight-semibold">Gender :</span> Male </a></li>
+														<li><a href="javascript:void(0)" class="text-dark"><span class="font-weight-semibold">Full Name :</span> <asp:Label ID="FullNameLabel" runat="server" Text="Label"></asp:Label></a></li>
+														<li><a href="javascript:void(0)" class="text-dark"><span class="font-weight-semibold">Location :</span> <asp:Label ID="LocationLabel" runat="server" Text="Label"></asp:Label></a></li>
+														<li><a href="javascript:void(0)" class="text-dark"><span class="font-weight-semibold">Languages :</span> <asp:Label ID="LanguagesLabel" runat="server" Text="Label"></asp:Label>.</a></li>
+														<li><a href="javascript:void(0)" class="text-dark"><span class="font-weight-semibold">Website :</span> <asp:Label ID="WebsiteLabel" runat="server" Text="Label"></asp:Label></a></li>
+														<li><a href="javascript:void(0)" class="text-dark"><span class="font-weight-semibold">Email :</span> <asp:Label ID="EmailLabel" runat="server" Text="Label"></asp:Label></a></li>
+														<li><a href="javascript:void(0)" class="text-dark"><span class="font-weight-semibold">Phone :</span> <asp:Label ID="PhoneLabel" runat="server" Text="Label"></asp:Label> </a></li>
+														<li><a href="javascript:void(0)" class="text-dark"><span class="font-weight-semibold">Designation :</span> <asp:Label ID="DesignationLabel" runat="server" Text="Label"></asp:Label> </a></li>
+														<li><a href="javascript:void(0)" class="text-dark"><span class="font-weight-semibold">Gender :</span> <asp:Label ID="GenderLabel" runat="server" Text="Label"></asp:Label> </a></li>
 													</ul>
 													<div class="mt-5 profie-img">
 														<div class="leading-normal-2">
 															<div class="media-heading">
 																<h3 class="card-title mb-3 font-weight-semibold2">Biography</h3>
 															</div>
-															<p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus how to pursue pleasure rationally encounter but because those who do not know how to pursue consequences that are extremely</p>
-															<p class="mb-0">because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter but because those who do not know how to pursue consequences the extre painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
+															<p><asp:Label ID="BiographyLabel" runat="server" Text="Label"></asp:Label></p>
+															
 														</div>
 													</div>
 													<div class="mt-5 profie-img">
@@ -154,90 +154,68 @@
 													<div class="col-sm-6 col-md-6">
 														<div class="form-group">
 															<label class="form-label">First Name</label>
-															<input type="text" class="form-control" placeholder="First Name">
+															<asp:TextBox ID="FirstNameTextBox" runat="server" placeholder="First Name" CssClass="form-control" TextMode="Url"></asp:TextBox>
 														</div>
 													</div>
 													<div class="col-sm-6 col-md-6">
 														<div class="form-group">
 															<label class="form-label">Last Name</label>
-															<input type="text" class="form-control" placeholder="Last Name">
+															<asp:TextBox ID="LastNameTextBox" runat="server" placeholder="Last Name" CssClass="form-control" TextMode="Url"></asp:TextBox>
 														</div>
 													</div>
 													<div class="col-sm-6 col-md-6">
 														<div class="form-group">
 															<label class="form-label">Email address</label>
-															<input type="email" class="form-control" placeholder="Email">
+															<asp:TextBox ID="EmailTextBox" runat="server" placeholder="Email" CssClass="form-control" TextMode="Url"></asp:TextBox>
 														</div>
 													</div>
 													<div class="col-sm-6 col-md-6">
 														<div class="form-group">
 															<label class="form-label">Phone Number</label>
-															<input type="number" class="form-control" placeholder="Number">
+															<asp:TextBox ID="PhoneNumberTextBox" runat="server" placeholder="Phone Number" CssClass="form-control" TextMode="Number"></asp:TextBox>
 														</div>
 													</div>
 													<div class="col-md-12">
 														<div class="form-group">
 															<label class="form-label">Address</label>
-															<input type="text" class="form-control" placeholder="Home Address">
+															<asp:TextBox ID="AddressTextBox" runat="server" placeholder="Address" CssClass="form-control" TextMode="Url"></asp:TextBox>
 														</div>
 													</div>
 													<div class="col-sm-6 col-md-4">
 														<div class="form-group">
 															<label class="form-label">City</label>
-															<input type="text" class="form-control" placeholder="City">
+															<asp:TextBox ID="CityTextBox" runat="server" placeholder="City" CssClass="form-control" TextMode="Url"></asp:TextBox>
 														</div>
 													</div>
 													<div class="col-sm-6 col-md-3">
 														<div class="form-group">
 															<label class="form-label">Postal Code</label>
-															<input type="number" class="form-control" placeholder="ZIP Code">
+															<asp:TextBox ID="ZipCodeTextBox" runat="server" placeholder="Zip Code" CssClass="form-control" TextMode="Url"></asp:TextBox>
 														</div>
 													</div>
 													<div class="col-md-5">
 														<div class="form-group">
 															<label class="form-label">Country</label>
-															<select class="form-control select2-show-search border-bottom-0 w-100 select2-show-search" data-placeholder="Select">
-																<optgroup label="Categories">
-																	<option>--Select--</option>
-																	<option value="1">Germany</option>
-																	<option value="2">Real Estate</option>
-																	<option value="3">Canada</option>
-																	<option value="4">Usa</option>
-																	<option value="5">Afghanistan</option>
-																	<option value="6">Albania</option>
-																	<option value="7">China</option>
-																	<option value="8">Denmark</option>
-																	<option value="9">Finland</option>
-																	<option value="10">India</option>
-																	<option value="11">Kiribati</option>
-																	<option value="12">Kuwait</option>
-																	<option value="13">Mexico</option>
-																	<option value="14">Pakistan</option>
-																</optgroup>
-															</select>
+															<asp:DropDownList ID="CountryDropDownList" runat="server" CssClass="form-control select2-show-search border-bottom-0 w-100 select2-show-search" data-placeholder="Select"></asp:DropDownList>
+															
 														</div>
 													</div>
 													<div class="col-sm-6 col-md-6">
 														<div class="form-group">
 															<label class="form-label">Designation</label>
-															<input type="text" class="form-control" placeholder="Email">
+															<asp:TextBox ID="DesignationTextBox" runat="server" placeholder="Designation" CssClass="form-control" TextMode="Url"></asp:TextBox>
 														</div>
 													</div>
 													<div class="col-sm-6 col-md-6">
 														<div class="form-group">
 															<label class="form-label">Gender</label>
-															<select class="form-control select2-show-search border-bottom-0 w-100 select2" data-placeholder="Select">
-																<optgroup label="Categories">
-																	<option value="1">Male</option>
-																	<option value="2">Female</option>
-																</optgroup>
-															</select>
+															<asp:DropDownList ID="GenderDropDownList" runat="server" CssClass="form-control select2-show-search border-bottom-0 w-100 select2" data-placeholder="Select"></asp:DropDownList>
 														</div>
 													</div>
 													<div class="col-md-12">
 														<div class="form-group">
 															<label class="form-label">About Me</label>
-															<textarea rows="5" class="form-control" placeholder="Enter About your description"></textarea>
+															<asp:TextBox ID="DescriptionTextBox" runat="server" placeholder="Enter Description" CssClass="form-control" TextMode="MultiLine" Rows="5"></asp:TextBox>
 														</div>
 													</div>
 													<div class="col-md-12">
@@ -254,46 +232,50 @@
 														</div>
 													</div>
 													<div class="col-md-12">
-														<button type="submit" class="btn btn-secondary">Update Profile</button>
+														<asp:Button ID="SubmitButton" CssClass="btn btn-secondary" runat="server" Text="Update Profile" OnClick="SubmitButton_Click" />
 													</div>
 												</div>
 											</div>
 
 											<div class="tab-pane userprof-tab" id="tab-7">
 												<div class="row">
-													
-													<div class="col-lg-4 col-md-6">
-														<div class="card overflow-hidden card-absolute">
-															<div class="">
-																<div class="item-card9-img w-100">
-																	<div class="item-card9-imgs">
-																		<img src="/Assets/images/categories/03.png" alt="img" class="cover-image">
-																	</div>
-																</div>
-																<div class="card border-0 mb-0 br-0">
-																	<div class="card-body">
-																		<div class="item-card9">
-																			<div class="d-sm-flex">
-																				<div class="">
-																					<div class=" d-inline-flex">
-																						<div class="rating-star sm block my-rating-5" data-stars="4s">
-																						</div>  <a class="fs-13 leading-tight mt-1" href="javascript:void(0)">Superb</a>
-																					</div>
-																					<a href="tours.html" class="text-dark"><h4 class="font-weight-semibold2 mt-0 mb-0 leading-normal">India Tour</h4></a>
-																				</div>
-																				<div class="ms-auto"><b class="text-secondary fs-30 leading-tight">$421</b></div>
+													<asp:Repeater ID="CruisesRepeater" runat="server">
+														<ItemTemplate>
+															<div class="col-lg-4 col-md-6">
+																<div class="card overflow-hidden card-absolute">
+																	<div class="">
+																		<div class="item-card9-img w-100">
+																			<div class="item-card9-imgs">
+																				<img src="/Assets/images/categories/03.png" alt="img" class="cover-image">
 																			</div>
 																		</div>
-																		<p class="fs-14 mt-2 leading-normal">We denounce with righteous indignation and dislike men who are so beguiled</p>
-																		<div class="item-card2-desc d-inline-flex">
-																			<a href="javascript:void(0)" class="mt-1 mb-0 me-3 pe-3 border-end text-dark"><i class="fe fe-map-pin me-1 d-inline-block"></i> India</a>
-																			<a href="javascript:void(0)" class="mt-1 mb-0 me-3 pe-3 border-end text-dark"><i class="fe fe-clock me-1 d-inline-block"></i> 16 Days</a>
+																		<div class="card border-0 mb-0 br-0">
+																			<div class="card-body">
+																				<div class="item-card9">
+																					<div class="d-sm-flex">
+																						<div class="">
+																							<div class=" d-inline-flex">
+																								<div class="rating-star sm block my-rating-5" data-stars="4s">
+																								</div>  <a class="fs-13 leading-tight mt-1" href="javascript:void(0)"> <%# Eval("CruiseName") %> </a>
+																							</div>
+																							<a href="tours.html" class="text-dark"><h4 class="font-weight-semibold2 mt-0 mb-0 leading-normal"> Cruise</h4></a>
+																						</div>
+																						<div class="ms-auto"><b class="text-secondary fs-30 leading-tight"></b></div>
+																					</div>
+																				</div>
+																				<p class="fs-14 mt-2 leading-normal"><%# Eval("CheckInDate") %> - <%# Eval("CheckOutDate") %></p>
+																				<div class="item-card2-desc d-inline-flex">
+																					<a href="javascript:void(0)" class="mt-1 mb-0 me-3 pe-3 border-end text-dark"><i class="fe fe-map-pin me-1 d-inline-block"></i> <%# Eval("Departure") %> </a>
+																					<a href="javascript:void(0)" class="mt-1 mb-0 me-3 pe-3 border-end text-dark"><i class="fe fe-clock me-1 d-inline-block"></i> <%# Eval("CruiseLength") %> </a>
+																				</div>
+																			</div>
 																		</div>
 																	</div>
 																</div>
 															</div>
-														</div>
-													</div>
+														</ItemTemplate>
+													</asp:Repeater>
+													
 												</div>
 												<div class="center-block text-center ">
 													<ul class="pagination mb-0 mt-5">
@@ -312,38 +294,43 @@
 											<div class="tab-pane userprof-tab" id="tab-8">
 												<div class="row">
 													
-													<div class="col-lg-4 col-md-6">
-														<div class="card overflow-hidden card-absolute">
-															<div class="">
-																<div class="item-card9-img w-100">
-																	<div class="item-card9-imgs">
-																		<img src="/Assets/images/categories/03.png" alt="img" class="cover-image">
-																	</div>
-																</div>
-																<div class="card border-0 mb-0 br-0">
-																	<div class="card-body">
-																		<div class="item-card9">
-																			<div class="d-sm-flex">
-																				<div class="">
-																					<div class=" d-inline-flex">
-																						<div class="rating-star sm block my-rating-5" data-stars="4s">
-																						</div>  <a class="fs-13 leading-tight mt-1" href="javascript:void(0)">Superb</a>
-																					</div>
-																					<a href="tours.html" class="text-dark"><h4 class="font-weight-semibold2 mt-0 mb-0 leading-normal">India Tour</h4></a>
-																				</div>
-																				<div class="ms-auto"><b class="text-secondary fs-30 leading-tight">$421</b></div>
+													<asp:Repeater ID="FlightRepeater" runat="server">
+														<ItemTemplate>
+															<div class="col-lg-4 col-md-6">
+																<div class="card overflow-hidden card-absolute">
+																	<div class="">
+																		<div class="item-card9-img w-100">
+																			<div class="item-card9-imgs">
+																				<img src="/Assets/images/categories/03.png" alt="img" class="cover-image">
 																			</div>
 																		</div>
-																		<p class="fs-14 mt-2 leading-normal">We denounce with righteous indignation and dislike men who are so beguiled</p>
-																		<div class="item-card2-desc d-inline-flex">
-																			<a href="javascript:void(0)" class="mt-1 mb-0 me-3 pe-3 border-end text-dark"><i class="fe fe-map-pin me-1 d-inline-block"></i> India</a>
-																			<a href="javascript:void(0)" class="mt-1 mb-0 me-3 pe-3 border-end text-dark"><i class="fe fe-clock me-1 d-inline-block"></i> 16 Days</a>
+																		<div class="card border-0 mb-0 br-0">
+																			<div class="card-body">
+																				<div class="item-card9">
+																					<div class="d-sm-flex">
+																						<div class="">
+																							<div class=" d-inline-flex">
+																								<div class="rating-star sm block my-rating-5" data-stars="4s">
+																								</div>  <a class="fs-13 leading-tight mt-1" href="javascript:void(0)"> <%# Eval("FlightName") %> </a>
+																							</div>
+																							<a href="tours.html" class="text-dark"><h4 class="font-weight-semibold2 mt-0 mb-0 leading-normal"> Flight</h4></a>
+																						</div>
+																						<div class="ms-auto"><b class="text-secondary fs-30 leading-tight"></b></div>
+																					</div>
+																				</div>
+																				<p class="fs-14 mt-2 leading-normal"><%# Eval("Date") %> - <%# Eval("Date") %></p>
+																				<div class="item-card2-desc d-inline-flex">
+																					<a href="javascript:void(0)" class="mt-1 mb-0 me-3 pe-3 border-end text-dark"><i class="fe fe-map-pin me-1 d-inline-block"></i> <%# Eval("Departure") %> </a>
+																					<a href="javascript:void(0)" class="mt-1 mb-0 me-3 pe-3 border-end text-dark"><i class="fe fe-clock me-1 d-inline-block"></i> <%# Eval("FlightTime") %> </a>
+																				</div>
+																			</div>
 																		</div>
 																	</div>
 																</div>
 															</div>
-														</div>
-													</div>
+														</ItemTemplate>
+													</asp:Repeater>
+
 												</div>
 												<div class="center-block text-center ">
 													<ul class="pagination mb-0 mt-5">

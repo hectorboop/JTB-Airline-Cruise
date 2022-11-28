@@ -10,6 +10,7 @@ namespace JTB_Airline_Cruise.App
     {
         public int Id { get; set; }
         public int FlightId { get; set; }
+        public int FlightTime { get; set; }
         public string FlightName { get; set; }
         public DateTime Date { get; set; }
         public string PassengerId { get; set; }
