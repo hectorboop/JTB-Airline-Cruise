@@ -156,8 +156,9 @@
 					<nav class="horizontalMenu clearfix d-md-flex">
 						<ul class="horizontalMenu-list">
 							<li><a href="Default.aspx"> Home </a></li>
-							<li><a href="Cruises"> Cruises </a></li>
-							<li><a href="Flights"> Flights </a></li>
+							<li><a href="Bookings.aspx"> Bookings </a></li>
+							<li><a href="CruiseList"> Cruises </a></li>
+							<li><a href="FlightList"> Flights </a></li>
 							<li><a href="Contact">Contact Us </a></li>
 							<li><a href="About">About Us </a></li>
 

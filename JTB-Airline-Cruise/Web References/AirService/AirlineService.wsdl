@@ -184,6 +184,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetFlightSingle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="flightId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFlightSingleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFlightSingleResult" type="tns:_Flight" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="UpdateFlight">
         <s:complexType>
           <s:sequence>
@@ -231,7 +245,11 @@
       </s:complexType>
       <s:complexType name="_Airline">
         <s:complexContent mixed="false">
-          <s:extension base="tns:Record" />
+          <s:extension base="tns:Record">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FlightCount" type="s:int" />
+            </s:sequence>
+          </s:extension>
         </s:complexContent>
       </s:complexType>
       <s:element name="GetLastAirlineID">
@@ -396,6 +414,12 @@
   <wsdl:message name="GetFlightByIdSoapOut">
     <wsdl:part name="parameters" element="tns:GetFlightByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="GetFlightSingleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFlightSingle" />
+  </wsdl:message>
+  <wsdl:message name="GetFlightSingleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFlightSingleResponse" />
+  </wsdl:message>
   <wsdl:message name="UpdateFlightSoapIn">
     <wsdl:part name="parameters" element="tns:UpdateFlight" />
   </wsdl:message>
@@ -502,6 +526,10 @@
     <wsdl:operation name="GetFlightById">
       <wsdl:input message="tns:GetFlightByIdSoapIn" />
       <wsdl:output message="tns:GetFlightByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlightSingle">
+      <wsdl:input message="tns:GetFlightSingleSoapIn" />
+      <wsdl:output message="tns:GetFlightSingleSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="UpdateFlight">
       <wsdl:input message="tns:UpdateFlightSoapIn" />
@@ -614,6 +642,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetFlightById">
       <soap:operation soapAction="http://tempuri.org/GetFlightById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlightSingle">
+      <soap:operation soapAction="http://tempuri.org/GetFlightSingle" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -797,6 +834,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetFlightById">
       <soap12:operation soapAction="http://tempuri.org/GetFlightById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlightSingle">
+      <soap12:operation soapAction="http://tempuri.org/GetFlightSingle" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -107,6 +107,12 @@ namespace JTB_Airline_Cruise.Web_Services
         }
 
         [WebMethod]
+        public _Flight GetFlightSingle(int flightId)
+        {
+            return new _Flight().Parse(_databaseContext.Flights.FirstOrDefault(f => f.FlightID == flightId));
+        }
+
+        [WebMethod]
         public void UpdateFlight(_Flight _flight)
         {
             Flight update = GetFlightById(_flight.Id);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +12,27 @@ namespace JTB_Airline_Cruise.App
     {
         protected override void Seed(DatabaseContext context)
         {
+            // Populate Cities Table
+            
+            /*
+            IronXL.WorkBook workbook = IronXL.WorkBook.Load(@"C:\\Users\\rushw\\source\\repos\\JTB-Airline-Cruise\\JTB-Airline-Cruise\\Assets\\worldcities.xlsx");
+            IronXL.WorkSheet sheet = workbook.WorkSheets.First();
+
+            List<City> Cities = new List<City>();
+            int z = 2;
+
+            foreach (var city in sheet["A2:A10"])
+            {
+                string country = sheet["E" + z].StringValue;
+
+                Cities.Add(new City() { Name = city.Text, Country = country });
+                
+                z++;
+            }
+
+            context.City.AddRange(Cities);
+            */
+
             City cityA = new City() { Name = "London", Country = "United Kingdom" };            
             City cityB = new City() { Name = "Miami", Country = "United States" };            
             City cityC = new City() { Name = "New York", Country = "United States" };            

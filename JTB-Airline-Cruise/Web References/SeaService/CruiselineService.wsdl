@@ -172,6 +172,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetCruiseSingle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cruiseId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCruiseSingleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCruiseSingleResult" type="tns:_Cruise" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="UpdateCruise">
         <s:complexType>
           <s:sequence>
@@ -219,7 +233,11 @@
       </s:complexType>
       <s:complexType name="_Cruiseline">
         <s:complexContent mixed="false">
-          <s:extension base="tns:Record" />
+          <s:extension base="tns:Record">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CruiseCount" type="s:int" />
+            </s:sequence>
+          </s:extension>
         </s:complexContent>
       </s:complexType>
       <s:element name="DeleteCruiseline">
@@ -380,6 +398,12 @@
   <wsdl:message name="GetCruiseByIdSoapOut">
     <wsdl:part name="parameters" element="tns:GetCruiseByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="GetCruiseSingleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCruiseSingle" />
+  </wsdl:message>
+  <wsdl:message name="GetCruiseSingleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCruiseSingleResponse" />
+  </wsdl:message>
   <wsdl:message name="UpdateCruiseSoapIn">
     <wsdl:part name="parameters" element="tns:UpdateCruise" />
   </wsdl:message>
@@ -483,6 +507,10 @@
       <wsdl:input message="tns:GetCruiseByIdSoapIn" />
       <wsdl:output message="tns:GetCruiseByIdSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetCruiseSingle">
+      <wsdl:input message="tns:GetCruiseSingleSoapIn" />
+      <wsdl:output message="tns:GetCruiseSingleSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="UpdateCruise">
       <wsdl:input message="tns:UpdateCruiseSoapIn" />
       <wsdl:output message="tns:UpdateCruiseSoapOut" />
@@ -585,6 +613,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetCruiseById">
       <soap:operation soapAction="http://tempuri.org/GetCruiseById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCruiseSingle">
+      <soap:operation soapAction="http://tempuri.org/GetCruiseSingle" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -759,6 +796,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetCruiseById">
       <soap12:operation soapAction="http://tempuri.org/GetCruiseById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCruiseSingle">
+      <soap12:operation soapAction="http://tempuri.org/GetCruiseSingle" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

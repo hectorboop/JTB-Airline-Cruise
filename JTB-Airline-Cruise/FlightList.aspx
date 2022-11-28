@@ -16,7 +16,11 @@
 				<div class="row">
 					<div class="col-xl-12 col-lg-12 col-md-12 d-block mx-auto">
 						<div class="text-white ">
-							<h2 class="fs-50"><span class="font-weight-bold">96,758</span>  Flights available</h2>
+							<h2 class="fs-50">
+								<span class="font-weight-bold">
+									<asp:Label ID="FlightCountLabel" runat="server" Text="Label"></asp:Label>
+							    </span>  Flights available
+							</h2>
 						</div>
 						<div class="dark-checkboxes text-white d-flex">
 							<div class="custom-controls-stacked d-sm-flex ">
@@ -79,7 +83,7 @@
 											<asp:TextBox ID="DateRangeTextBox" runat="server" CssClass="form-control daterange-btn br-0 input-lg" placeholder="From When To When"></asp:TextBox>
 										</div>
 										<div class="col-xl-6 col-lg-6 col-md-12 mb-0">
-											<asp:LinkButton ID="SubmitButton" runat="server" CssClass="btn btn-block btn-secondary fs-14 br-ts-0 br-bs-0 shadow-none btn-lg" >Search</asp:LinkButton>
+											<asp:LinkButton ID="SubmitButton" runat="server" OnClick="SubmitButton_Click" CssClass="btn btn-block btn-secondary fs-14 br-ts-0 br-bs-0 shadow-none btn-lg" >Search</asp:LinkButton>
 										</div>
 									</div>
 								</div>
@@ -122,67 +126,47 @@
 									<label class="custom-control custom-checkbox mb-3">
 										<input type="checkbox" class="custom-control-input" name="checkbox1" value="option1">
 										<span class="custom-control-label">
-											<a class="text-dark">Economy<span class="label label-light float-end">14</span></a>
+											<a class="text-dark">Economy
+												<span class="label label-light float-end">
+													<asp:Label ID="EconomyLabel" runat="server" Text="Label"></asp:Label>
+											    </span>
+											</a>
 										</span>
 									</label>
 									<label class="custom-control custom-checkbox mb-3">
 										<input type="checkbox" class="custom-control-input" name="checkbox2" value="option2">
 										<span class="custom-control-label">
-											<a class="text-dark">Premium Economy<span class="label label-light float-end">22</span></a>
+											<a class="text-dark">Premium Economy
+												<span class="label label-light float-end">
+													<asp:Label ID="PremiumEconomyLabel" runat="server" Text="Label"></asp:Label>
+												</span>
+											</a>
 										</span>
 									</label>
 									<label class="custom-control custom-checkbox mb-3">
 										<input type="checkbox" class="custom-control-input" name="checkbox3" value="option3">
 										<span class="custom-control-label">
-											<a class="text-dark">Business<span class="label label-light float-end">78</span></a>
+											<a class="text-dark">Business
+												<span class="label label-light float-end">
+													<asp:Label ID="BusinessLabel" runat="server" Text="Label"></asp:Label>
+												</span>
+											</a>
 										</span>
 									</label>
 									<label class="custom-control custom-checkbox mb-3">
 										<input type="checkbox" class="custom-control-input" name="checkbox4" value="option3">
 										<span class="custom-control-label">
-											<a class="text-dark">First Class<span class="label label-light float-end">35</span></a>
+											<a class="text-dark">First Class
+												<span class="label label-light float-end">
+													<asp:Label ID="FirstLabel" runat="server" Text="Label"></asp:Label>
+												</span>
+											</a>
 										</span>
 									</label>
 								</div>
 							</div>
 						</div>
-						<div class="card-body pb-0 border-top-0">
-							<h5 class="font-weight-semibold2 mb-4">Stops</h5>
-							<div class="">
-								<div class="filter-product-checkboxs">
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox1" value="option1">
-										<span class="custom-control-label">
-											<a class="text-dark">Non Stop</a>
-										</span>
-									</label>
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox2" value="option2">
-										<span class="custom-control-label">
-											<a class="text-dark">1 Stop</a>
-										</span>
-									</label>
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox3" value="option3">
-										<span class="custom-control-label">
-											<a class="text-dark">2 Stops</a>
-										</span>
-									</label>
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox4" value="option3">
-										<span class="custom-control-label">
-											<a class="text-dark">3 Stops</a>
-										</span>
-									</label>
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox4" value="option3">
-										<span class="custom-control-label">
-											<a class="text-dark">4 Stops</a>
-										</span>
-									</label>
-								</div>
-							</div>
-						</div>
+						
 
 						<div class="card-body border-top-0">
 							<h5 class="font-weight-semibold2 mb-3">Price Range</h5>
@@ -195,13 +179,16 @@
 							<div class="" id="container">
 								<div class="filter-product-checkboxs">
 									<!-- Add Repeater -->
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox1" value="option1">
-										<span class="custom-control-label">
-											<a class="text-dark">Singapore Airwings<span class="label label-light float-end">14</span></a>
-										</span>
-									</label>
-
+									<asp:Repeater ID="AirlineRepeater" runat="server">
+										<ItemTemplate>
+											<label class="custom-control custom-checkbox mb-3">
+												<input type="checkbox" class="custom-control-input" name="checkbox1" value="option1">
+												<span class="custom-control-label">
+													<a class="text-dark"><%# Eval("Name") %><span class="label label-light float-end"><%# Eval("FlightCount") %></span></a>
+												</span>
+											</label>
+										</ItemTemplate>
+									</asp:Repeater>
 								</div>
 							</div>
 						</div>
@@ -244,11 +231,7 @@
 																<div class="item-card9-img w-100">
 																	<div class="item-card9-imgs">
 																		<img src="/Assets/images/categories/flights/1.jpg" alt="img" class="cover-image">
-																		<div class="item-card2-img1" data-bs-toggle="modal" data-bs-target="#gallery">
-																			<span class="badge bg-dark-transparent6 text-white fs-14 font-weight-semibold2">
-																				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ticketModal">View modal</button>
-																			</span>
-																		</div>
+																		
 																	</div>
 																</div>
 																<div class="card border-0 mb-0 br-0">
@@ -256,12 +239,12 @@
 																		<div class="item-card9 mb-4">
 																			<div class="d-sm-flex">
 																				<div class="">
-																				<!--	<a href="<%#: GetRouteUrl("FlightDetails", new {Id = 1}) %>"></a> --> 
-																					<a href="#" class="text-dark">
+																					<i class="text-dark">
 																						<h4 class="font-weight-semibold2 mt-1 mb-2 leading-normal">
-																							<%# Eval("AirlineName") %> Flight-<%# Eval("Id") %>
+																							<%# Eval("AirlineName") %> Flight-
+																							<asp:Label ID="Id" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
 																						</h4>
-																					</a>
+																					</i>
 																					<asp:Repeater ID="FlightClassRepeater" runat="server" DataSource='<%# Eval("FlightClass") %>'>
 																						<ItemTemplate>
 																							<span class="badge bg-pill border mt-1 fs-12"><%# Container.DataItem.ToString() %></span>
@@ -274,7 +257,7 @@
 																			<a href="javascript:void(0)" class="mt-1 mb-0 text-dark d-block">
 																				<i class="fe fe-calendar me-1 d-inline-block"></i> <%# Eval("DepartureDate") %> - <%# Eval("ReturnDate") %></a>
 																			<a href="javascript:void(0)" class="mt-2 mb-0 text-dark d-block">
-																				<i class="fe fe-clock me-1 d-inline-block"></i> <%# Eval("DepartureCity") %> - <%# Eval("DestinationCity") %> </a>
+																				<i class="fe fe-map-pin me-1 d-inline-block"></i> <%# Eval("DepartureCity") %> - <%# Eval("DestinationCity") %> </a>
 																		</div>
 																	</div>
 																	<div class="card-footer d-flex">
@@ -282,54 +265,15 @@
 																			<a class="fs-13 leading-tight mt-1" href="javascript:void(0)"><%# Eval("Plane") %></a>
 																		</div>
 																		<div class="ms-auto">
-																			<h3 class="mb-0 font-weight-semibold2">$<%# Eval("FlightPrice[0]") %>*</h3>
+																			<h3 class="mb-0 font-weight-semibold2">
+																				<asp:LinkButton ID="SubmitLinkButton" CssClass="btn btn-primary" OnClick="SubmitLinkButton_Click" runat="server">From $<%# Eval("FlightPrice[0]") %>*</asp:LinkButton>
+																			</h3>
 																		</div>
 																	</div>
 																</div>
 															</div>
 														</ItemTemplate>
 													</asp:Repeater>
-
-													<div class="d-xl-flex ieh-100">
-														<div class="item-card9-img w-100">
-															<div class="item-card9-imgs">
-																<img src="/Assets/images/categories/flights/1.jpg" alt="img" class="cover-image">
-																<div class="item-card2-img1" data-bs-toggle="modal" data-bs-target="#gallery">
-																	<span class="badge bg-dark-transparent6 text-white fs-14 font-weight-semibold2"><i class="fe fe-image "></i> 5</span>
-																</div>
-															</div>
-															<div class="item-card9-icons">
-																<a href="javascript:void(0)" class="item-card9-icons1 wishlist"> <i class="fa fa fa-heart-o"></i></a>
-															</div>
-														</div>
-														<div class="card border-0 mb-0 br-0">
-															<div class="card-body">
-																<div class="item-card9 mb-4">
-																	<div class="d-sm-flex">
-																		<div class="">
-																			<a href="flights.html" class="text-dark"><h4 class="font-weight-semibold2 mt-1 mb-2 leading-normal">Canada  Flight</h4></a>
-																			<span class="badge bg-pill border mt-1 fs-12">Economy</span>
-																			<span class="badge bg-pill border mt-1 fs-12">Premium Economy</span>
-																			<span class="badge bg-pill border mt-1 fs-12">First Class</span>
-																			<span class="badge bg-pill border mt-1 fs-12">Business</span>
-																		</div>
-																	</div>
-																</div>
-																<div class="item-card2-desc">
-																	<a href="javascript:void(0)" class="mt-1 mb-0 text-dark d-block"><i class="fe fe-calendar me-1 d-inline-block"></i> Thu 14 Oct - Sat 16 Oct</a>
-																	<a href="javascript:void(0)" class="mt-2 mb-0 text-dark d-block"><i class="fe fe-clock me-1 d-inline-block"></i> 3 Stops - 38Hours 45Minutes</a>
-																</div>
-															</div>
-															<div class="card-footer d-flex">
-																<div class=" d-inline-flex">
-																	<a class="fs-13 leading-tight mt-1" href="javascript:void(0)">124 Reviews</a>
-																</div>
-																<div class="ms-auto">
-																	<h3 class="mb-0 font-weight-semibold2">$354</h3>
-																</div>
-															</div>
-														</div>
-													</div>
 
 												</div>
 											</div>
@@ -348,33 +292,5 @@
 		</div>
 	</section>
 	<!--/Add Listings-->
-
-	<!-- Modal -->
-	<div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="ticketModalLabel">Book FLight</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close">
-						<span aria-hidden="true">×</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="form-group">
-						<asp:DropDownList ID="FlightClassDropDownList" runat="server" CssClass="form-control"></asp:DropDownList>
-					</div>
-					<div class="form-group">
-						<h4>
-							<asp:Label ID="PriceLabel" runat="server" Text="Label"></asp:Label>
-						</h4>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<asp:Button ID="BookFlightButton" runat="server" Text="Book Flight" CssClass="btn btn-primary" />
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-				</div>
-			</div>
-		</div>
-	</div>
 
 </asp:Content>

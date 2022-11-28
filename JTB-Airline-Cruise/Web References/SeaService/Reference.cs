@@ -42,6 +42,8 @@ namespace JTB_Airline_Cruise.SeaService {
         
         private System.Threading.SendOrPostCallback GetCruiseByIdOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetCruiseSingleOperationCompleted;
+        
         private System.Threading.SendOrPostCallback UpdateCruiseOperationCompleted;
         
         private System.Threading.SendOrPostCallback DeleteCruiseOperationCompleted;
@@ -123,6 +125,9 @@ namespace JTB_Airline_Cruise.SeaService {
         
         /// <remarks/>
         public event GetCruiseByIdCompletedEventHandler GetCruiseByIdCompleted;
+        
+        /// <remarks/>
+        public event GetCruiseSingleCompletedEventHandler GetCruiseSingleCompleted;
         
         /// <remarks/>
         public event UpdateCruiseCompletedEventHandler UpdateCruiseCompleted;
@@ -330,6 +335,35 @@ namespace JTB_Airline_Cruise.SeaService {
             if ((this.GetCruiseByIdCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetCruiseByIdCompleted(this, new GetCruiseByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetCruiseSingle", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public _Cruise GetCruiseSingle(int cruiseId) {
+            object[] results = this.Invoke("GetCruiseSingle", new object[] {
+                        cruiseId});
+            return ((_Cruise)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetCruiseSingleAsync(int cruiseId) {
+            this.GetCruiseSingleAsync(cruiseId, null);
+        }
+        
+        /// <remarks/>
+        public void GetCruiseSingleAsync(int cruiseId, object userState) {
+            if ((this.GetCruiseSingleOperationCompleted == null)) {
+                this.GetCruiseSingleOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetCruiseSingleOperationCompleted);
+            }
+            this.InvokeAsync("GetCruiseSingle", new object[] {
+                        cruiseId}, this.GetCruiseSingleOperationCompleted, userState);
+        }
+        
+        private void OnGetCruiseSingleOperationCompleted(object arg) {
+            if ((this.GetCruiseSingleCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetCruiseSingleCompleted(this, new GetCruiseSingleCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1094,6 +1128,18 @@ namespace JTB_Airline_Cruise.SeaService {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class _Cruiseline : Record {
+        
+        private int cruiseCountField;
+        
+        /// <remarks/>
+        public int CruiseCount {
+            get {
+                return this.cruiseCountField;
+            }
+            set {
+                this.cruiseCountField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -1456,6 +1502,32 @@ namespace JTB_Airline_Cruise.SeaService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Cruise)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetCruiseSingleCompletedEventHandler(object sender, GetCruiseSingleCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetCruiseSingleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetCruiseSingleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public _Cruise Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((_Cruise)(this.results[0]));
             }
         }
     }

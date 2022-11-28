@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,6 +18,7 @@ namespace JTB_Airline_Cruise.Admin
 
             CityRepeater.DataSource = cityList;
             CityRepeater.DataBind();
+
         }
     }
 }

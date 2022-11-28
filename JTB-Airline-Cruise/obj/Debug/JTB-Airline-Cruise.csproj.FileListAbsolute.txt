@@ -124,3 +124,13 @@ C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\System.Num
 C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\System.ValueTuple.xml
+C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\IronSoftware.Drawing.Common.dll
+C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\IronXL.dll
+C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\SixLabors.ImageSharp.dll
+C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\System.Text.Encoding.CodePages.dll
+C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\IronSoftware.Drawing.Common.pdb
+C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\IronXL.pdb
+C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\IronXL.xml
+C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\IronXL.dll.config
+C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\SixLabors.ImageSharp.xml
+C:\Users\rushw\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\bin\System.Text.Encoding.CodePages.xml

@@ -117,13 +117,15 @@ namespace JTB_Airline_Cruise.App
     public class _Cruiseline : Record
     {
         //public List<string> Cruises { get; set; }
+        public int CruiseCount { get; set; }
 
         public _Cruiseline Parse(Cruiseline cruiseline)
         {
             _Cruiseline _cruiseline = new _Cruiseline()
             {
                 Id = cruiseline.CruiselineID,
-                Name = cruiseline.CruiselineName
+                Name = cruiseline.CruiselineName,
+                CruiseCount = cruiseline.Cruises.Count
             };
 
             return _cruiseline; 
@@ -133,6 +135,7 @@ namespace JTB_Airline_Cruise.App
     [Serializable]
     public class _Airline : Record
     {
+        public int FlightCount { get; set; }
         //public List<string> Flights { get; set; }
 
         public _Airline Parse(Airline airline)
@@ -140,7 +143,8 @@ namespace JTB_Airline_Cruise.App
             _Airline _airline = new _Airline()
             {
                 Id = airline.AirlineID,
-                Name = airline.AirlineName
+                Name = airline.AirlineName,
+                FlightCount = airline.Flights.Count
             };
 
             return _airline;

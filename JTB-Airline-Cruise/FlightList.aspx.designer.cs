@@ -15,6 +15,15 @@ namespace JTB_Airline_Cruise
     {
 
         /// <summary>
+        /// FlightCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label FlightCountLabel;
+
+        /// <summary>
         /// DepartureDropDownList control.
         /// </summary>
         /// <remarks>
@@ -60,6 +69,51 @@ namespace JTB_Airline_Cruise
         protected global::System.Web.UI.WebControls.LinkButton SubmitButton;
 
         /// <summary>
+        /// EconomyLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EconomyLabel;
+
+        /// <summary>
+        /// PremiumEconomyLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PremiumEconomyLabel;
+
+        /// <summary>
+        /// BusinessLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label BusinessLabel;
+
+        /// <summary>
+        /// FirstLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label FirstLabel;
+
+        /// <summary>
+        /// AirlineRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater AirlineRepeater;
+
+        /// <summary>
         /// FlightRepeater control.
         /// </summary>
         /// <remarks>
@@ -67,32 +121,5 @@ namespace JTB_Airline_Cruise
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater FlightRepeater;
-
-        /// <summary>
-        /// FlightClassDropDownList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList FlightClassDropDownList;
-
-        /// <summary>
-        /// PriceLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PriceLabel;
-
-        /// <summary>
-        /// BookFlightButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BookFlightButton;
     }
 }
