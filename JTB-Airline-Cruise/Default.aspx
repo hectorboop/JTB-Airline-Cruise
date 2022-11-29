@@ -97,7 +97,7 @@
 		</div>
 	</div>
 
-	<section class="sptb pt-9">
+	<section class="sptb pt-9"> 
 		<div class="container">
 			<div class="section-title center-block text-center">
 				<span class="heading-style text-secondary">Best Top</span>

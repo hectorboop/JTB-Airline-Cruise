@@ -13,7 +13,7 @@ namespace JTB_Airline_Cruise.App
         protected override void Seed(DatabaseContext context)
         {
             // Populate Cities Table
-            IronXL.WorkBook workbook = IronXL.WorkBook.Load(@"C:\\Users\\Natsc\\source\\repos\\JTB-Airline-Cruise\\JTB-Airline-Cruise\\Assets\\worldcities.xlsx");
+            /*IronXL.WorkBook workbook = IronXL.WorkBook.Load(@"C:\Users\Natsc\source\repos\JTB-Airline-Cruise\JTB-Airline-Cruise\Assets\worldcities.xlsx");
             IronXL.WorkSheet sheet = workbook.WorkSheets.First();
 
             List<City> Cities = new List<City>();
@@ -28,10 +28,18 @@ namespace JTB_Airline_Cruise.App
                 z++;
             }
 
-            context.City.AddRange(Cities);
+            context.City.AddRange(Cities);*/
 
-            City Kingston = context.City.FirstOrDefault(c => c.Name == "Kingston" && c.Country == "Jamaica");
-            City MontegoBay = context.City.FirstOrDefault(c => c.Name == "Montego Bay" && c.Country == "Jamaica");
+            //City Kingston = context.City.FirstOrDefault(c => c.Name == "Kingston" && c.Country == "Jamaica");
+            //City MontegoBay = context.City.FirstOrDefault(c => c.Name == "Montego Bay" && c.Country == "Jamaica");
+
+            List<City> Cities = new List<City>();
+            City Kingston = new City() { Name = "Kingston", Country = "Jamaica" };
+            City MontegoBay = new City() { Name = "Montego Bay", Country = "Jamaica" };
+            Cities.Add(Kingston);
+            Cities.Add(MontegoBay);
+
+            context.City.AddRange(Cities);
 
             Airline FlyJamaica = new Airline()
             {
