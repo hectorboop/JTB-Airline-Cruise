@@ -26,6 +26,7 @@ namespace JTB_Airline_Cruise.App
         public List<string> FlightClass { get; set; }
         public List<float> FlightPrice { get; set; }
         public string Plane { get; set; }
+        public double FlightTime { get; set; }
 
         public _Flight Parse(Flight flight)
         {
@@ -59,6 +60,7 @@ namespace JTB_Airline_Cruise.App
             }
 
             _flight.Name = flight.Airline.AirlineName + " Flight #" + flight.FlightID.ToString();
+            _flight.FlightTime = (_flight.ReturnDate - _flight.DepartureDate).TotalHours;
 
             return _flight;
         }
@@ -149,6 +151,13 @@ namespace JTB_Airline_Cruise.App
 
             return _airline;
         }
+    }
+
+    [Serializable]
+    public class _ResultSet
+    {
+        public _Flight Departure;
+        public _Flight Return;
     }
 
 }

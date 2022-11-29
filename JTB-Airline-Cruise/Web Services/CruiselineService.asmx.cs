@@ -25,18 +25,68 @@ namespace JTB_Airline_Cruise.Web_Services
 
         // Required Methods
         [WebMethod] //Default
-        public List<Cruise> GetCruises(DateTime checkInDate, DateTime checkOutDate)
+        public List<_Cruise> GetCruises(string checkInDate, string checkOutDate)
         {
-            List<Cruise> cruises = new List<Cruise>();
+            var iDate = checkInDate.Split('/');
+            var iDay = iDate[1];
+            var iMonth = iDate[0];
+            var iYear = iDate[2];
+
+            var inDate = new DateTime(int.Parse(iYear), int.Parse(iMonth), int.Parse(iDay));
+
+            var oDate = checkOutDate.Split('/');
+            var oDay = oDate[1];
+            var oMonth = oDate[0];
+            var oYear = oDate[2];
+
+            var outDate = new DateTime(int.Parse(oYear), int.Parse(oMonth), int.Parse(oDay));
+
+            List<Cruise> cruises = _databaseContext.Cruises.Where(c => c.StartDate.Date >= inDate.Date
+                                                                    && c.EndDate.Date >= outDate.Date).ToList();
+            List<_Cruise> _cruises = new List<_Cruise>();
+
+            foreach (Cruise cruise in cruises)
+            {
+                _cruises.Add(new _Cruise().Parse(cruise));
+            }
 
             // Should return room_types
-            return cruises;
+            return _cruises;
         }
 
         [WebMethod] //Default
-        public void BookCruise(string roomType)
+        public void BookCruise(int cruiseId,string roomType, string roomNumber, string passenger, string passengerId, string checkindate, string checkoutdate, float cost)
         {
+            var iDate = checkindate.Split('/');
+            var iDay = iDate[1];
+            var iMonth = iDate[0];
+            var iYear = iDate[2];
 
+            var inDate = new DateTime(int.Parse(iYear), int.Parse(iMonth), int.Parse(iDay));
+
+            var oDate = checkoutdate.Split('/');
+            var oDay = oDate[1];
+            var oMonth = oDate[0];
+            var oYear = oDate[2];
+
+            var outDate = new DateTime(int.Parse(oYear), int.Parse(oMonth), int.Parse(oDay));
+
+
+            CruiseBooking booking = new CruiseBooking() 
+            {
+                PassengerId = passenger,
+                PassengerName = passenger,
+                CruiseId = cruiseId,
+                Departure = _databaseContext.Cruises.FirstOrDefault(f => f.CruiseID == cruiseId).DeparturePort,
+                Destination = _databaseContext.Cruises.FirstOrDefault(f => f.CruiseID == cruiseId).DeparturePort,
+                RoomNumber = roomNumber,
+                BookingCost = cost,
+                CheckInDate = inDate,
+                CheckOutDate = outDate
+            };
+
+            _databaseContext.CruiseBookings.Add(booking);
+            _databaseContext.SaveChanges();
         }
 
         [WebMethod]

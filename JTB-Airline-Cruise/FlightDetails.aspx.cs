@@ -21,10 +21,13 @@ namespace JTB_Airline_Cruise
                 //Label1.Text = this.Page.RouteData.Values["Id"].ToString();
                 _flight = airService.GetFlightSingle(1000);
                 // Get date from session
-                ReturnDateDropDownList.DataSource = new List<string>() { "AS", "BG" };
+                string f = (string)Session["ReturnFlightName"];
+                string d = (string)Session["ReturnFlightDate"];
+
+                ReturnDateDropDownList.DataSource = new List<string>() { d, "Not Returning" };
                 ReturnDateDropDownList.DataBind();
 
-                ReturnFlightDropDownList.DataSource = new List<string>() { "AS", "BG" };
+                ReturnFlightDropDownList.DataSource = new List<string>() { f };
                 ReturnFlightDropDownList.DataBind();
 
                 List<string> classList = new List<string>();

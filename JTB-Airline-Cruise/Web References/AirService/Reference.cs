@@ -202,28 +202,30 @@ namespace JTB_Airline_Cruise.AirService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetFlights", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Flight[] GetFlights(string Country, string City, string Date) {
+        public _ResultSet[] GetFlights(string city, string destination, string date, string returnDate) {
             object[] results = this.Invoke("GetFlights", new object[] {
-                        Country,
-                        City,
-                        Date});
-            return ((Flight[])(results[0]));
+                        city,
+                        destination,
+                        date,
+                        returnDate});
+            return ((_ResultSet[])(results[0]));
         }
         
         /// <remarks/>
-        public void GetFlightsAsync(string Country, string City, string Date) {
-            this.GetFlightsAsync(Country, City, Date, null);
+        public void GetFlightsAsync(string city, string destination, string date, string returnDate) {
+            this.GetFlightsAsync(city, destination, date, returnDate, null);
         }
         
         /// <remarks/>
-        public void GetFlightsAsync(string Country, string City, string Date, object userState) {
+        public void GetFlightsAsync(string city, string destination, string date, string returnDate, object userState) {
             if ((this.GetFlightsOperationCompleted == null)) {
                 this.GetFlightsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetFlightsOperationCompleted);
             }
             this.InvokeAsync("GetFlights", new object[] {
-                        Country,
-                        City,
-                        Date}, this.GetFlightsOperationCompleted, userState);
+                        city,
+                        destination,
+                        date,
+                        returnDate}, this.GetFlightsOperationCompleted, userState);
         }
         
         private void OnGetFlightsOperationCompleted(object arg) {
@@ -235,27 +237,33 @@ namespace JTB_Airline_Cruise.AirService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/BookFlight", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void BookFlight(string FlightID, string Name, string DOB) {
+        public void BookFlight(int flightID, string passenger, string passengerId, string date, string seaNumber, float cost) {
             this.Invoke("BookFlight", new object[] {
-                        FlightID,
-                        Name,
-                        DOB});
+                        flightID,
+                        passenger,
+                        passengerId,
+                        date,
+                        seaNumber,
+                        cost});
         }
         
         /// <remarks/>
-        public void BookFlightAsync(string FlightID, string Name, string DOB) {
-            this.BookFlightAsync(FlightID, Name, DOB, null);
+        public void BookFlightAsync(int flightID, string passenger, string passengerId, string date, string seaNumber, float cost) {
+            this.BookFlightAsync(flightID, passenger, passengerId, date, seaNumber, cost, null);
         }
         
         /// <remarks/>
-        public void BookFlightAsync(string FlightID, string Name, string DOB, object userState) {
+        public void BookFlightAsync(int flightID, string passenger, string passengerId, string date, string seaNumber, float cost, object userState) {
             if ((this.BookFlightOperationCompleted == null)) {
                 this.BookFlightOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBookFlightOperationCompleted);
             }
             this.InvokeAsync("BookFlight", new object[] {
-                        FlightID,
-                        Name,
-                        DOB}, this.BookFlightOperationCompleted, userState);
+                        flightID,
+                        passenger,
+                        passengerId,
+                        date,
+                        seaNumber,
+                        cost}, this.BookFlightOperationCompleted, userState);
         }
         
         private void OnBookFlightOperationCompleted(object arg) {
@@ -971,6 +979,8 @@ namespace JTB_Airline_Cruise.AirService {
         
         private int flightIdField;
         
+        private int flightTimeField;
+        
         private string flightNameField;
         
         private System.DateTime dateField;
@@ -1004,6 +1014,16 @@ namespace JTB_Airline_Cruise.AirService {
             }
             set {
                 this.flightIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FlightTime {
+            get {
+                return this.flightTimeField;
+            }
+            set {
+                this.flightTimeField = value;
             }
         }
         
@@ -1170,6 +1190,8 @@ namespace JTB_Airline_Cruise.AirService {
         
         private string planeField;
         
+        private double flightTimeField;
+        
         /// <remarks/>
         public string AirlineName {
             get {
@@ -1257,6 +1279,49 @@ namespace JTB_Airline_Cruise.AirService {
             }
             set {
                 this.planeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double FlightTime {
+            get {
+                return this.flightTimeField;
+            }
+            set {
+                this.flightTimeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class _ResultSet {
+        
+        private _Flight departureField;
+        
+        private _Flight returnField;
+        
+        /// <remarks/>
+        public _Flight Departure {
+            get {
+                return this.departureField;
+            }
+            set {
+                this.departureField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public _Flight Return {
+            get {
+                return this.returnField;
+            }
+            set {
+                this.returnField = value;
             }
         }
     }
@@ -1440,10 +1505,10 @@ namespace JTB_Airline_Cruise.AirService {
         }
         
         /// <remarks/>
-        public Flight[] Result {
+        public _ResultSet[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Flight[])(this.results[0]));
+                return ((_ResultSet[])(this.results[0]));
             }
         }
     }

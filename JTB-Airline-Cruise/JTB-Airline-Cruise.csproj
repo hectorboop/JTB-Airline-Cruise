@@ -2871,6 +2871,9 @@
     <Content Include="Web References\AirService\_Airline.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
+    <Content Include="Web References\AirService\_ResultSet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <None Include="Web References\LocationService\CityService.disco" />
     <Content Include="Web References\SeaService\Cruise.datasource">
       <DependentUpon>Reference.map</DependentUpon>

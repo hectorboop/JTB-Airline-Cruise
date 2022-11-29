@@ -224,50 +224,89 @@
 										<div class="row">
 											<!-- Add Repeater -->
 											<div class="col-xl-12 col-lg-6 col-md-12">
-												<div class="card overflow-hidden">
+												
 													<asp:Repeater ID="FlightRepeater" runat="server">
 														<ItemTemplate>
-															<div class="d-xl-flex ieh-100">
-																<div class="item-card9-img w-100">
-																	<div class="item-card9-imgs">
-																		<img src="/Assets/images/categories/flights/1.jpg" alt="img" class="cover-image">
-																		
-																	</div>
-																</div>
-																<div class="card border-0 mb-0 br-0">
-																	<div class="card-body">
-																		<div class="item-card9 mb-4">
-																			<div class="d-sm-flex">
-																				<div class="">
-																					<i class="text-dark">
-																						<h4 class="font-weight-semibold2 mt-1 mb-2 leading-normal">
-																							<%# Eval("AirlineName") %> Flight-
-																							<asp:Label ID="Id" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
-																						</h4>
-																					</i>
-																					<asp:Repeater ID="FlightClassRepeater" runat="server" DataSource='<%# Eval("FlightClass") %>'>
-																						<ItemTemplate>
-																							<span class="badge bg-pill border mt-1 fs-12"><%# Container.DataItem.ToString() %></span>
-																						</ItemTemplate>
-																					</asp:Repeater>
+															<div class="card overflow-hidden">
+																<div class="d-xl-flex ieh-100">
+																	<div class="card border-0 mb-0 br-0">
+																		<div class="card-body">
+																			<div class="item-card9 mb-4">
+																				<div class="d-sm-flex">
+																					<div class="">
+																						<i class="text-dark">
+																							<h4 class="font-weight-semibold2 mt-1 mb-2 leading-normal"> <%# Eval("AirlineName") %> </h4>
+																						</i>
+																						<asp:Repeater ID="Repeater1" runat="server" DataSource='<%# Eval("FlightClass") %>'>
+																							<ItemTemplate>
+																								<span class="badge bg-pill border mt-1 fs-12"><%# Container.DataItem.ToString() %></span>
+																							</ItemTemplate>
+																						</asp:Repeater>
+																					</div>
 																				</div>
 																			</div>
+																			<div class="item-card2-desc">
+																				<a href="javascript:void(0)" class="mt-1 mb-0 text-dark d-block">
+																					<i class="fe fe-calendar me-1 d-inline-block"></i> 
+																					<%# DataBinder.Eval(Container, "DataItem.DepartureDate", "{0:h:mm tt}") %>
+																					- (2 hours) - 
+																					<%# DataBinder.Eval(Container, "DataItem.DepartureDate", "{0:h:mm tt}") %>
+																				</a>
+																				<a href="javascript:void(0)" class="mt-2 mb-0 text-dark d-block">
+																					<i class="fe fe-map-pin me-1 d-inline-block"></i> <%# Eval("DepartureCity") %> ---> <%# Eval("DestinationCity") %> </a>
+																			</div>
 																		</div>
-																		<div class="item-card2-desc">
-																			<a href="javascript:void(0)" class="mt-1 mb-0 text-dark d-block">
-																				<i class="fe fe-calendar me-1 d-inline-block"></i> <%# Eval("DepartureDate") %> - <%# Eval("ReturnDate") %></a>
-																			<a href="javascript:void(0)" class="mt-2 mb-0 text-dark d-block">
-																				<i class="fe fe-map-pin me-1 d-inline-block"></i> <%# Eval("DepartureCity") %> - <%# Eval("DestinationCity") %> </a>
+																		<div class="card-footer d-flex">
+																			<div class=" d-inline-flex">
+																				<a class="fs-13 leading-tight mt-1" href="javascript:void(0)">
+																					#
+																					<asp:Label ID="Id" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
+																					     (<%# Eval("Plane") %>)
+																				</a>
+																			</div>
+																			<div class="ms-auto">
+																				<h3 class="mb-0 font-weight-semibold2">
+																					<asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" OnClick="SubmitLinkButton_Click" runat="server">From $<%# Eval("FlightPrice[0]") %>*</asp:LinkButton>
+																				</h3>
+																			</div>
 																		</div>
 																	</div>
-																	<div class="card-footer d-flex">
-																		<div class=" d-inline-flex">
-																			<a class="fs-13 leading-tight mt-1" href="javascript:void(0)"><%# Eval("Plane") %></a>
+																	<div class="card border-0 mb-0 br-0">
+																		<div class="card-body">
+																			<div class="item-card9 mb-4">
+																				<div class="d-sm-flex">
+																					<div class="">
+																						<i class="text-dark">
+																							<h4 class="font-weight-semibold2 mt-1 mb-2 leading-normal"> <%# Eval("AirlineName") %> </h4>
+																						</i>
+																						<asp:Repeater ID="Repeater2" runat="server" DataSource='<%# Eval("FlightClass") %>'>
+																							<ItemTemplate>
+																								<span class="badge bg-pill border mt-1 fs-12"><%# Container.DataItem.ToString() %></span>
+																							</ItemTemplate>
+																						</asp:Repeater>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="item-card2-desc">
+																				<a href="javascript:void(0)" class="mt-1 mb-0 text-dark d-block">
+																					<i class="fe fe-calendar me-1 d-inline-block"></i> <%# DataBinder.Eval(Container, "DataItem.DepartureDate", "{0:h:mm tt}") %> - (2 hours) - <%# DataBinder.Eval(Container, "DataItem.DepartureDate", "{0:h:mm tt}") %></a>
+																				<a href="javascript:void(0)" class="mt-2 mb-0 text-dark d-block">
+																					<i class="fe fe-map-pin me-1 d-inline-block"></i> <%# Eval("DepartureCity") %> ---> <%# Eval("DestinationCity") %> </a>
+																			</div>
 																		</div>
-																		<div class="ms-auto">
-																			<h3 class="mb-0 font-weight-semibold2">
-																				<asp:LinkButton ID="SubmitLinkButton" CssClass="btn btn-primary" OnClick="SubmitLinkButton_Click" runat="server">From $<%# Eval("FlightPrice[0]") %>*</asp:LinkButton>
-																			</h3>
+																		<div class="card-footer d-flex">
+																			<div class=" d-inline-flex">
+																				<a class="fs-13 leading-tight mt-1" href="javascript:void(0)">
+																					#
+																					<asp:Label ID="Label2" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
+																					     (<%# Eval("Plane") %>)
+																				</a>
+																			</div>
+																			<div class="ms-auto">
+																				<h3 class="mb-0 font-weight-semibold2">
+																					<asp:LinkButton ID="LinkButton2" CssClass="btn btn-outline-primary" runat="server" Enabled="false">Return Flight</asp:LinkButton>
+																				</h3>
+																			</div>
 																		</div>
 																	</div>
 																</div>
@@ -275,7 +314,7 @@
 														</ItemTemplate>
 													</asp:Repeater>
 
-												</div>
+												
 											</div>
 			
 										</div>

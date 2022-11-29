@@ -62,6 +62,21 @@ namespace JTB_Airline_Cruise.App
             FlightPrice flightPriceC = new FlightPrice() { Value = 400f };
             FlightPrice flightPriceD = new FlightPrice() { Value = 500f };
 
+            FlightPrice flightPriceE = new FlightPrice() { Value = 200f };
+            FlightPrice flightPriceF = new FlightPrice() { Value = 300f };
+            FlightPrice flightPriceG = new FlightPrice() { Value = 400f };
+            FlightPrice flightPriceH = new FlightPrice() { Value = 500f };
+
+            FlightPrice flightPriceI = new FlightPrice() { Value = 300f };
+            FlightPrice flightPriceJ = new FlightPrice() { Value = 400f };
+            FlightPrice flightPriceK = new FlightPrice() { Value = 500f };
+            FlightPrice flightPriceL = new FlightPrice() { Value = 600f };
+
+            FlightPrice flightPriceM = new FlightPrice() { Value = 300f };
+            FlightPrice flightPriceN = new FlightPrice() { Value = 400f };
+            FlightPrice flightPriceO = new FlightPrice() { Value = 500f };
+            FlightPrice flightPriceP = new FlightPrice() { Value = 600f };
+
             Flight flightA = new Flight()
             {
                 Airline = AmericanAirlines,
@@ -81,23 +96,23 @@ namespace JTB_Airline_Cruise.App
                 DepartureCity = "New York, United States",
                 DepartureDate = DateTime.Now.AddDays(1),
                 ReturnDate = DateTime.Now.AddDays(3),
-                DestinationCity = "Montego Bay, Jamaica",
+                DestinationCity = "Kingston, Jamaica",
                 FlightClass = new List<FlightClass> { economy, premiumEconomy, business, firstClass },
                 FlightType = new List<FlightType> { oneWay, returning },
-                FlightPrice = new List<FlightPrice> { flightPriceA, flightPriceB, flightPriceC, flightPriceD },
+                FlightPrice = new List<FlightPrice> { flightPriceE, flightPriceF, flightPriceG, flightPriceH },
                 Plane = "Boeing 747"
             };
 
             Flight flightC = new Flight()
             {
                 Airline = CaribbeanAirlines,
-                DepartureCity = "Kingston, Jamaica",
+                DepartureCity = "Montego Bay, Jamaica",
                 DepartureDate = DateTime.Now,
                 ReturnDate = DateTime.Now.AddDays(2),
                 DestinationCity = "Miami, United States",
                 FlightClass = new List<FlightClass> { economy, premiumEconomy, business, firstClass },
                 FlightType = new List<FlightType> { oneWay, returning },
-                FlightPrice = new List<FlightPrice> { flightPriceA, flightPriceB, flightPriceC, flightPriceD },
+                FlightPrice = new List<FlightPrice> { flightPriceI, flightPriceJ, flightPriceK, flightPriceL },
                 Plane = "Boeing 737 Max"
             };
 
@@ -110,7 +125,7 @@ namespace JTB_Airline_Cruise.App
                 DestinationCity = "Montego Bay, Jamaica",
                 FlightClass = new List<FlightClass> { economy, premiumEconomy, business, firstClass },
                 FlightType = new List<FlightType> { oneWay, returning },
-                FlightPrice = new List<FlightPrice> { flightPriceA, flightPriceB, flightPriceC, flightPriceD },
+                FlightPrice = new List<FlightPrice> { flightPriceM, flightPriceN, flightPriceO, flightPriceP },
                 Plane = "Boeing 767"
             };
 
@@ -129,10 +144,26 @@ namespace JTB_Airline_Cruise.App
             VisitingPort portC = new VisitingPort() { Name = "Havana, Cuba" };
             VisitingPort portD = new VisitingPort() { Name = "Florida, United States" };
             
-            CruisePrice priceA = new CruisePrice() { Price = 400f };
-            CruisePrice priceB = new CruisePrice() { Price = 450f };
-            CruisePrice priceC = new CruisePrice() { Price = 600f };
-            CruisePrice priceD = new CruisePrice() { Price = 1000f };
+            CruisePrice priceA = new CruisePrice() { Price = 800f };
+            CruisePrice priceB = new CruisePrice() { Price = 900f };
+            CruisePrice priceC = new CruisePrice() { Price = 1600f };
+            CruisePrice priceD = new CruisePrice() { Price = 3000f };
+
+            CruisePrice priceE = new CruisePrice() { Price = 800f };
+            CruisePrice priceF = new CruisePrice() { Price = 1080f };
+            CruisePrice priceG = new CruisePrice() { Price = 3000f };
+            CruisePrice priceH = new CruisePrice() { Price = 6200f };
+
+            CruisePrice priceI = new CruisePrice() { Price = 400f };
+            CruisePrice priceJ = new CruisePrice() { Price = 450f };
+            CruisePrice priceK = new CruisePrice() { Price = 600f };
+            CruisePrice priceL = new CruisePrice() { Price = 1000f };
+
+            CruisePrice priceM = new CruisePrice() { Price = 400f };
+            CruisePrice priceN = new CruisePrice() { Price = 450f };
+            CruisePrice priceO = new CruisePrice() { Price = 600f };
+            CruisePrice priceP = new CruisePrice() { Price = 1000f };
+
 
             Cruise cruiseA = new Cruise()
             {
@@ -155,10 +186,10 @@ namespace JTB_Airline_Cruise.App
                 StartDate = DateTime.Now,
                 EndDate = DateTime.Now.AddDays(8),
                 Ship = "Summer Rose",
-                CruiseLength = 5,
+                CruiseLength = 8,
                 Name = "Caribbean 8 Night Cruise",
                 VisitingPorts = new List<VisitingPort> { portB },
-                CruisePrice = new List<CruisePrice> { priceA, priceB, priceC, priceD },
+                CruisePrice = new List<CruisePrice> { priceE, priceF, priceG, priceH },
                 RoomTypes = new List<RoomType> { interior, oceanView, balcony, suite }
             };
 
@@ -169,10 +200,10 @@ namespace JTB_Airline_Cruise.App
                 StartDate = DateTime.Now,
                 EndDate = DateTime.Now.AddDays(3),
                 Ship = "Evergift",
-                CruiseLength = 5,
+                CruiseLength = 3,
                 Name = "Cuba 3 Night Cruise",
                 VisitingPorts = new List<VisitingPort> { portC },
-                CruisePrice = new List<CruisePrice> { priceA, priceB, priceC, priceD },
+                CruisePrice = new List<CruisePrice> { priceI, priceJ, priceK, priceL },
                 RoomTypes = new List<RoomType> { interior, oceanView, balcony, suite }
             };
 
@@ -183,10 +214,10 @@ namespace JTB_Airline_Cruise.App
                 StartDate = DateTime.Now,
                 EndDate = DateTime.Now.AddDays(4),
                 Ship = "Virgin Queen Anne",
-                CruiseLength = 5,
+                CruiseLength = 4,
                 Name = "Stateside 4 Night Cruise",
                 VisitingPorts = new List<VisitingPort> { portD },
-                CruisePrice = new List<CruisePrice> { priceA, priceB, priceC, priceD },
+                CruisePrice = new List<CruisePrice> { priceM, priceN, priceO, priceP },
                 RoomTypes = new List<RoomType> { interior, oceanView, balcony, suite }
             };
 

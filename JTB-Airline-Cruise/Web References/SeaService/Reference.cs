@@ -170,20 +170,20 @@ namespace JTB_Airline_Cruise.SeaService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetCruises", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Cruise[] GetCruises(System.DateTime checkInDate, System.DateTime checkOutDate) {
+        public _Cruise[] GetCruises(string checkInDate, string checkOutDate) {
             object[] results = this.Invoke("GetCruises", new object[] {
                         checkInDate,
                         checkOutDate});
-            return ((Cruise[])(results[0]));
+            return ((_Cruise[])(results[0]));
         }
         
         /// <remarks/>
-        public void GetCruisesAsync(System.DateTime checkInDate, System.DateTime checkOutDate) {
+        public void GetCruisesAsync(string checkInDate, string checkOutDate) {
             this.GetCruisesAsync(checkInDate, checkOutDate, null);
         }
         
         /// <remarks/>
-        public void GetCruisesAsync(System.DateTime checkInDate, System.DateTime checkOutDate, object userState) {
+        public void GetCruisesAsync(string checkInDate, string checkOutDate, object userState) {
             if ((this.GetCruisesOperationCompleted == null)) {
                 this.GetCruisesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetCruisesOperationCompleted);
             }
@@ -201,23 +201,37 @@ namespace JTB_Airline_Cruise.SeaService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/BookCruise", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void BookCruise(string roomType) {
+        public void BookCruise(int cruiseId, string roomType, string roomNumber, string passenger, string passengerId, string checkindate, string checkoutdate, float cost) {
             this.Invoke("BookCruise", new object[] {
-                        roomType});
+                        cruiseId,
+                        roomType,
+                        roomNumber,
+                        passenger,
+                        passengerId,
+                        checkindate,
+                        checkoutdate,
+                        cost});
         }
         
         /// <remarks/>
-        public void BookCruiseAsync(string roomType) {
-            this.BookCruiseAsync(roomType, null);
+        public void BookCruiseAsync(int cruiseId, string roomType, string roomNumber, string passenger, string passengerId, string checkindate, string checkoutdate, float cost) {
+            this.BookCruiseAsync(cruiseId, roomType, roomNumber, passenger, passengerId, checkindate, checkoutdate, cost, null);
         }
         
         /// <remarks/>
-        public void BookCruiseAsync(string roomType, object userState) {
+        public void BookCruiseAsync(int cruiseId, string roomType, string roomNumber, string passenger, string passengerId, string checkindate, string checkoutdate, float cost, object userState) {
             if ((this.BookCruiseOperationCompleted == null)) {
                 this.BookCruiseOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBookCruiseOperationCompleted);
             }
             this.InvokeAsync("BookCruise", new object[] {
-                        roomType}, this.BookCruiseOperationCompleted, userState);
+                        cruiseId,
+                        roomType,
+                        roomNumber,
+                        passenger,
+                        passengerId,
+                        checkindate,
+                        checkoutdate,
+                        cost}, this.BookCruiseOperationCompleted, userState);
         }
         
         private void OnBookCruiseOperationCompleted(object arg) {
@@ -753,6 +767,368 @@ namespace JTB_Airline_Cruise.SeaService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class _Cruise : Record {
+        
+        private string cruiselineField;
+        
+        private System.DateTime startDateField;
+        
+        private System.DateTime endDateField;
+        
+        private string shipField;
+        
+        private int cruiseLengthField;
+        
+        private string departurePortField;
+        
+        private string[] visitingPortsField;
+        
+        private float[] cruisePriceField;
+        
+        private string[] roomTypesField;
+        
+        /// <remarks/>
+        public string Cruiseline {
+            get {
+                return this.cruiselineField;
+            }
+            set {
+                this.cruiselineField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime StartDate {
+            get {
+                return this.startDateField;
+            }
+            set {
+                this.startDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime EndDate {
+            get {
+                return this.endDateField;
+            }
+            set {
+                this.endDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Ship {
+            get {
+                return this.shipField;
+            }
+            set {
+                this.shipField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CruiseLength {
+            get {
+                return this.cruiseLengthField;
+            }
+            set {
+                this.cruiseLengthField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DeparturePort {
+            get {
+                return this.departurePortField;
+            }
+            set {
+                this.departurePortField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string[] VisitingPorts {
+            get {
+                return this.visitingPortsField;
+            }
+            set {
+                this.visitingPortsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public float[] CruisePrice {
+            get {
+                return this.cruisePriceField;
+            }
+            set {
+                this.cruisePriceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string[] RoomTypes {
+            get {
+                return this.roomTypesField;
+            }
+            set {
+                this.roomTypesField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(_Cruiseline))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(_Cruise))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Record {
+        
+        private int idField;
+        
+        private string nameField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class CruiseBooking {
+        
+        private int idField;
+        
+        private int cruiseIdField;
+        
+        private int cruiseLengthField;
+        
+        private string cruiseNameField;
+        
+        private string roomNumberField;
+        
+        private string nameField;
+        
+        private System.DateTime checkInDateField;
+        
+        private System.DateTime checkOutDateField;
+        
+        private string departureField;
+        
+        private string destinationField;
+        
+        private string passengerIdField;
+        
+        private string passengerNameField;
+        
+        private float bookingCostField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CruiseId {
+            get {
+                return this.cruiseIdField;
+            }
+            set {
+                this.cruiseIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CruiseLength {
+            get {
+                return this.cruiseLengthField;
+            }
+            set {
+                this.cruiseLengthField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CruiseName {
+            get {
+                return this.cruiseNameField;
+            }
+            set {
+                this.cruiseNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string RoomNumber {
+            get {
+                return this.roomNumberField;
+            }
+            set {
+                this.roomNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime CheckInDate {
+            get {
+                return this.checkInDateField;
+            }
+            set {
+                this.checkInDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime CheckOutDate {
+            get {
+                return this.checkOutDateField;
+            }
+            set {
+                this.checkOutDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Departure {
+            get {
+                return this.departureField;
+            }
+            set {
+                this.departureField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Destination {
+            get {
+                return this.destinationField;
+            }
+            set {
+                this.destinationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PassengerId {
+            get {
+                return this.passengerIdField;
+            }
+            set {
+                this.passengerIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PassengerName {
+            get {
+                return this.passengerNameField;
+            }
+            set {
+                this.passengerNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public float BookingCost {
+            get {
+                return this.bookingCostField;
+            }
+            set {
+                this.bookingCostField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class RoomType {
+        
+        private int idField;
+        
+        private Cruise cruiseField;
+        
+        private string nameField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Cruise Cruise {
+            get {
+                return this.cruiseField;
+            }
+            set {
+                this.cruiseField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class Cruise {
         
         private int cruiseIDField;
@@ -939,345 +1315,7 @@ namespace JTB_Airline_Cruise.SeaService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class CruiseBooking {
-        
-        private int idField;
-        
-        private int cruiseIdField;
-        
-        private int cruiseLengthField;
-        
-        private string cruiseNameField;
-        
-        private string roomNumberField;
-        
-        private string nameField;
-        
-        private System.DateTime checkInDateField;
-        
-        private System.DateTime checkOutDateField;
-        
-        private string departureField;
-        
-        private string destinationField;
-        
-        private string passengerIdField;
-        
-        private string passengerNameField;
-        
-        private float bookingCostField;
-        
-        /// <remarks/>
-        public int Id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int CruiseId {
-            get {
-                return this.cruiseIdField;
-            }
-            set {
-                this.cruiseIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int CruiseLength {
-            get {
-                return this.cruiseLengthField;
-            }
-            set {
-                this.cruiseLengthField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string CruiseName {
-            get {
-                return this.cruiseNameField;
-            }
-            set {
-                this.cruiseNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string RoomNumber {
-            get {
-                return this.roomNumberField;
-            }
-            set {
-                this.roomNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime CheckInDate {
-            get {
-                return this.checkInDateField;
-            }
-            set {
-                this.checkInDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime CheckOutDate {
-            get {
-                return this.checkOutDateField;
-            }
-            set {
-                this.checkOutDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Departure {
-            get {
-                return this.departureField;
-            }
-            set {
-                this.departureField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Destination {
-            get {
-                return this.destinationField;
-            }
-            set {
-                this.destinationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string PassengerId {
-            get {
-                return this.passengerIdField;
-            }
-            set {
-                this.passengerIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string PassengerName {
-            get {
-                return this.passengerNameField;
-            }
-            set {
-                this.passengerNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public float BookingCost {
-            get {
-                return this.bookingCostField;
-            }
-            set {
-                this.bookingCostField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(_Cruiseline))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(_Cruise))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Record {
-        
-        private int idField;
-        
-        private string nameField;
-        
-        /// <remarks/>
-        public int Id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class _Cruiseline : Record {
-        
-        private int cruiseCountField;
-        
-        /// <remarks/>
-        public int CruiseCount {
-            get {
-                return this.cruiseCountField;
-            }
-            set {
-                this.cruiseCountField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class _Cruise : Record {
-        
-        private string cruiselineField;
-        
-        private System.DateTime startDateField;
-        
-        private System.DateTime endDateField;
-        
-        private string shipField;
-        
-        private int cruiseLengthField;
-        
-        private string departurePortField;
-        
-        private string[] visitingPortsField;
-        
-        private float[] cruisePriceField;
-        
-        private string[] roomTypesField;
-        
-        /// <remarks/>
-        public string Cruiseline {
-            get {
-                return this.cruiselineField;
-            }
-            set {
-                this.cruiselineField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime StartDate {
-            get {
-                return this.startDateField;
-            }
-            set {
-                this.startDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime EndDate {
-            get {
-                return this.endDateField;
-            }
-            set {
-                this.endDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Ship {
-            get {
-                return this.shipField;
-            }
-            set {
-                this.shipField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int CruiseLength {
-            get {
-                return this.cruiseLengthField;
-            }
-            set {
-                this.cruiseLengthField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DeparturePort {
-            get {
-                return this.departurePortField;
-            }
-            set {
-                this.departurePortField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string[] VisitingPorts {
-            get {
-                return this.visitingPortsField;
-            }
-            set {
-                this.visitingPortsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public float[] CruisePrice {
-            get {
-                return this.cruisePriceField;
-            }
-            set {
-                this.cruisePriceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string[] RoomTypes {
-            get {
-                return this.roomTypesField;
-            }
-            set {
-                this.roomTypesField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class RoomType {
+    public partial class VisitingPort {
         
         private int idField;
         
@@ -1367,41 +1405,17 @@ namespace JTB_Airline_Cruise.SeaService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class VisitingPort {
+    public partial class _Cruiseline : Record {
         
-        private int idField;
-        
-        private Cruise cruiseField;
-        
-        private string nameField;
+        private int cruiseCountField;
         
         /// <remarks/>
-        public int Id {
+        public int CruiseCount {
             get {
-                return this.idField;
+                return this.cruiseCountField;
             }
             set {
-                this.idField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Cruise Cruise {
-            get {
-                return this.cruiseField;
-            }
-            set {
-                this.cruiseField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
+                this.cruiseCountField = value;
             }
         }
     }
@@ -1424,10 +1438,10 @@ namespace JTB_Airline_Cruise.SeaService {
         }
         
         /// <remarks/>
-        public Cruise[] Result {
+        public _Cruise[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Cruise[])(this.results[0]));
+                return ((_Cruise[])(this.results[0]));
             }
         }
     }

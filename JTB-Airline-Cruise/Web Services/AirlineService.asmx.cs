@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Xml.Serialization;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace JTB_Airline_Cruise.Web_Services
 {
@@ -31,18 +32,76 @@ namespace JTB_Airline_Cruise.Web_Services
 
         // Required Methods
         [WebMethod] //Default
-        public List<Flight> GetFlights(string Country, string City, string Date)
+        public List<_ResultSet> GetFlights(string city, string destination, string date, string returnDate)
         {
-            List<Flight> flights = new List<Flight>();
+            var sDate = date.Split('/');
+            var sDay = sDate[1];
+            var sMonth = sDate[0];
+            var sYear = sDate[2];
 
-            // Should return flights
-            return flights;
+            var departureDate = new DateTime(int.Parse(sYear), int.Parse(sMonth), int.Parse(sDay));
+            
+            var eDate = returnDate.Split('/');
+            var eDay = eDate[1];
+            var eMonth = eDate[0];
+            var eYear = eDate[2];
+
+            var retDate = new DateTime(int.Parse(eYear), int.Parse(eMonth), int.Parse(eDay));
+
+
+            List<_ResultSet> _resultSet = new List<_ResultSet>();
+
+            List<Flight> flights = _databaseContext.Flights.Where(f => f.DepartureDate.Date == departureDate.Date 
+                                                                    && f.DepartureCity == city && f.DestinationCity == destination).ToList();
+            List<Flight> returnFlights = _databaseContext.Flights.Where(f => f.DepartureDate.Date == retDate.Date
+                                                                    && f.DepartureCity == destination && f.DestinationCity == city).ToList();
+            
+            List<_Flight> _flights = new List<_Flight>();
+            List<_Flight> _returnFlights = new List<_Flight>();
+
+            foreach (Flight flight in flights)
+            {
+                _flights.Add(new _Flight().Parse(flight));
+            }
+
+            foreach (Flight flight in returnFlights)
+            {
+                _returnFlights.Add(new _Flight().Parse(flight));
+            }
+
+            for (int a=0; a<_flights.Count; a++)
+            {
+                _resultSet.Add(new _ResultSet() { Departure = _flights[0], Return = _returnFlights[0] });
+
+            }
+
+            return _resultSet;
         }
 
         [WebMethod] //Default
-        public void BookFlight(string FlightID, string Name, string DOB)
-        {
+        public void BookFlight(int flightID, string passenger, string passengerId, string date, string seaNumber, float cost)
+        {// Modify for two way
+            var Date = date.Split('/');
+            var Day = Date[1];
+            var Month = Date[0];
+            var Year = Date[2];
 
+            var departureDate = new DateTime(int.Parse(Year), int.Parse(Month), int.Parse(Day));
+
+            FlightBooking booking = new FlightBooking()
+            {
+                PassengerId = passengerId,
+                PassengerName = passenger,
+                Date = departureDate,
+                SeatNumber = seaNumber,
+                BookingCost = cost,
+                FlightId = flightID,
+                Departure = _databaseContext.Flights.FirstOrDefault(f => f.FlightID == flightID).DepartureCity,
+                Destination = _databaseContext.Flights.FirstOrDefault(f => f.FlightID == flightID).DestinationCity,
+            };
+
+            _databaseContext.FlightBookings.Add(booking);
+            _databaseContext.SaveChanges();
         }
 
         [WebMethod]

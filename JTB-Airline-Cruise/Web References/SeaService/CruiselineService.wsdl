@@ -5,23 +5,117 @@
       <s:element name="GetCruises">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="checkInDate" type="s:dateTime" />
-            <s:element minOccurs="1" maxOccurs="1" name="checkOutDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="checkInDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="checkOutDate" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
       <s:element name="GetCruisesResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetCruisesResult" type="tns:ArrayOfCruise" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetCruisesResult" type="tns:ArrayOf_Cruise" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfCruise">
+      <s:complexType name="ArrayOf_Cruise">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Cruise" nillable="true" type="tns:Cruise" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="_Cruise" nillable="true" type="tns:_Cruise" />
         </s:sequence>
       </s:complexType>
+      <s:complexType name="_Cruise">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Record">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Cruiseline" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ship" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CruiseLength" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DeparturePort" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="VisitingPorts" type="tns:ArrayOfString" />
+              <s:element minOccurs="0" maxOccurs="1" name="CruisePrice" type="tns:ArrayOfFloat" />
+              <s:element minOccurs="0" maxOccurs="1" name="RoomTypes" type="tns:ArrayOfString" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Record">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFloat">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="float" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BookCruise">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cruiseId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="roomType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="roomNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passenger" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passengerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="checkindate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="checkoutdate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cost" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BookCruiseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLastCruiseID">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLastCruiseIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLastCruiseIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCruise">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_cruise" type="tns:_Cruise" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCruiseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AllCruises">
+        <s:complexType />
+      </s:element>
+      <s:element name="AllCruisesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AllCruisesResult" type="tns:ArrayOf_Cruise" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCruiseById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cruiseId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCruiseByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCruiseByIdResult" type="tns:Cruise" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:complexType name="Cruise">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="CruiseID" type="s:int" />
@@ -42,6 +136,11 @@
           <s:element minOccurs="1" maxOccurs="1" name="CruiselineID" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="CruiselineName" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Cruises" type="tns:ArrayOfCruise" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCruise">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Cruise" nillable="true" type="tns:Cruise" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfVisitingPort">
@@ -80,98 +179,6 @@
           <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
         </s:sequence>
       </s:complexType>
-      <s:element name="BookCruise">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="roomType" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="BookCruiseResponse">
-        <s:complexType />
-      </s:element>
-      <s:element name="GetLastCruiseID">
-        <s:complexType />
-      </s:element>
-      <s:element name="GetLastCruiseIDResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="GetLastCruiseIDResult" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="AddCruise">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="_cruise" type="tns:_Cruise" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="_Cruise">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:Record">
-            <s:sequence>
-              <s:element minOccurs="0" maxOccurs="1" name="Cruiseline" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
-              <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
-              <s:element minOccurs="0" maxOccurs="1" name="Ship" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="CruiseLength" type="s:int" />
-              <s:element minOccurs="0" maxOccurs="1" name="DeparturePort" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="VisitingPorts" type="tns:ArrayOfString" />
-              <s:element minOccurs="0" maxOccurs="1" name="CruisePrice" type="tns:ArrayOfFloat" />
-              <s:element minOccurs="0" maxOccurs="1" name="RoomTypes" type="tns:ArrayOfString" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="Record">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="ArrayOfString">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="ArrayOfFloat">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="float" type="s:float" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="AddCruiseResponse">
-        <s:complexType />
-      </s:element>
-      <s:element name="AllCruises">
-        <s:complexType />
-      </s:element>
-      <s:element name="AllCruisesResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="AllCruisesResult" type="tns:ArrayOf_Cruise" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="ArrayOf_Cruise">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="_Cruise" nillable="true" type="tns:_Cruise" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="GetCruiseById">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="cruiseId" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCruiseByIdResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetCruiseByIdResult" type="tns:Cruise" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="GetCruiseSingle">
         <s:complexType>
           <s:sequence>
