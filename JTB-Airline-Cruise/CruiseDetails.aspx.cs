@@ -19,7 +19,7 @@ namespace JTB_Airline_Cruise
                 // This should create two Cruise bookings
 
                 //Label1.Text = this.Page.RouteData.Values["Id"].ToString();
-                _cruise = seaService.GetCruiseSingle(1000);
+                _cruise = seaService.GetCruiseSingle(int.Parse(this.Page.RouteData.Values["Id"].ToString()));
                 
                 List<string> roomList = new List<string>();
 

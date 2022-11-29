@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -19,7 +20,8 @@ namespace JTB_Airline_Cruise
                 // This should create two flight bookings
 
                 //Label1.Text = this.Page.RouteData.Values["Id"].ToString();
-                _flight = airService.GetFlightSingle(1000);
+                
+                _flight = airService.GetFlightSingle(int.Parse(RouteData.Values["Id"].ToString()));
                 // Get date from session
                 string f = (string)Session["ReturnFlightName"];
                 string d = (string)Session["ReturnFlightDate"];

@@ -109,10 +109,11 @@ namespace JTB_Airline_Cruise
             string id = (item.FindControl("Id") as Label).Text;
 
             int route = int.Parse(id);
-
             Session["ReturnFlightName"] = "American Airline Flight #227-17";
             Session["ReturnFlightDate"] = "June 26, 2022";
-            Response.RedirectToRoute("FlightDetails", new { Id = route });
+            
+            Response.Redirect(GetRouteUrl("FlightDetails", new { Id = route }));
+            //Response.RedirectToRoute("FlightDetails", new { Id = route });
             //GetRouteUrl("FlightDetails", new { Id = 1 });
         }
 
