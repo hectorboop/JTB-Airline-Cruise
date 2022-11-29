@@ -9,7 +9,7 @@
 		</div>
 	</div>
 	<!--/Loader-->
-	<!-- This id fron Tiana --> 
+	<!-- Tiana --> 
     <div class="app-content">
 		<div class="side-app">
 			<div class="page-header">
