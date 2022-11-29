@@ -185,7 +185,14 @@ JTB offices are located in Kingston, Montego Bay, Miami, Toronto and London. Rep
 			<div class="section-title center-block text-center">
 				<span class="heading-style text-secondary">Why</span>
 				<h2>Choose Us</h2>
-				<p>[]</p>
+				<p>Here at the Jamaica Tourist Board, we offer our prospective customers a smooth and secure process when
+					seeking to book a vacation with us. Using our services, passengers can choose from a variety of cities around
+					the world as possible destinations at just the click of a button. Passengers need not worry about the safety
+					of their information as all of our customer's registration data is protected comfortably with encryption services. 
+					We work hard to ensure that customers can enjoy their time abroad to the best of their ability, so that 
+					when they have to return to their respective schools, homes, or workplaces, they may return rested and rejuvenated by their 
+					recent travel experiences.
+				</p>
 			</div>
 			<div class="item-all-cat center-block text-center">
 				<div class="row">
