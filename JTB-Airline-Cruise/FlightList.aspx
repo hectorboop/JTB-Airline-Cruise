@@ -230,7 +230,7 @@
 															<div class="d-xl-flex ieh-100">
 																<div class="item-card9-img w-100">
 																	<div class="item-card9-imgs">
-																		<img src="/Assets/images/categories/flights/1.jpg" alt="img" class="cover-image">
+																		<img src="/Assets/images/categories/flights/plane.jpg" alt="img" class="cover-image">
 																		
 																	</div>
 																</div>
