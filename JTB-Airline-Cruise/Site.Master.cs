@@ -76,26 +76,6 @@ namespace JTB_Airline_Cruise
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
-
-        protected void LoginButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Account/Login");
-        }
-
-        protected void RegisterButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Account/Register");
-        }
-
-        protected void ManageAccountButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Account/Manage");
-        }
-
-        protected void LogoutButton_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 
 }

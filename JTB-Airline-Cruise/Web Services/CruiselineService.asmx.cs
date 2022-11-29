@@ -223,6 +223,7 @@ namespace JTB_Airline_Cruise.Web_Services
         [WebMethod]
         public List<CruiseBooking> GetBookings(string passengerId)
         {
+            // Not working?
             return _databaseContext.CruiseBookings.Where(b => b.PassengerId == passengerId).ToList();
         }
 

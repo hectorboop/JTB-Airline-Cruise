@@ -40,13 +40,13 @@
 									<label>Email</label>
 								</div>
 								<div class="user-input-box">
-									<asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
+									<asp:TextBox runat="server" ID="Password" TextMode="password" CssClass="form-control" />
 									<asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
 										CssClass="text-danger" ErrorMessage="The password field is required." />
 									<label>Password</label>
 								</div>
 								<div class="user-input-box">
-									<asp:TextBox runat="server" ID="ConfirmPassword" TextMode="Password" CssClass="form-control" />
+									<asp:TextBox runat="server" ID="ConfirmPassword" TextMode="password" CssClass="form-control" />
 									<asp:RequiredFieldValidator runat="server" ControlToValidate="ConfirmPassword"
 										CssClass="text-danger" Display="Dynamic" ErrorMessage="The confirm password field is required." />
 									<asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
@@ -56,7 +56,7 @@
 								<div class="submit">
 									<asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-primary btn-block" />
 								</div>
-								<p class="text-dark mb-0 fs-13">Already have an account?<a href="/Login.aspx" class="text-primary ms-1">Sign In</a></p>
+								<p class="text-dark mb-0 fs-13">Already have an account?<a href="Login.aspx" class="text-primary ms-1">Sign In</a></p>
 							</div>
 							<hr class="divider">
 							<div class="card-body text-center">

@@ -251,6 +251,7 @@
 						<div class="card-footer border bg-white">
 							<div class="icons">
 								<asp:Button ID="BookFlightButton" runat="server" CssClass="btn btn-primary px-5" Text="Book Flight" OnClick="BookFlightButton_Click" />
+								<p> By choosing "Book Flight" without selecting a return flight your ticket will be defaulted to "One-Way" </p>
 							</div>
 						</div>
 					</div>

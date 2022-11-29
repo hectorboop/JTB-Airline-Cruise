@@ -2135,7 +2135,6 @@
     <Content Include="Assets\video\9904743.mp4" />
     <Content Include="Assets\video\9904744.mp4" />
     <Content Include="Assets\video\video-img.jpg" />
-    <Content Include="Bookings.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -2153,7 +2152,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
-    <Content Include="Content\Site.css" />
     <Content Include="CruiseDetails.aspx" />
     <Content Include="CruiseList.aspx" />
     <Content Include="Cruises.aspx" />
@@ -2854,7 +2852,7 @@
     <Content Include="Site.Master" />
     <Content Include="UI_Images\logo-sml.png" />
     <Content Include="UI_Images\logo.png" />
-    <Content Include="UserDashboard.aspx" />
+    <Content Include="Account\UserDashboard.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <None Include="Web References\AirService\AirlineService.disco" />
     <Content Include="Web References\LocationService\City.datasource">
@@ -3130,6 +3128,7 @@
     <Compile Include="App\Cruise.cs" />
     <Compile Include="App\CruiseBooking.cs" />
     <Compile Include="App\Cruiseline.cs" />
+    <Compile Include="App\Customer.cs" />
     <Compile Include="App\DatabaseContext.cs" />
     <Compile Include="App\DatabaseInitializer.cs" />
     <Compile Include="App\DatabaseRepository.cs" />
@@ -3149,13 +3148,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Bookings.aspx.cs">
-      <DependentUpon>Bookings.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Bookings.aspx.designer.cs">
-      <DependentUpon>Bookings.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3244,11 +3236,11 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="UserDashboard.aspx.cs">
+    <Compile Include="Account\UserDashboard.aspx.cs">
       <DependentUpon>UserDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserDashboard.aspx.designer.cs">
+    <Compile Include="Account\UserDashboard.aspx.designer.cs">
       <DependentUpon>UserDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">

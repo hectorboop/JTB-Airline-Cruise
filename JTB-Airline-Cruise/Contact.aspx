@@ -70,19 +70,19 @@
 								<div class="item-user mt-5">
 									<div class="d-flex">
 										<span><i class="fa fa-map me-3 mb-0 bg-primary text-white"></i></span>
-										<h6 class="leading-normal"><span class="font-weight-semibold"></span><a href="javascript:void(0)" class="text-body">4102  Masonic Hill Road Little Rock Arkansas-727212</a></h6>
+										<h6 class="leading-normal"><span class="font-weight-semibold"></span><a href="javascript:void(0)" class="text-body">G59H+WQX Convention Centre, Montego Bay, Jamaica</a></h6>
 									</div>
 								</div>
 								<div class="item-user mt-4">
 									<div class="d-flex">
 										<span><i class="fa fa-envelope me-3 mb-0 bg-secondary text-white"></i></span>
-										<h6 class="leading-normal mt-1"><span class="font-weight-semibold"></span><a href="javascript:void(0)" class="text-body">demo@gowell.com, domain@tougo.com</a></h6>
+										<h6 class="leading-normal mt-1"><span class="font-weight-semibold"></span><a href="javascript:void(0)" class="text-body">mail@visitjamaica.com</a></h6>
 									</div>
 								</div>
 								<div class="item-user mt-4">
 									<div class="d-flex">
 										<span><i class="fa fa-phone me-3 mb-0 bg-success text-white"></i></span>
-										<h6 class="leading-normal mt-1"><span class="font-weight-semibold"></span><a href="javascript:void(0)" class="text-body">+658 568-965-896, +658 635-965-965</a></h6>
+										<h6 class="leading-normal mt-1"><span class="font-weight-semibold"></span><a href="javascript:void(0)" class="text-body">+1 (876) 952-4425</a></h6>
 									</div>
 								</div>
 							</div>
