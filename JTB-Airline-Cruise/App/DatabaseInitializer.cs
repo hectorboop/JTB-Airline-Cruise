@@ -13,7 +13,7 @@ namespace JTB_Airline_Cruise.App
         protected override void Seed(DatabaseContext context)
         {
             // Populate Cities Table
-            IronXL.WorkBook workbook = IronXL.WorkBook.Load(@"C:\\Users\\rushw\\source\\repos\\JTB-Airline-Cruise\\JTB-Airline-Cruise\\Assets\\worldcities.xlsx");
+            IronXL.WorkBook workbook = IronXL.WorkBook.Load(@"C:\\Users\\Natsc\\source\\repos\\JTB-Airline-Cruise\\JTB-Airline-Cruise\\Assets\\worldcities.xlsx");
             IronXL.WorkSheet sheet = workbook.WorkSheets.First();
 
             List<City> Cities = new List<City>();
