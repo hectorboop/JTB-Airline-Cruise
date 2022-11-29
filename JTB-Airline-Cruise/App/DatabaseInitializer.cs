@@ -19,7 +19,7 @@ namespace JTB_Airline_Cruise.App
             List<City> Cities = new List<City>();
             int z = 2;
 
-            foreach (var city in sheet["A2:A1000"])
+            foreach (var city in sheet["A2:A5000"])
             {
                 string country = sheet["E" + z].StringValue;
 
@@ -33,14 +33,14 @@ namespace JTB_Airline_Cruise.App
             City Kingston = context.City.FirstOrDefault(c => c.Name == "Kingston" && c.Country == "Jamaica");
             City MontegoBay = context.City.FirstOrDefault(c => c.Name == "Montego Bay" && c.Country == "Jamaica");
 
-            Airline FlyJamaica = new Airline()
+            Airline CaribbeanAirlines = new Airline()
             {
-                AirlineName = "Fly Jamaica"
+                AirlineName = "Caribbean Airlines"
             };
 
-            Airline AirJamaica = new Airline()
+            Airline AmericanAirlines = new Airline()
             {
-                AirlineName = "Air Jamaica"
+                AirlineName = "American Airlines"
             };
 
             RoomType interior = new RoomType() { Name = "Interior" };
@@ -62,46 +62,130 @@ namespace JTB_Airline_Cruise.App
             FlightPrice flightPriceC = new FlightPrice() { Value = 400f };
             FlightPrice flightPriceD = new FlightPrice() { Value = 500f };
 
-            Flight flight = new Flight()
+            Flight flightA = new Flight()
             {
-                Airline = FlyJamaica,
-                DepartureCity = "Kingston",
+                Airline = AmericanAirlines,
+                DepartureCity = "Kingston, Jamaica",
                 DepartureDate = DateTime.Now,
-                ReturnDate = DateTime.Now,
-                DestinationCity = "Montego Bay",
+                ReturnDate = DateTime.Now.AddDays(2),
+                DestinationCity = "New York, United States",
                 FlightClass = new List<FlightClass> {economy, premiumEconomy, business, firstClass},
                 FlightType = new List<FlightType> {oneWay, returning},
                 FlightPrice = new List<FlightPrice> {flightPriceA, flightPriceB, flightPriceC, flightPriceD },
+                Plane = "Airbus A30"
+            };
+
+            Flight flightB = new Flight()
+            {
+                Airline = AmericanAirlines,
+                DepartureCity = "New York, United States",
+                DepartureDate = DateTime.Now.AddDays(1),
+                ReturnDate = DateTime.Now.AddDays(3),
+                DestinationCity = "Montego Bay, Jamaica",
+                FlightClass = new List<FlightClass> { economy, premiumEconomy, business, firstClass },
+                FlightType = new List<FlightType> { oneWay, returning },
+                FlightPrice = new List<FlightPrice> { flightPriceA, flightPriceB, flightPriceC, flightPriceD },
+                Plane = "Boeing 747"
+            };
+
+            Flight flightC = new Flight()
+            {
+                Airline = CaribbeanAirlines,
+                DepartureCity = "Kingston, Jamaica",
+                DepartureDate = DateTime.Now,
+                ReturnDate = DateTime.Now.AddDays(2),
+                DestinationCity = "Miami, United States",
+                FlightClass = new List<FlightClass> { economy, premiumEconomy, business, firstClass },
+                FlightType = new List<FlightType> { oneWay, returning },
+                FlightPrice = new List<FlightPrice> { flightPriceA, flightPriceB, flightPriceC, flightPriceD },
                 Plane = "Boeing 737 Max"
+            };
+
+            Flight flightD = new Flight()
+            {
+                Airline = CaribbeanAirlines,
+                DepartureCity = "Miami, United States",
+                DepartureDate = DateTime.Now.AddDays(1),
+                ReturnDate = DateTime.Now.AddDays(3),
+                DestinationCity = "Montego Bay, Jamaica",
+                FlightClass = new List<FlightClass> { economy, premiumEconomy, business, firstClass },
+                FlightType = new List<FlightType> { oneWay, returning },
+                FlightPrice = new List<FlightPrice> { flightPriceA, flightPriceB, flightPriceC, flightPriceD },
+                Plane = "Boeing 767"
             };
 
             Cruiseline cruiseline = new Cruiseline()
             {
-                CruiselineName = "Sail Jamaica"
+                CruiselineName = "Holland America Line"
             };
 
-            Cruiseline cruiseJamaica = new Cruiseline()
+            Cruiseline cruiselineB = new Cruiseline()
             {
-                CruiselineName = "Cruise Jamaica"
+                CruiselineName = "Emerald Cruises"
             };
 
-            VisitingPort portA = new VisitingPort() { Name = "Montego Bay" };
+            VisitingPort portA = new VisitingPort() { Name = "Nassau, The Bahamas" };
+            VisitingPort portB = new VisitingPort() { Name = "Port-of-Spain, Trinidad" };
+            VisitingPort portC = new VisitingPort() { Name = "Havana, Cuba" };
+            VisitingPort portD = new VisitingPort() { Name = "Florida, United States" };
             
             CruisePrice priceA = new CruisePrice() { Price = 400f };
             CruisePrice priceB = new CruisePrice() { Price = 450f };
             CruisePrice priceC = new CruisePrice() { Price = 600f };
             CruisePrice priceD = new CruisePrice() { Price = 1000f };
 
-            Cruise cruise = new Cruise()
+            Cruise cruiseA = new Cruise()
             {
                 Cruiseline = cruiseline,
-                DeparturePort = "Kingston",
+                DeparturePort = "Kingston, Jamaica",
                 StartDate = DateTime.Now,
                 EndDate = DateTime.Now.AddDays(5),
                 Ship = "Dark Sister",
                 CruiseLength = 5,
-                Name = "Montego Bay 5 Night Cruise",
+                Name = "Bahamas 5 Night Cruise",
                 VisitingPorts = new List<VisitingPort> { portA },
+                CruisePrice = new List<CruisePrice> { priceA, priceB, priceC, priceD },
+                RoomTypes = new List<RoomType> { interior, oceanView, balcony, suite }
+            };
+
+            Cruise cruiseB = new Cruise()
+            {
+                Cruiseline = cruiseline,
+                DeparturePort = "Kingston, Jamaica",
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddDays(8),
+                Ship = "Summer Rose",
+                CruiseLength = 5,
+                Name = "Caribbean 8 Night Cruise",
+                VisitingPorts = new List<VisitingPort> { portB },
+                CruisePrice = new List<CruisePrice> { priceA, priceB, priceC, priceD },
+                RoomTypes = new List<RoomType> { interior, oceanView, balcony, suite }
+            };
+
+            Cruise cruiseC = new Cruise()
+            {
+                Cruiseline = cruiselineB,
+                DeparturePort = "Montego Bay, Jamaica",
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddDays(3),
+                Ship = "Evergift",
+                CruiseLength = 5,
+                Name = "Cuba 3 Night Cruise",
+                VisitingPorts = new List<VisitingPort> { portC },
+                CruisePrice = new List<CruisePrice> { priceA, priceB, priceC, priceD },
+                RoomTypes = new List<RoomType> { interior, oceanView, balcony, suite }
+            };
+
+            Cruise cruiseD = new Cruise()
+            {
+                Cruiseline = cruiselineB,
+                DeparturePort = "Kingston, Jamaica",
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddDays(4),
+                Ship = "Virgin Queen Anne",
+                CruiseLength = 5,
+                Name = "Stateside 4 Night Cruise",
+                VisitingPorts = new List<VisitingPort> { portD },
                 CruisePrice = new List<CruisePrice> { priceA, priceB, priceC, priceD },
                 RoomTypes = new List<RoomType> { interior, oceanView, balcony, suite }
             };
@@ -140,14 +224,20 @@ namespace JTB_Airline_Cruise.App
             roomTypes.Add(suite);
             cruisePrices.Add(priceA);
 
-            airlines.Add(AirJamaica);
-            airlines.Add(FlyJamaica);
+            airlines.Add(AmericanAirlines);
+            airlines.Add(CaribbeanAirlines);
 
             cruiselines.Add(cruiseline);
-            cruiselines.Add(cruiseJamaica);
+            cruiselines.Add(cruiselineB);
 
-            cruises.Add(cruise);
-            flights.Add(flight);
+            cruises.Add(cruiseA);
+            cruises.Add(cruiseB);
+            cruises.Add(cruiseC);
+            cruises.Add(cruiseD);
+            flights.Add(flightA);
+            flights.Add(flightB);
+            flights.Add(flightC);
+            flights.Add(flightD);
 
             context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('City', RESEED, 1000);");
             context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('Cruiseline', RESEED, 1000);");

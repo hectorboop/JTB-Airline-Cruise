@@ -101,7 +101,9 @@
 									<!-- Profile Dropdown -->
 									<div class="dropdown">
 										<a href="javascript:void(0)" class="nav-link pe-0 py-0 leading-none user-img" data-bs-toggle="dropdown">
-											<img src="/Assets/images/faces/male/24.jpg" alt="profile-img" class="avatar avatar-md brround">
+											<span class="avatar cover-image brround" data-image-src="/Assets/images/faces/female/16.jpg">
+												<span class="avatar-status bg-green"></span>
+											</span>
 										</a>
 										<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow ">
 											
