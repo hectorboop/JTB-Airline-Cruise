@@ -204,7 +204,9 @@ JTB offices are located in Kingston, Montego Bay, Miami, Toronto and London. Rep
 										<i class="fa fa-thumbs-o-up fs-30 text-primary icon-lineheight"></i>
 									</div>
 									<h4 class="mt-5 mb-2 fs-20 font-weight-semibold2">Best Quality Services</h4>
-									<p class="text-muted mb-0">[]</p>
+									<p class="text-muted mb-0">The JTB is one of the best of its kind. Relax
+										and enjoy our quality vacation scheduling services.
+									</p>
 								</div>
 							</div>
 						</div>
@@ -217,7 +219,9 @@ JTB offices are located in Kingston, Montego Bay, Miami, Toronto and London. Rep
 										<i class="fa fa-shield fs-30 text-success icon-lineheight"></i>
 									</div>
 									<h4 class="mt-5 mb-2 fs-20 font-weight-semibold2">Travellers Security</h4>
-									<p class="text-muted mb-0">[]</p>
+									<p class="text-muted mb-0">Feel comfortable sharing your information with 
+										our advanced data encryption.
+									</p>
 								</div>
 							</div>
 						</div>
@@ -230,7 +234,9 @@ JTB offices are located in Kingston, Montego Bay, Miami, Toronto and London. Rep
 										<i class="fa fa-headphones fs-30 text-warning icon-lineheight"></i>
 									</div>
 									<h4 class="mt-5 mb-2 fs-20 font-weight-semibold2">24/7 Support</h4>
-									<p class="text-muted mb-0">[]</p>
+									<p class="text-muted mb-0">Get answers to queries and 
+										problems immediately with our 24/7 customer support.
+									</p>
 								</div>
 							</div>
 						</div>
