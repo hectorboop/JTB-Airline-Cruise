@@ -36,13 +36,13 @@
 							<div class="login card-body" tabindex="500">
 								<h4 class="font-weight-semibold2 pb-4">Sign In Account</h4>
 								<div class="user-input-box">
-									<asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Url" />
+									<asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
 									<asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
 										CssClass="text-danger" ErrorMessage="The email field is required." />
 									<label>Email</label>
 								</div>
 								<div class="user-input-box">
-									<asp:TextBox runat="server" ID="Password" TextMode="Url" CssClass="form-control" />
+									<asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
 									<asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
 									<label>Password</label>
 								</div>

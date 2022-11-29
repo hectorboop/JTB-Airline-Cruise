@@ -157,7 +157,7 @@
 						<ul class="horizontalMenu-list">
 							<!-- Consider using Routing instead of  Absolute references -->
 							<li><a href="../Default.aspx"> Home </a></li>
-							<li><a href="../Bookings.aspx"> Bookings </a></li>
+							<li><a href="../Account/UserDashboard.aspx"> Bookings </a></li>
 							<li><a href="../CruiseList.aspx"> Cruises </a></li>
 							<li><a href="../FlightList.aspx"> Flights </a></li>
 							<li><a href="../Contact.aspx">Contact Us </a></li>
@@ -165,15 +165,19 @@
 
                             <li class="">
                                 <asp:LoginView runat="server" ViewStateMode="Disabled">
-                                    <AnonymousTemplate>                            
-                                        <asp:Button ID="LoginButton" CssClass="btn btn-outline-primary me-2" runat="server" OnClick="LoginButton_Click" Text="Login" />
-                                        <asp:Button ID="RegisterButton" CssClass="btn btn-primary" runat="server" OnClick="RegisterButton_Click" Text="Register" />
+                                    <AnonymousTemplate>
+										 <ul class="nav navbar-nav navbar-right">
+											<li><a runat="server" href="~/Account/Register">Register</a></li>
+											<li><a runat="server" href="~/Account/Login">Log in</a></li>
+										</ul>
                                     </AnonymousTemplate>
                                     <LoggedInTemplate>
-                                        <asp:LinkButton ID="ManageAccountButton" CssClass="btn btn-outline-primary me-2" runat="server" OnClick="ManageAccountButton_Click" title="Manage your account">
-                                            Hello, <%: Context.User.Identity.GetUserName()  %> !</asp:LinkButton>
-                                        <asp:Button ID="LogoutButton" CssClass="btn btn-primary" runat="server" OnClick="LogoutButton_Click" Text="Register" />
-                                        <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+										<ul class="nav navbar-nav navbar-right">
+											<li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+											<li>
+												<asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+											</li>
+										</ul>
                                     </LoggedInTemplate>
                                 </asp:LoginView>
                             </li>

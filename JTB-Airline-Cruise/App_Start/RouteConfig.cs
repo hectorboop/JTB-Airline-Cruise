@@ -18,6 +18,7 @@ namespace JTB_Airline_Cruise
             routes.MapPageRoute("FlightDetails", "FlightDetails/{Id}", "~/FlightDetails.aspx");
             routes.MapPageRoute("AllCruises", "AllCruises", "~/CruiseList.aspx");
             routes.MapPageRoute("CruiseDetails", "CruiseDetails/{Id}", "~/CruiseDetails.aspx");
+            routes.MapPageRoute("UserDashboard", "UserDashboard/{Id}", "~/Account/UserDashboard.aspx");
         }
     }
 }

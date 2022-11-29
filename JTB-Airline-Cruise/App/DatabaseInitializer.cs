@@ -8,20 +8,18 @@ using System.Web.UI;
 
 namespace JTB_Airline_Cruise.App
 {
-    public class DatabaseInitializer : DropCreateDatabaseAlways<DatabaseContext> 
+    public class DatabaseInitializer : CreateDatabaseIfNotExists<DatabaseContext> 
     {
         protected override void Seed(DatabaseContext context)
         {
             // Populate Cities Table
-            
-            /*
             IronXL.WorkBook workbook = IronXL.WorkBook.Load(@"C:\\Users\\rushw\\source\\repos\\JTB-Airline-Cruise\\JTB-Airline-Cruise\\Assets\\worldcities.xlsx");
             IronXL.WorkSheet sheet = workbook.WorkSheets.First();
 
             List<City> Cities = new List<City>();
             int z = 2;
 
-            foreach (var city in sheet["A2:A10"])
+            foreach (var city in sheet["A2:A42906"])
             {
                 string country = sheet["E" + z].StringValue;
 
@@ -31,25 +29,9 @@ namespace JTB_Airline_Cruise.App
             }
 
             context.City.AddRange(Cities);
-            */
 
-            City cityA = new City() { Name = "London", Country = "United Kingdom" };            
-            City cityB = new City() { Name = "Miami", Country = "United States" };            
-            City cityC = new City() { Name = "New York", Country = "United States" };            
-            City cityD = new City() { Name = "Havana", Country = "Cuba" };            
-            City cityE = new City() { Name = "Nassau", Country = "The Bahamas" };            
-
-            City Kingston = new City()
-            {
-                Name = "Kingston",
-                Country = "Jamaica"
-            };
-
-            City MontegoBay = new City()
-            {
-                Name = "Montego Bay",
-                Country = "Jamaica"
-            };
+            City Kingston = context.City.FirstOrDefault(c => c.Name == "Kingston" && c.Country == "Jamaica");
+            City MontegoBay = context.City.FirstOrDefault(c => c.Name == "Montego Bay" && c.Country == "Jamaica");
 
             Airline FlyJamaica = new Airline()
             {
@@ -60,6 +42,11 @@ namespace JTB_Airline_Cruise.App
             {
                 AirlineName = "Air Jamaica"
             };
+
+            RoomType interior = new RoomType() { Name = "Interior" };
+            RoomType oceanView = new RoomType() { Name = "Ocean View" };
+            RoomType balcony = new RoomType() { Name = "Balcony" };
+            RoomType suite = new RoomType() { Name = "Suite" };
 
             FlightClass economy = new FlightClass(){ Name = "Economy" };
             FlightClass premiumEconomy = new FlightClass(){ Name = "Premium Economy" };
@@ -99,8 +86,11 @@ namespace JTB_Airline_Cruise.App
             };
 
             VisitingPort portA = new VisitingPort() { Name = "Montego Bay" };
-            RoomType roomA = new RoomType() { Name = "Deck" };
+            
             CruisePrice priceA = new CruisePrice() { Price = 400f };
+            CruisePrice priceB = new CruisePrice() { Price = 450f };
+            CruisePrice priceC = new CruisePrice() { Price = 600f };
+            CruisePrice priceD = new CruisePrice() { Price = 1000f };
 
             Cruise cruise = new Cruise()
             {
@@ -110,13 +100,12 @@ namespace JTB_Airline_Cruise.App
                 EndDate = DateTime.Now.AddDays(5),
                 Ship = "Dark Sister",
                 CruiseLength = 5,
-                Name = "",
+                Name = "Montego Bay 5 Night Cruise",
                 VisitingPorts = new List<VisitingPort> { portA },
-                CruisePrice = new List<CruisePrice> { priceA },
-                RoomTypes = new List<RoomType> { roomA }
+                CruisePrice = new List<CruisePrice> { priceA, priceB, priceC, priceD },
+                RoomTypes = new List<RoomType> { interior, oceanView, balcony, suite }
             };
 
-            List<City> cities = new List<City>();
             List<Cruiseline> cruiselines = new List<Cruiseline>();
             List<Airline> airlines = new List<Airline>();
             List<Cruise> cruises = new List<Cruise>();
@@ -145,17 +134,11 @@ namespace JTB_Airline_Cruise.App
             fPrices.Add(flightPriceD);
 
             visitingPorts.Add(portA);
-            roomTypes.Add(roomA);
+            roomTypes.Add(interior);
+            roomTypes.Add(oceanView);
+            roomTypes.Add(balcony);
+            roomTypes.Add(suite);
             cruisePrices.Add(priceA);
-
-            cities.Add(Kingston);
-            cities.Add(MontegoBay);
-
-            cities.Add(cityA);
-            cities.Add(cityB);
-            cities.Add(cityC);
-            cities.Add(cityD);
-            cities.Add(cityE);
 
             airlines.Add(AirJamaica);
             airlines.Add(FlyJamaica);
@@ -172,7 +155,6 @@ namespace JTB_Airline_Cruise.App
             context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('Cruise', RESEED, 1000);");
             context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('Flight', RESEED, 1000);");
 
-            context.City.AddRange(cities);
             context.Cruiselines.AddRange(cruiselines);
             context.Cruises.AddRange(cruises);
             context.Airlines.AddRange(airlines);

@@ -945,7 +945,9 @@ namespace JTB_Airline_Cruise.SeaService {
         
         private int cruiseIdField;
         
-        private int cruiseNameField;
+        private int cruiseLengthField;
+        
+        private string cruiseNameField;
         
         private string roomNumberField;
         
@@ -986,7 +988,17 @@ namespace JTB_Airline_Cruise.SeaService {
         }
         
         /// <remarks/>
-        public int CruiseName {
+        public int CruiseLength {
+            get {
+                return this.cruiseLengthField;
+            }
+            set {
+                this.cruiseLengthField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CruiseName {
             get {
                 return this.cruiseNameField;
             }
