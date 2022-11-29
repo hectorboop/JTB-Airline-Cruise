@@ -52,28 +52,37 @@
 							<div class="card mb-0 shadow-none">
 								<div class="card-header">
 									<h3 class="card-title">Login to your Account</h3>
+									<asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
+										<p class="text-danger">
+											<asp:Literal runat="server" ID="Literal1" />
+										</p>
+									</asp:PlaceHolder>
 								</div>
 								<div class="card-body">
 									<div class="form-group">
 										<label class="form-label">Email address</label>
-										<input type="email" class="form-control" placeholder="Enter email">
+										<asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" placeholder="Enter Email" />
+									<asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
+										CssClass="text-danger" ErrorMessage="The email field is required." />
 									</div>
 									<div class="form-group">
 										<label class="form-label">Password</label>
-										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+										<asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" placeholder="Enter Password"/>
+										<asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
+										
 									</div>
 									<div class="form-group">
 										<label class="custom-control custom-checkbox">
-											<a href="forgot-password.html" class="float-end small text-dark mt-1">I forgot password</a>
+											<a href="../Admin/Login.aspx" class="float-end small text-dark mt-1">I forgot password</a>
 											<input type="checkbox" class="custom-control-input">
 											<span class="custom-control-label text-dark">Remember me</span>
 										</label>
 									</div>
 									<div class="form-footer mt-2">
-										<a href="index.html" class="btn btn-primary btn-block">SignIn</a>
+										<asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-primary btn-block" />
 									</div>
 									<div class="text-center  mt-3 text-dark">
-										Don't have account yet? <a href="register.html">SignUp</a>
+										Don't have account yet? <a href="../Admin/Register.aspx">SignUp</a>
 									</div>
 								</div>
 							</div>

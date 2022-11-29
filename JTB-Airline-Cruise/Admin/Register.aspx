@@ -52,6 +52,9 @@
 							<div class="card mb-xl-0 shadow-none">
 								<div class="card-header">
 									<h3 class="card-title">Register</h3>
+									<p class="text-danger">
+										<asp:Literal runat="server" ID="ErrorMessage" />
+									</p>
 								</div>
 								<div class="card-body">
 									<div class="form-group">
@@ -60,23 +63,35 @@
 									</div>
 									<div class="form-group">
 										<label class="form-label text-dark">Email address</label>
-										<input type="email" class="form-control" placeholder="Enter email">
+										<asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" placeholder="Enter Email" />
+										<asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
+											CssClass="text-danger" ErrorMessage="The email field is required." />
 									</div>
 									<div class="form-group">
 										<label class="form-label text-dark">Password</label>
-										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+										<asp:TextBox runat="server" ID="Password" TextMode="password" CssClass="form-control" placeholder="Enter Password" />
+										<asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
+											CssClass="text-danger" ErrorMessage="The password field is required." />
+									</div>
+									<div class="form-group">
+										<label class="form-label text-dark">Confirm Password</label>
+										<asp:TextBox runat="server" ID="ConfirmPassword" TextMode="password" CssClass="form-control" placeholder="Confirm Password" />
+										<asp:RequiredFieldValidator runat="server" ControlToValidate="ConfirmPassword"
+											CssClass="text-danger" Display="Dynamic" ErrorMessage="The confirm password field is required." />
+										<asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
+											CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
 									</div>
 									<div class="form-group">
 										<label class="custom-control custom-checkbox">
 											<input type="checkbox" class="custom-control-input">
-											<span class="custom-control-label text-dark">Agree the <a href="terms.html">terms and policy</a></span>
+											<span class="custom-control-label text-dark">Agree the <a href="#">terms and policy</a></span>
 										</label>
 									</div>
 									<div class="form-footer mt-2">
-										<a href="home.html" class="btn btn-primary btn-block">Create New Account</a>
+										<asp:Button runat="server" OnClick="CreateUser_Click" Text="Create New Account" CssClass="btn btn-primary btn-block" />
 									</div>
 									<div class="text-center  mt-3 text-dark">
-										Already have account?<a href="register.html">SignIn</a>
+										Already have account?<a href="../Admin/Login.aspx">SignIn</a>
 									</div>
 								</div>
 							</div>

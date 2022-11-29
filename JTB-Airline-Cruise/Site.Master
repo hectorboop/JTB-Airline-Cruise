@@ -79,6 +79,7 @@
 								<div class="clearfix">
 									<ul class="socials">
 										<li>
+											
 											<a class="social-icon text-white" href="javascript:void(0)"><i class="fa fa-facebook text-white"></i></a>
 										</li>
 										<li>
@@ -126,10 +127,10 @@
 							<div class="top-bar-right">
 								<ul class="custom">
 									<li>
-										<a href="register.html" class="text-white"><i class="fa fa-user me-1 text-white"></i> <span>Admin Register</span></a>
+										<a href="../Admin/Login.aspx" class="text-white"><i class="fa fa-user me-1 text-white"></i> <span>Admin Register</span></a>
 									</li>
 									<li>
-										<a href="login.html" class="text-white"><i class="fa fa-sign-in me-1 text-white"></i> <span>Admin Login</span></a>
+										<a href="../Admin/Login.aspx" class="text-white"><i class="fa fa-sign-in me-1 text-white"></i> <span>Admin Login</span></a>
 									</li>
 								</ul>
 							</div>

@@ -8,7 +8,7 @@ using System.Web.UI;
 
 namespace JTB_Airline_Cruise.App
 {
-    public class DatabaseInitializer : CreateDatabaseIfNotExists<DatabaseContext> 
+    public class DatabaseInitializer : DropCreateDatabaseAlways<DatabaseContext> 
     {
         protected override void Seed(DatabaseContext context)
         {
@@ -19,7 +19,7 @@ namespace JTB_Airline_Cruise.App
             List<City> Cities = new List<City>();
             int z = 2;
 
-            foreach (var city in sheet["A2:A42906"])
+            foreach (var city in sheet["A2:A1000"])
             {
                 string country = sheet["E" + z].StringValue;
 

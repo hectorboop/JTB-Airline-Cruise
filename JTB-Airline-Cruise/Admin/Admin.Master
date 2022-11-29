@@ -21,7 +21,7 @@
 	<link id="style" href="/Assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
 	<!-- Style Css -->
-	<link href="/Assets/css/style.css" rel="stylesheet" />
+	<link href="/Assets/css/style.css" rel="stylesheet" />F
 	<link href="/Assets/css/plugins.css" rel="stylesheet" />
 
 	<!-- Admin-Custom Css -->
@@ -105,10 +105,10 @@
 										</a>
 										<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow ">
 											
-											<a class="dropdown-item" href="editprofile.html">
+											<a class="dropdown-item" href="#">
 												<i class="dropdown-icon fe fe-settings text-primary"></i> Account Settings
 											</a>
-											<a class="dropdown-item" href="login.html" data-bs-toggle="modal" data-bs-target="#logoutModal">
+											<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
 												<i class="dropdown-icon fe fe-power text-primary"></i> Log out
 											</a>
 										</div>
@@ -125,7 +125,7 @@
 				<!-- Sidebar menu-->
 				<div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
 				<aside class="app-sidebar doc-sidebar">
-					<a class="header-brand sidemenu-header-brand" href="index.html">
+					<a class="header-brand sidemenu-header-brand" href="../Admin/Dashboard.aspx">
 						<img src="/Assets/images/brand/logo1.png" class="header-brand-img brand-logo-main" alt="Gowell logo">
 						<img src="/Assets/images/brand/favicon-white.png" class="header-brand-img brand-logo-toggled" alt="Gowell logo">
 					</a>
@@ -137,8 +137,8 @@
 								<img src="/Assets/images/faces/male/24.jpg" alt="user-img" class="rounded-circle mb-1">
 							</div>
 							<div class="user-info">
-								<h5 class="mb-0 font-weight-bold fs-16">John Brown</h5>
-								<span class="app-sidebar__user-name text-sm text-white-80">Senior Administrator</span>
+								<h5 class="mb-0 font-weight-bold fs-16"> <asp:Label ID="UserNameLabel" runat="server" Text="Label"></asp:Label> </h5>
+								<span class="app-sidebar__user-name text-sm text-white-80"> <asp:Label ID="UserRoleLabel" runat="server" Text="Label"></asp:Label> </span>
 							</div>
 						</div>
 					</div>
@@ -235,7 +235,7 @@
 							<p>Are you sure you want to logout?</p>
 						</div>
 						<div class="modal-footer">
-							<asp:Button ID="LogoutButton" runat="server" Text="Logout" CssClass="btn btn-primary" />
+							<asp:Button ID="LogoutButton" runat="server" Text="Logout" CssClass="btn btn-primary" OnClick="LogoutButton_Click"/>
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
 						</div>
 					</div>
