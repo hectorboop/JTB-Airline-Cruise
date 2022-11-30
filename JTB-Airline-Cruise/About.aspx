@@ -45,50 +45,50 @@ JTB offices are located in Kingston, Montego Bay, Miami, Toronto and London. Rep
 						<div class="owl-carousel owl-carousel-icons52">
 							<div class="item">
 								<div class="text-center br-5 overflow-hidden">
-									<a class="" href="javascript:void(0)"><img src="/Assets/images/categories/category/1.png" alt="img" class="br-ts-5 br-te-5"></a>
-									<h6 class="mb-0 p-3 border border-top-0 br-bs-5 br-be-5">Place 01</h6>
+									<a class="" href="javascript:void(0)"><img src="/Assets/images/categories/category/kingston.jpg" alt="img" class="br-ts-5 br-te-5"></a>
+									<h6 class="mb-0 p-3 border border-top-0 br-bs-5 br-be-5">Kingston</h6>
 								</div>
 							</div>
 							<div class="item">
 								<div class="text-center br-5 overflow-hidden">
-									<a class="" href="javascript:void(0)"><img src="/Assets/images/categories/category/2.png" alt="img" class="br-ts-5 br-te-5"></a>
-									<h6 class="mb-0 p-3 border border-top-0 br-bs-5 br-be-5">Place 02</h6>
+									<a class="" href="javascript:void(0)"><img src="/Assets/images/categories/category/montego.jpg" alt="img" class="br-ts-5 br-te-5"></a>
+									<h6 class="mb-0 p-3 border border-top-0 br-bs-5 br-be-5">Montego Bay</h6>
 								</div>
 							</div>
 							<div class="item">
 								<div class="text-center br-5 overflow-hidden">
-									<a class="" href="javascript:void(0)"><img src="/Assets/images/categories/category/3.png" alt="img" class="br-ts-5 br-te-5"></a>
-									<h6 class="mb-0 p-3 border border-top-0 br-bs-5 br-be-5">Place 03</h6>
+									<a class="" href="javascript:void(0)"><img src="/Assets/images/categories/category/miami.jpg" alt="img" class="br-ts-5 br-te-5"></a>
+									<h6 class="mb-0 p-3 border border-top-0 br-bs-5 br-be-5">Miami</h6>
 								</div>
 							</div>
 							<div class="item">
 								<div class="text-center br-5 overflow-hidden">
-									<a class="" href="javascript:void(0)"><img src="/Assets/images/categories/category/4.png" alt="img" class="br-ts-5 br-te-5"></a>
-									<h6 class="mb-0 p-3 border border-top-0 br-bs-5 br-be-5">Place 04</h6>
+									<a class="" href="javascript:void(0)"><img src="/Assets/images/categories/category/london.jpg" alt="img" class="br-ts-5 br-te-5"></a>
+									<h6 class="mb-0 p-3 border border-top-0 br-bs-5 br-be-5">London</h6>
 								</div>
 							</div>
 							<div class="item">
 								<div class="text-center br-5 overflow-hidden">
-									<a class="" href="javascript:void(0)"><img src="/Assets/images/categories/category/1.png" alt="img" class="br-ts-5 br-te-5"></a>
-									<h6 class="mb-0 p-3 border border-top-0 br-bs-5 br-be-5">Place 01</h6>
+									<a class="" href="javascript:void(0)"><img src="/Assets/images/categories/category/toronto.jpg" alt="img" class="br-ts-5 br-te-5"></a>
+									<h6 class="mb-0 p-3 border border-top-0 br-bs-5 br-be-5">Toronto</h6>
 								</div>
 							</div>
 							<div class="item">
 								<div class="text-center br-5 overflow-hidden">
-									<a class="" href="javascript:void(0)"><img src="/Assets/images/categories/category/2.png" alt="img" class="br-ts-5 br-te-5"></a>
-									<h6 class="mb-0 p-3 border border-top-0 br-bs-5 br-be-5">Place 02</h6>
+									<a class="" href="javascript:void(0)"><img src="/Assets/images/categories/category/barcelona.jpg" alt="img" class="br-ts-5 br-te-5"></a>
+									<h6 class="mb-0 p-3 border border-top-0 br-bs-5 br-be-5">Barcelona</h6>
 								</div>
 							</div>
 							<div class="item">
 								<div class="text-center br-5 overflow-hidden">
-									<a class="" href="javascript:void(0)"><img src="/Assets/images/categories/category/3.png" alt="img" class="br-ts-5 br-te-5"></a>
-									<h6 class="mb-0 p-3 border border-top-0 br-bs-5 br-be-5">Place 03</h6>
+									<a class="" href="javascript:void(0)"><img src="/Assets/images/categories/category/berlin.jpg" alt="img" class="br-ts-5 br-te-5"></a>
+									<h6 class="mb-0 p-3 border border-top-0 br-bs-5 br-be-5">Berlin</h6><a class="" href="javascript:void(0)">
 								</div>
 							</div>
 							<div class="item">
 								<div class="text-center br-5 overflow-hidden">
-									<a class="" href="javascript:void(0)"><img src="/Assets/images/categories/category/4.png" alt="img" class="br-ts-5 br-te-5"></a>
-									<h6 class="mb-0 p-3 border border-top-0 br-bs-5 br-be-5">Place 04</h6>
+									<a class="" href="javascript:void(0)"><img src="/Assets/images/categories/category/rome.jpg" alt="img" class="br-ts-5 br-te-5"></a>
+									<h6 class="mb-0 p-3 border border-top-0 br-bs-5 br-be-5">Rome</h6>
 								</div>
 							</div>
 						</div>
@@ -104,7 +104,11 @@ JTB offices are located in Kingston, Montego Bay, Miami, Toronto and London. Rep
 			<div class="section-title center-block text-center">
 				<span class="heading-style text-secondary">How</span>
 				<h2>It Works?</h2>
-				<p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+				<p><br />Here at the Jamaica Tourist Board, we offer a variety of services that you can gain access to in just a few simple
+					steps:<br /><br />First, sign up to our website by registering a new account with us.<br />Next, use your 
+					preexisting account to log in to our website and access all of our booking services.<br />Use our detailed 
+					search engine to find and book flights or vacation cruises for all of your leisurely needs.<br />Lastly, once
+					you've succeeded in booking your cruise or flight, you can pay upfront.<br />It's just that easy working with us.</p>
 			</div>
 			<div class="row service-time-line-main">
 				<div class="col-lg-3 col-md-6 col-sm-6">
@@ -180,7 +184,13 @@ JTB offices are located in Kingston, Montego Bay, Miami, Toronto and London. Rep
 			<div class="section-title center-block text-center">
 				<span class="heading-style text-secondary">Why</span>
 				<h2>Choose Us</h2>
-				<p>[]</p>
+				<p>Here at the Jamaica Tourist Board, we offer our prospective customers a smooth and secure process when
+					seeking to book a vacation with us. Using our services, passengers can choose from a variety of cities around
+					the world as possible destinations at just the click of a button. Passengers need not worry about the safety
+					of their information as all of our customer's registration data is protected comfortably with encryption services. 
+					We work hard to ensure that customers can enjoy their time abroad to the best of their ability, so that 
+					when they have to return to their respective schools, homes, or workplaces, they may return rested and rejuvenated by their 
+					recent travel experiences</p>
 			</div>
 			<div class="item-all-cat center-block text-center">
 				<div class="row">
@@ -192,7 +202,8 @@ JTB offices are located in Kingston, Montego Bay, Miami, Toronto and London. Rep
 										<i class="fa fa-thumbs-o-up fs-30 text-primary icon-lineheight"></i>
 									</div>
 									<h4 class="mt-5 mb-2 fs-20 font-weight-semibold2">Best Quality Services</h4>
-									<p class="text-muted mb-0">[]</p>
+									<p class="text-muted mb-0">The JTB is one of the best of its kind. Relax
+										and enjoy our quality vacation scheduling services.</p>
 								</div>
 							</div>
 						</div>
@@ -205,7 +216,8 @@ JTB offices are located in Kingston, Montego Bay, Miami, Toronto and London. Rep
 										<i class="fa fa-shield fs-30 text-success icon-lineheight"></i>
 									</div>
 									<h4 class="mt-5 mb-2 fs-20 font-weight-semibold2">Travellers Security</h4>
-									<p class="text-muted mb-0">[]</p>
+									<p class="text-muted mb-0">Feel comfortable sharing your information with 
+										our advanced data encryption.</p>
 								</div>
 							</div>
 						</div>
@@ -218,7 +230,8 @@ JTB offices are located in Kingston, Montego Bay, Miami, Toronto and London. Rep
 										<i class="fa fa-headphones fs-30 text-warning icon-lineheight"></i>
 									</div>
 									<h4 class="mt-5 mb-2 fs-20 font-weight-semibold2">24/7 Support</h4>
-									<p class="text-muted mb-0">[]</p>
+									<p class="text-muted mb-0">Get answers to queries and 
+										problems immediately with our 24/7 customer support.</p>
 								</div>
 							</div>
 						</div>
