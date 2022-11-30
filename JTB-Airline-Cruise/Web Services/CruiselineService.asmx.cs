@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
@@ -41,8 +42,8 @@ namespace JTB_Airline_Cruise.Web_Services
 
             var outDate = new DateTime(int.Parse(oYear), int.Parse(oMonth), int.Parse(oDay));
 
-            List<Cruise> cruises = _databaseContext.Cruises.Where(c => c.StartDate.Date >= inDate.Date
-                                                                    && c.EndDate.Date >= outDate.Date).ToList();
+            List<Cruise> cruises = _databaseContext.Cruises.Where(c => EntityFunctions.TruncateTime(c.StartDate) >= inDate.Date
+                                                                    && EntityFunctions.TruncateTime(c.EndDate) >= outDate.Date).ToList();
             List<_Cruise> _cruises = new List<_Cruise>();
 
             foreach (Cruise cruise in cruises)

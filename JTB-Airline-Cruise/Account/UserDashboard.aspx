@@ -256,7 +256,7 @@
 																						<div class="">
 																							<div class=" d-inline-flex">
 																								<div class="rating-star sm block my-rating-5" data-stars="4s">
-																								</div>  <a class="fs-13 leading-tight mt-1" href="javascript:void(0)"> <%# Eval("CruiseName") %> </a>
+																								</div>  <a class="fs-13 leading-tight mt-1" href="javascript:void(0)"> <%# Eval("CruiseName") %> </a> 
 																							</div>
 																							<a href="tours.html" class="text-dark"><h4 class="font-weight-semibold2 mt-0 mb-0 leading-normal"> Cruise</h4></a>
 																						</div>

@@ -1,14 +1,16 @@
-﻿using System;
+﻿using JTB_Airline_Cruise.LocationService;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 
 namespace JTB_Airline_Cruise.App
 {
-    public class DatabaseInitializer : DropCreateDatabaseAlways<DatabaseContext> 
+    public class DatabaseInitializer : CreateDatabaseIfNotExists<DatabaseContext> 
     {
         protected override void Seed(DatabaseContext context)
         {
@@ -33,6 +35,12 @@ namespace JTB_Airline_Cruise.App
             City Kingston = context.City.FirstOrDefault(c => c.Name == "Kingston" && c.Country == "Jamaica");
             City MontegoBay = context.City.FirstOrDefault(c => c.Name == "Montego Bay" && c.Country == "Jamaica");
 
+            /*City Kingston2 = new City() { Name = "Kingston", Country = "Jamaica" };
+            City MontegoBay2 = new City() { Name = "Montego Bay", Country = "Jamaica" };
+            
+            List<City> Cities2 =  new List<City>() { Kingston2, MontegoBay2 };
+            context.City.AddRange(Cities2);
+*/
             Airline CaribbeanAirlines = new Airline()
             {
                 AirlineName = "Caribbean Airlines"

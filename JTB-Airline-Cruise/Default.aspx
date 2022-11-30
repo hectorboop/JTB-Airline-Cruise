@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!--Section-->
 	<div id="main">
-		<section class="section-first banner-1 cover-image sptb-21 sptb-tab bg-background2" data-vidbg-bg="mp4: /Assets/video/6.mp4, webm: /Assets/video/6.webm, poster: /Assets/video/video-img.jpg" data-vidbg-options="loop: true, muted: true, overlay: false">
+		<section class="section-first banner-1 cover-image sptb-21 sptb-tab bg-background2" data-vidbg-bg="mp4: /Assets/video/origin.mp4 " data-vidbg-options="loop: true, muted: true, overlay: false">
 			<div class="header-text mb-0">
 				<div class="container">
 					<div class="text-center text-white mb-7">

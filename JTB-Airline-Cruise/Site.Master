@@ -159,8 +159,8 @@
 							<!-- Consider using Routing instead of  Absolute references -->
 							<li><a href="../Default.aspx"> Home </a></li>
 							<li><a href="../Account/UserDashboard.aspx"> Bookings </a></li>
-							<li><a href="../CruiseList.aspx"> Cruises </a></li>
-							<li><a href="../FlightList.aspx"> Flights </a></li>
+							<li><a href="../Customer/CruiseList.aspx"> Cruises </a></li>
+							<li><a href="../Customer/FlightList.aspx"> Flights </a></li>
 							<li><a href="../Contact.aspx">Contact Us </a></li>
 							<li><a href="../About.aspx">About Us </a></li>
 

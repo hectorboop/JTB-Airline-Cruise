@@ -9,6 +9,7 @@ using System.Data.Entity;
 using System.Xml.Serialization;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices.ComTypes;
+using System.Data.Entity.Core.Objects;
 
 namespace JTB_Airline_Cruise.Web_Services
 {
@@ -51,11 +52,13 @@ namespace JTB_Airline_Cruise.Web_Services
 
             List<_ResultSet> _resultSet = new List<_ResultSet>();
 
-            List<Flight> flights = _databaseContext.Flights.Where(f => f.DepartureDate.Date == departureDate.Date 
+            List<Flight> flights = _databaseContext.Flights.Where(f => EntityFunctions.TruncateTime(f.DepartureDate) == departureDate.Date
                                                                     && f.DepartureCity == city && f.DestinationCity == destination).ToList();
-            List<Flight> returnFlights = _databaseContext.Flights.Where(f => f.DepartureDate.Date == retDate.Date
+
+            List<Flight> returnFlights = _databaseContext.Flights.Where(f => EntityFunctions.TruncateTime(f.DepartureDate) == retDate.Date
                                                                     && f.DepartureCity == destination && f.DestinationCity == city).ToList();
-            
+
+
             List<_Flight> _flights = new List<_Flight>();
             List<_Flight> _returnFlights = new List<_Flight>();
 

@@ -34,10 +34,10 @@ namespace JTB_Airline_Cruise
             GenderDropDownList.DataSource = new List<string>() { "Male" ,"Female" };
             GenderDropDownList.DataBind();
 
-            CruisesRepeater.DataSource = flightBookings;
-            CruisesRepeater.DataBind();
+            CruisesRepeater.DataSource = cruiseBookings;
+            CruisesRepeater.DataBind(); 
 
-            FlightRepeater.DataSource = cruiseBookings;
+            FlightRepeater.DataSource = flightBookings;
             FlightRepeater.DataBind();
         }
 
