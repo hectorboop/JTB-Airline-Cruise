@@ -102,7 +102,7 @@
 			<div class="section-title center-block text-center">
 				<span class="heading-style text-secondary">Best Top</span>
 				<h2>Visited Locations</h2>
-				<p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+				<p>These are some major destinations that most of our flights and cruises travel to.</p>
 			</div>
 
 				<div class="row">
@@ -111,7 +111,7 @@
 						<div class="item-card-desc">
 							<div class="card text-center overflow-hidden mb-lg-0">
 								<div class="card-img">
-									<img src="/Assets/images/locations/austerlia.jpg" alt="img" class="cover-image">
+									<img src="/Assets/images/locations/australia.jpg" alt="img" class="cover-image">
 								</div>
 							</div>
 						</div>
@@ -236,7 +236,7 @@
 			<div class="section-title center-block text-center">
 				<span class="heading-style text-secondary">Top Most</span>
 				<h2>Rated Countries</h2>
-				<p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+				<p>These are the top rated countries that our tourists love to travel to.</p>
 			</div>
 			<div class="row" id="container1">
 				<div class="col-xl-2 col-lg-3 col-md-3 col-sm-6">
@@ -512,7 +512,7 @@
 			<div class="section-title center-block text-center">
 				<span class="heading-style text-secondary">Download</span>
 				<h2>Mobile App</h2>
-				<p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+				<p>Download our mobile app now and keep up with us on the go.</p>
 			</div>
             <div class="row">
 				<div class="col-md-12">
