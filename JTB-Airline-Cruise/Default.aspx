@@ -111,7 +111,7 @@
 						<div class="item-card-desc">
 							<div class="card text-center overflow-hidden mb-lg-0">
 								<div class="card-img">
-									<img src="/Assets/images/locations/austerlia.jpg" alt="img" class="cover-image">
+									<img src="/Assets/images/locations/australia.jpg" alt="img" class="cover-image">
 								</div>
 							</div>
 						</div>
