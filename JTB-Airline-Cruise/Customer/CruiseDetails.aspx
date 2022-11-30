@@ -102,7 +102,7 @@
 											<asp:TextBox ID="ExpiryDateTextBox" runat="server" CssClass="form-control" placeholder="MM/YY"  ></asp:TextBox>
 											
 											<asp:RequiredFieldValidator ID="ExpiryDateValidator" runat="server" ErrorMessage="Expiry Date Is Required" ForeColor="Red" ControlToValidate="ExpiryDateTextBox"></asp:RequiredFieldValidator>
-											<asp:RegularExpressionValidator ID="ExpiryDateExpressionValidator" runat="server" ErrorMessage="Invalid Expiry Date" ForeColor="Red" ControlToValidate="ExpiryDateTextBox" ValidationExpression="^[0-9]{2}\\/[0-9]{2}$"></asp:RegularExpressionValidator>
+											<asp:RegularExpressionValidator ID="ExpiryDateExpressionValidator" runat="server" ErrorMessage="Invalid Expiry Date" ForeColor="Red" ControlToValidate="ExpiryDateTextBox" ValidationExpression="^(0[1-9]|1[0-2])\/?([0-9]{2})$"></asp:RegularExpressionValidator>
 											
 										</div>
 									</div>

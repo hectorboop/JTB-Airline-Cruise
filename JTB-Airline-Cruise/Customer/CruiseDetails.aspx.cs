@@ -18,12 +18,14 @@ namespace JTB_Airline_Cruise
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            _cruise = seaService.GetCruiseSingle(int.Parse(this.Page.RouteData.Values["Id"].ToString()));
+
             if (!IsPostBack)
             {
                 // This should create two Cruise bookings
 
                 //Label1.Text = this.Page.RouteData.Values["Id"].ToString();
-                _cruise = seaService.GetCruiseSingle(int.Parse(this.Page.RouteData.Values["Id"].ToString()));
+               
                 
                 List<string> roomList = new List<string>();
 
@@ -32,7 +34,9 @@ namespace JTB_Airline_Cruise
                 {
                     if (_cruise.CruisePrice[a] != 0)
                     {
-                        roomList.Add(_cruise.RoomTypes[a]); break;
+                        if (_cruise.RoomTypes[a] == null) return;
+
+                        roomList.Add(_cruise.RoomTypes[a]);
                     }
                 }
 

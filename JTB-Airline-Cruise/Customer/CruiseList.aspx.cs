@@ -32,19 +32,13 @@ namespace JTB_Airline_Cruise
 
             CruiseCountLabel.Text = seaService.GetCruiseCount().ToString();
 
-            CruiseRepeater.DataSource = cruises;
-            CruiseRepeater.DataBind();
-
-            CruiselineRepeater.DataSource = cruiselineList;
-            CruiselineRepeater.DataBind();
-
             int interior = 0, oceanView = 0, balcony = 0, suite = 0;
 
             foreach (var c in cruises)
             {
                 if (c.CruisePrice[0] != 0)
                 {
-                    interior++; break;
+                    interior++;
                 }
 
                 if (c.CruisePrice[1] != 0)
@@ -69,14 +63,20 @@ namespace JTB_Airline_Cruise
             BalconyLabel.Text = balcony.ToString();
             SuiteLabel.Text = suite.ToString();
 
-            DepartureDropDownList.DataSource = cities;
-            DepartureDropDownList.DataBind();
-
-            DestinationDropDownList.DataSource = cities;
-            DestinationDropDownList.DataBind();
-
             if (!IsPostBack)
             {
+                CruiseRepeater.DataSource = cruises;
+                CruiseRepeater.DataBind();
+
+                CruiselineRepeater.DataSource = cruiselineList;
+                CruiselineRepeater.DataBind();
+
+                DepartureDropDownList.DataSource = cities;
+                DepartureDropDownList.DataBind();
+
+                DestinationDropDownList.DataSource = cities;
+                DestinationDropDownList.DataBind();
+
                 DepartureDropDownList.SelectedValue = "Kingston, Jamaica";
                 DestinationDropDownList.SelectedValue = "New York, United States";
 
@@ -89,7 +89,7 @@ namespace JTB_Airline_Cruise
         private void RefreshList(string filter)
         {
             cruises.Clear();
-            cruises = new List<SeaService._Cruise>(seaService.AllCruises());
+            cruises = new List<SeaService._Cruise>(seaService.GetCruises("11/30/2022", "11/30/2022"));
 
 
             foreach (var c in cruises)
@@ -140,6 +140,11 @@ namespace JTB_Airline_Cruise
             Debug.WriteLine(AdultsTextBox.Text);
             Debug.WriteLine(departureDate.ToString());
             Debug.WriteLine(destinationDate.ToString());
+
+            cruises = new List<SeaService._Cruise>(seaService.GetCruises(departureDate.ToString("MM/dd/yyyy"), destinationDate.ToString("MM/dd/yyyy")));
+
+            CruiseRepeater.DataSource = cruises;
+            CruiseRepeater.DataBind();
         }
     }
 }
