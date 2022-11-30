@@ -142,15 +142,15 @@
 			<div class="horizontal-main  bg-dark-transparent clearfix py-lg-3">
 				<div class="horizontal-mainwrapper container clearfix">
 					<div class="desktoplogo">
-						<a href="index.html">
-							<img src="/Assets/images/brand/logo.png" alt="" class="img-color1">
-								<img src="/Assets/images/brand/logo1.png" alt="" class="logo-white">
+						<a href="../Default.aspx">
+							<img src="/UI_Images/logo-sml.png" alt="" class="img-color1">
+								<img src="/UI_Images/logo-sml.png" alt="" class="logo-white">
 						</a>
 					</div>
 					<div class="desktoplogo-1">
-						<a href="index.html">
-							<img src="/Assets/images/brand/logo.png" alt="" class="img-color1">
-								<img src="/Assets/images/brand/logo1.png" alt="" class="logo-white">
+						<a href="../Default.aspx">
+							<img src="/UI_Images/logo-sml.png" alt="" class="img-color1">
+								<img src="/UI_Images/logo-sml.png" alt="" class="logo-white">
 						</a>
 					</div>
 					<!--Nav-->

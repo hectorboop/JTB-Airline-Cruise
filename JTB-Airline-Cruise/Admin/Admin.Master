@@ -128,7 +128,7 @@
 				<div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
 				<aside class="app-sidebar doc-sidebar">
 					<a class="header-brand sidemenu-header-brand" href="../Admin/Dashboard.aspx">
-						<img src="/Assets/images/brand/logo1.png" class="header-brand-img brand-logo-main" alt="Gowell logo">
+						<img src="/UI_Images/logo-sml.png" class="header-brand-img brand-logo-main" alt="Gowell logo">
 						<img src="/Assets/images/brand/favicon-white.png" class="header-brand-img brand-logo-toggled" alt="Gowell logo">
 					</a>
 
@@ -139,8 +139,10 @@
 								<img src="/Assets/images/faces/male/24.jpg" alt="user-img" class="rounded-circle mb-1">
 							</div>
 							<div class="user-info">
-								<h5 class="mb-0 font-weight-bold fs-16"> <asp:Label ID="UserNameLabel" runat="server" Text="Label"></asp:Label> </h5>
-								<span class="app-sidebar__user-name text-sm text-white-80"> <asp:Label ID="UserRoleLabel" runat="server" Text="Label"></asp:Label> </span>
+								<h5 class="mb-0 font-weight-bold fs-16"> <%: Context.User.Identity.GetUserName()  %> </h5>
+								<span class="app-sidebar__user-name text-sm text-white-80"> Administrator </span>
+								
+
 							</div>
 						</div>
 					</div>

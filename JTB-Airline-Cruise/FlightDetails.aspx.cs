@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JTB_Airline_Cruise.App;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -12,6 +14,7 @@ namespace JTB_Airline_Cruise
     {
         AirService.AirlineService airService = new AirService.AirlineService();
         AirService._Flight _flight = new AirService._Flight();
+        DatabaseRepository db = new DatabaseRepository();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -74,7 +77,16 @@ namespace JTB_Airline_Cruise
 
         protected void BookFlightButton_Click(object sender, EventArgs e)
         {
+            airService.BookFlight(_flight.Id, User.Identity.Name, User.Identity.GetUserId(),
+                _flight.DepartureDate.ToString("MM/dd/yyyy"), SeatNumberLabel.Text, float.Parse(AirFareLabel.Text));
+            
+            // Return flight
+            // Get return flight id and price
+            airService.BookFlight(_flight.Id, User.Identity.Name, User.Identity.GetUserId(),
+                _flight.DepartureDate.ToString("MM/dd/yyyy"), SeatNumberLabel.Text, float.Parse(AirFareLabel.Text));
 
+            int route = db.GetCustomer(User.Identity.GetUserId()).Id;
+            Response.Redirect(GetRouteUrl("UserDashboard", new { Id = route }));
         }
 
         protected void FlightClassDropDownList_SelectedIndexChanged(object sender, EventArgs e)

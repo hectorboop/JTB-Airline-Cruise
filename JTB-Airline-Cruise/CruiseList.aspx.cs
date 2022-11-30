@@ -16,6 +16,9 @@ namespace JTB_Airline_Cruise
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            DateTime today = DateTime.Now;
+            DateTime tomorrow = DateTime.Now.AddDays(1);
+
             RefreshList("All");
 
             List<SeaService._Cruiseline> cruiselineList = new List<SeaService._Cruiseline>(seaService.GetCruiselines());
@@ -71,6 +74,16 @@ namespace JTB_Airline_Cruise
 
             DestinationDropDownList.DataSource = cities;
             DestinationDropDownList.DataBind();
+
+            if (!IsPostBack)
+            {
+                DepartureDropDownList.SelectedValue = "Kingston, Jamaica";
+                DestinationDropDownList.SelectedValue = "New York, United States";
+
+                AdultsTextBox.Text = 1.ToString();
+
+                DateRangeTextBox.Text = today.ToString("MM/dd/yyyy") + " - " + tomorrow.ToString("MM/dd/yyyy");
+            }
         }
 
         private void RefreshList(string filter)

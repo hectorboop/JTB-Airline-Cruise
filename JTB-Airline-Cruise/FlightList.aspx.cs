@@ -17,8 +17,13 @@ namespace JTB_Airline_Cruise
         AirlineService airService = new AirlineService();
         LocationService.CityService cityService = new LocationService.CityService();
 
+        List<_ResultSet> _results = new List<_ResultSet>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            DateTime today = DateTime.Now;
+            DateTime tomorrow = DateTime.Now.AddDays(1);
+
             RefreshList("All");
 
             List<_Airline> airlineList = new List<_Airline>(airService.GetAirlines());
@@ -74,6 +79,16 @@ namespace JTB_Airline_Cruise
 
             DestinationDropDownList.DataSource = cities;
             DestinationDropDownList.DataBind();
+
+            if (!IsPostBack)
+            {
+                DepartureDropDownList.SelectedValue = "Kingston, Jamaica";
+                DestinationDropDownList.SelectedValue = "New York, United States";
+
+                AdultsTextBox.Text = 1.ToString();
+
+                DateRangeTextBox.Text = today.ToString("MM/dd/yyyy") + " - " + tomorrow.ToString("MM/dd/yyyy");
+            }
             
         }
 
@@ -136,12 +151,7 @@ namespace JTB_Airline_Cruise
             var departureDate = new DateTime(int.Parse(sYear), int.Parse(sMonth), int.Parse(sDay));
             var destinationDate = new DateTime(int.Parse(eYear), int.Parse(eMonth), int.Parse(eDay));
 
-            // This is the search button
-            Debug.WriteLine(DepartureDropDownList.SelectedValue);
-            Debug.WriteLine(DestinationDropDownList.SelectedValue);
-            Debug.WriteLine(AdultsTextBox.Text);
-            Debug.WriteLine(departureDate.ToString());
-            Debug.WriteLine(destinationDate.ToString());
+            _results = new List<_ResultSet>(airService.GetFlights(DepartureDropDownList.SelectedValue, DestinationDropDownList.SelectedValue, startDate, endDate));
         }
     }
 }

@@ -69,13 +69,12 @@ namespace JTB_Airline_Cruise.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void LogoutButton_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine("LogoutPressed"); // This works
-            //Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
     }
 }
